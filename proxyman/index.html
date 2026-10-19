@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proxyman 日本語ページ — Kiminori Kobo</title>
+<meta name="description" content="HTTPS 通信のキャプチャ・復号・書き換えを行うデバッグプロキシ Proxyman の日本語製品ページ。対応 OS、主な機能、USD 定価と円の参考価格、円建て請求書での購入の流れ。">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
+  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
+  .crumb a { color:var(--muted) }
+  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
+  .tag { color:var(--muted); margin:0 0 32px }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
+  h3 { font-size:17px; margin:22px 0 6px }
+  p { margin:0 0 14px }
+  ul, ol { padding-left:22px; margin:0 0 14px }
+  li { margin:4px 0 }
+  a { color:var(--accent); overflow-wrap:anywhere }
+  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
+  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
+  .scroll table { margin:0; min-width:520px }
+  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
+  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
+  th { color:var(--muted); font-weight:600 }
+  td.num, th.num { text-align:right; white-space:nowrap }
+  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
+  .note p:last-child { margin-bottom:0 }
+  .small { font-size:14px; color:var(--muted) }
+  .cta { display:inline-block; border:1px solid var(--accent); border-radius:6px; padding:8px 14px; text-decoration:none; margin:4px 8px 4px 0 }
+  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
+</style>
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › Proxyman</p>
+
+  <h1>Proxyman</h1>
+  <p class="tag">macOS / Windows / Linux 向け HTTPS デバッグプロキシ · 開発元 Proxyman LLC</p>
+
+  <!--
+    ベンダーとの関係の表記はこの 1 か所にまとめる。
+    「Proxyman LLC の正規リセラー」と書いてよいかは Proxyman 側の返事待ち（2026-10-19 時点）。
+    許可が出たら #vendor-relationship の文言だけを差し替える。
+  -->
+  <p id="vendor-relationship" class="note">本ページは <strong>Kiminori Kobo（販売窓口）</strong> が運営しています。日本の事業者向けに、Proxyman のライセンスを円建て請求書でご購入いただけます。</p>
+
+  <p><a class="cta" href="mailto:contact@kiminori-kobo.com?subject=Proxyman%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a> <a class="cta" href="setup.html">日本語 導入ガイド</a></p>
+
+  <h2>Proxyman とは</h2>
+  <p>Proxyman は、PC・スマートフォン・スクリプトが行う HTTP/HTTPS 通信を中間者（MITM）プロキシとして捕捉し、HTTPS を復号して中身を確認し、必要に応じてリクエストやレスポンスを書き換えるためのデバッグツールです。</p>
+  <p>主な利用者は、モバイルアプリ（iOS / Android）や Web の開発者、API を検証する QA・テストエンジニアです。macOS 版はネイティブアプリ、Windows / Linux 版は Electron ベースです（公式ドキュメントの記載）。</p>
+  <p class="small">出典：<a href="https://docs.proxyman.com/">docs.proxyman.com（Overview）</a>（2026-10-19 確認）</p>
+
+  <h2>対応 OS</h2>
+  <div class="scroll"><table>
+    <tr><th>プラットフォーム</th><th>公式の記載</th></tr>
+    <tr><td>macOS</td><td>公式ドキュメントは「Support macOS 12 or later」「Built for Apple Silicon Chip and macOS 26 Tahoe」。公式 GitHub README は「Supported macOS 13+ or later」。<span class="small">記載が食い違うため、macOS 12 での動作は未確認です。</span></td></tr>
+    <tr><td>Windows</td><td>Windows 10 および 11（公式 GitHub README「Fully support Windows 10 and Windows 11」）</td></tr>
+    <tr><td>Linux</td><td>AppImage で配布。対応ディストリビューション・バージョンの公式記載は未確認。</td></tr>
+    <tr><td>iOS / Android</td><td>専用アプリを App Store / Google Play で配布。また、iOS・Android の実機からの通信を PC 側の Proxyman で捕捉できます。</td></tr>
+  </table></div>
+  <p class="small">出典：<a href="https://docs.proxyman.com/">Overview</a> ／ <a href="https://proxyman.com/download">Download</a> ／ <a href="https://github.com/ProxymanApp/Proxyman">GitHub（macOS）</a> ／ <a href="https://github.com/ProxymanApp/proxyman-windows-linux">GitHub（Windows / Linux）</a>（2026-10-19 確認）</p>
+
+  <h2>主な機能</h2>
+  <ul>
+    <li><strong>SSL Proxying</strong> — 指定したドメインの HTTPS 通信を復号して表示。ワイルドカード（<code>*.example.com</code>）で指定可。<a href="https://docs.proxyman.com/basic-features/ssl-proxying">公式ドキュメント</a></li>
+    <li><strong>Breakpoint</strong> — リクエスト／レスポンスを途中で止め、ヘッダーやボディを書き換えてから送る。<a href="https://docs.proxyman.com/advanced-features/breakpoint">公式ドキュメント</a></li>
+    <li><strong>Map Local / Map Remote</strong> — レスポンスをローカルファイルに差し替える（Map Local）、別の URL に転送する（Map Remote）。<a href="https://docs.proxyman.com/advanced-features/map-local">Map Local</a> ／ <a href="https://docs.proxyman.com/advanced-features/map-remote">Map Remote</a></li>
+    <li><strong>Scripting</strong> — JavaScript でリクエスト／レスポンスを自動で書き換える。<a href="https://docs.proxyman.com/scripting/script">公式ドキュメント</a></li>
+    <li><strong>iOS / Android 実機</strong> — 実機の Wi-Fi プロキシを PC に向け、証明書を入れて HTTPS を復号。<a href="https://docs.proxyman.com/debug-devices/ios-device">iOS</a> ／ <a href="https://docs.proxyman.com/debug-devices/android-device">Android</a></li>
+    <li>そのほか公式ドキュメントに記載のある機能：Compose、Repeat、Diff、Allow List / Block List、External Proxying、No Caching、Protobuf、Network Conditions、Multiple Filters、MCP Support（料金ページの比較表）。</li>
+  </ul>
+  <p class="small">注：アプリの UI 言語は English と Chinese - Simplified のみで、日本語 UI はありません（<a href="https://docs.proxyman.com/basic-features/localization">公式 Localization</a>、2026-10-19 確認）。日本語の導入手順は当方の<a href="setup.html">導入ガイド</a>で補います。</p>
+
+  <h2>料金</h2>
+  <p>USD の定価は Proxyman 公式料金ページの記載です（2026-10-19 確認）。円の価格は参考値で、<strong>1 USD = 157.95 円（三菱UFJ銀行 TTS 158.95 / TTB 156.95 の仲値、2026年10月19日時点）で換算</strong>し、10 円未満を切り捨てています。実際の価格は見積時のレートで確定します。<strong>消費税別</strong>です。</p>
+  <div class="scroll"><table>
+    <tr><th>プラン</th><th>内容</th><th class="num">USD 定価</th><th class="num">円 参考価格</th></tr>
+    <tr><td>Standard</td><td>1 seat。永続ライセンス、1 年間のアップデート。macOS / Windows / Linux 共通</td><td class="num">$89</td><td class="num">14,050 円</td></tr>
+    <tr><td>Personal</td><td>2 seats。iOS / Android アプリ用のモバイル 2 seat を含む（料金ページでは $178 に取り消し線）</td><td class="num">$99</td><td class="num">15,630 円</td></tr>
+    <tr><td>Team（買い切り）</td><td>1 seat あたり。5 seat 以上。永続ライセンス、1 年間のアップデート。License Manager、請求書・送金払いに対応</td><td class="num">$99 / seat</td><td class="num">15,630 円 / seat</td></tr>
+    <tr><td>Team の更新（任意）</td><td>1 seat あたり 1 年</td><td class="num">$79 / seat / 年</td><td class="num">12,470 円 / seat / 年</td></tr>
+    <tr><td>Team Subscription</td><td>1 seat あたり月額（年払い）。5 seat 以上。ログのオンライン共有、Team Workspaces、10GB クラウドストレージを含む。年額換算 $144 / seat</td><td class="num">$12 / seat / 月</td><td class="num">1,890 円 / seat / 月<br><span class="small">（年 22,680 円 / seat）</span></td></tr>
+    <tr><td>既存ライセンスの更新</td><td>Standard / Personal</td><td class="num">$49</td><td class="num">7,730 円</td></tr>
+    <tr><td>seat の追加</td><td>買い切り 1 seat あたり（サブスクは $12 / seat / 月）</td><td class="num">$89 / seat</td><td class="num">14,050 円 / seat</td></tr>
+    <tr><td>Enterprise / ボリューム</td><td>公式には「Contact us」。価格の記載なし</td><td class="num">要相談</td><td class="num">要相談</td></tr>
+  </table></div>
+  <p class="small">Team Subscription の年額は月額参考価格の12か月分です。表が画面に収まらない場合は横にスクロールできます。</p>
+  <div class="note">
+    <p><strong>円の価格は USD 定価を上回りません。</strong> これは Proxyman LLC との取り決めによるものです。見積時のレートで円換算した金額が定価相当になります（消費税別）。</p>
+    <p>公式料金ページには Proxyman・TinyShield・TCP Viewer のバンドル（$138、Lifetime $183）も掲載されていますが、当方での取扱いは未確認です。学生向け 50% 割引は support@proxyman.com への直接申請です。</p>
+  </div>
+  <p class="small">出典：<a href="https://proxyman.com/pricing">proxyman.com/pricing</a>（「Prices in USD. VAT Tax may apply.」）／ 為替：<a href="https://www.murc-kawasesouba.jp/fx/index.php">三菱UFJリサーチ＆コンサルティング 外国為替相場</a></p>
+
+  <h2>購入の流れ</h2>
+  <ol>
+    <li><strong>お問い合わせ</strong> — プラン、seat 数、会社名、ご担当者のメールアドレスを <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へお送りください。</li>
+    <li><strong>見積</strong> — 円建ての見積書をお送りします。<strong>有効期限は発行日から 2 週間</strong>です。</li>
+    <li><strong>前払い（銀行振込）</strong> — 見積額を銀行振込でお支払いください。振込手数料はご負担ください。</li>
+    <li><strong>ライセンス発行</strong> — 入金確認後、ライセンスキーをメールでお送りします。Team ライセンスは、ライセンス所有者が Proxyman の License Manager で端末（seat）の割当てと解除を行います（<a href="https://docs.proxyman.com/license">公式 License ページ</a>）。Proxyman 側の処理により、発行まで数営業日かかる場合があります。</li>
+    <li><strong>納品書・領収書</strong> — ライセンス発行後に納品書と領収書を PDF でお送りします。</li>
+  </ol>
+  <p class="small">ベンダーへお渡しする情報は、会社名とライセンス登録用のメールアドレスのみです。</p>
+
+  <h2>当方が提供するもの</h2>
+  <ul>
+    <li><strong>円建て請求書</strong> — 見積書、請求書、納品書、領収書を日本語・円建てで発行します。</li>
+    <li><strong>日本語の導入ガイド</strong> — インストール、証明書の導入、実機の設定、スクリプト通信の捕捉、トラブル対応をまとめた<a href="setup.html">導入ガイド</a>。</li>
+    <li><strong>日本語での一次サポート</strong> — 導入や設定の質問に日本語でお答えします。製品の不具合など当方で解決できないものは、Proxyman のサポート（support@proxyman.com）へ英語で取り次ぎます。</li>
+  </ul>
+
+  <h2>ご利用条件</h2>
+  <ul>
+    <li>対象は法人・個人事業主のお客様です。個人のお客様は <a href="https://proxyman.com/pricing">公式サイト</a>から直接ご購入ください。</li>
+    <li>ソフトウェアの使用条件は Proxyman LLC の <a href="https://proxyman.com/eula">EULA</a> によります。ライセンスは購入した組織内でのみ端末を付け替えでき、第三者への譲渡・転売はできません。</li>
+    <li>返金は Proxyman の規定に従います。公式料金ページ FAQ：「We offer 7-days money-back guarantee」（2026-10-19 確認）。</li>
+    <li>購入前に機能を確かめたい場合は、公式の体験版（業務目的は 2 週間、機能制限あり）か、企業向けのデモキー（support@proxyman.com に申請）をご利用ください。</li>
+    <li>販売約款は準備中です。</li>
+  </ul>
+
+  <h2>お問い合わせ</h2>
+  <p><a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a>（3 営業日以内に返信します）</p>
+
+  <footer>© 2026 Kiminori Kobo · 東京都（個人事業） · <a href="../">トップへ</a><br>Proxyman は Proxyman LLC の製品です。本ページの製品情報は公式サイト（proxyman.com）の記載に基づき、確認日を併記しています。</footer>
+</main>
+</body>
+</html>

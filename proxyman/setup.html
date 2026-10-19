@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proxyman 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="Proxyman の日本語導入ガイド。Mac / Windows へのインストール、証明書の導入、SSL Proxying の有効化、iOS / Android 実機の設定、Node.js / Python の通信の捕捉、よくあるトラブル。各手順に公式ドキュメントの URL を添付。">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
+  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
+  .crumb a { color:var(--muted) }
+  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
+  .tag { color:var(--muted); margin:0 0 32px }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
+  h3 { font-size:17px; margin:22px 0 6px }
+  p { margin:0 0 14px }
+  ul, ol { padding-left:22px; margin:0 0 14px }
+  li { margin:4px 0 }
+  a { color:var(--accent); overflow-wrap:anywhere }
+  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
+  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
+  .scroll table { min-width:480px }
+  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
+  pre code { background:none; padding:0 }
+  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
+  .note p:last-child { margin-bottom:0 }
+  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
+  .toc { font-size:15px; }
+  .toc ol { margin:0 }
+  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
+</style>
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Proxyman</a> › 導入ガイド</p>
+
+  <h1>Proxyman 導入ガイド</h1>
+  <p class="tag">インストールから実機・スクリプトの通信捕捉まで · 公式ドキュメント確認日 2026-10-19</p>
+
+  <div class="note">
+    <p>本ガイドは Proxyman 公式ドキュメント（docs.proxyman.com）の内容を日本語で整理したものです。各手順に公式ページの URL を添えています。メニュー名は公式の英語表記のまま書いています（アプリに日本語 UI はありません）。公式に記載がなく当方が補った手順には「一般的な手順」と付けています。</p>
+  </div>
+
+  <div class="toc">
+    <ol>
+      <li><a href="#install">インストール（Mac / Windows）</a></li>
+      <li><a href="#cert">証明書の導入</a></li>
+      <li><a href="#ssl">SSL Proxying の有効化</a></li>
+      <li><a href="#ios">iOS 実機の設定</a></li>
+      <li><a href="#android">Android 実機の設定</a></li>
+      <li><a href="#scripts">Node.js / Python の通信を通す</a></li>
+      <li><a href="#trouble">よくあるトラブル</a></li>
+      <li><a href="#cleanup">使い終わったら（証明書の削除）</a></li>
+    </ol>
+  </div>
+
+  <h2 id="install">1. インストール（Mac / Windows）</h2>
+
+  <h3>Mac</h3>
+  <ol>
+    <li><a href="https://proxyman.com/download">公式ダウンロードページ</a>の「Proxyman for macOS」から dmg を入手します。Homebrew を使う場合は <code>brew install --cask proxyman</code>（公式 GitHub README に記載）。</li>
+    <li>dmg を開き、Proxyman をアプリケーションフォルダに入れて起動します（一般的な手順）。</li>
+    <li>初回起動時に <strong>Proxyman Proxy Helper Tool</strong> のインストールを求められます。これはシステムプロキシを切り替えるための補助ツールで、入れないと通信を捕捉できません。公式：「At the first launch, Proxyman will present the Popup to install the Proxyman Proxy Helper Tool. You can skip it and install it later in Preference -&gt; Advanced Tab.」</li>
+    <li>管理者権限のないユーザーは Helper Tool を入れないとシステムプロキシを切り替えられません。また、Proxyman の更新後に Helper Tool の再インストールを求められることがあります（公式）。</li>
+  </ol>
+  <p class="src">出典：<a href="https://proxyman.com/download">Download</a> ／ <a href="https://github.com/ProxymanApp/Proxyman">GitHub README（macOS）</a> ／ <a href="https://docs.proxyman.com/basic-features/proxy-setting-tool">Proxy Setting Tool</a></p>
+
+  <h3>Windows</h3>
+  <ol>
+    <li><a href="https://proxyman.com/download">公式ダウンロードページ</a>の「Proxyman for Windows」からインストーラを入手し、実行します。</li>
+    <li>Proxyman を起動します。Windows 版は起動中にシステムプロキシを自動で上書きします（公式 GitHub README：「automatically overriding the System Proxy」）。</li>
+  </ol>
+  <p class="src">出典：<a href="https://proxyman.com/download">Download</a> ／ <a href="https://github.com/ProxymanApp/proxyman-windows-linux">GitHub README（Windows / Linux）</a> ／ <a href="https://proxyman.com/changelog-windows">Windows 版 Changelog</a></p>
+
+  <h2 id="cert">2. 証明書の導入</h2>
+  <p>HTTPS を復号するには、Proxyman が生成するルート証明書（Proxyman CA）を PC に入れて信頼させる必要があります。公式によれば、この証明書はお使いの PC 上で生成される自己署名証明書で、個人データを保存・送信することはありません。</p>
+
+  <h3>Mac（Automatic Mode・推奨）</h3>
+  <ol>
+    <li><strong>Certificate</strong> メニューを開く</li>
+    <li><strong>Install a Certificate on this Mac...</strong> を選ぶ</li>
+    <li>Automatic Mode で Mac のパスワードを入力する（Root Privileges）</li>
+    <li>ボタンの表示が <strong>Installed &amp; Trusted</strong> になったことを確認する</li>
+  </ol>
+  <p>自動で入らない場合（Manual Mode）：同じダイアログの <strong>Manual</strong> タブ → <strong>Generate &amp; Add</strong>（キーチェーンに追加されるが信頼はされない）→ キーチェーンの選択を求められたら <strong>System Keychain</strong> → キーチェーンアクセスで「Proxyman CA」を検索して開き、<strong>Always Trust（常に信頼）</strong> にして閉じる。</p>
+  <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/macos">Install Certificate on macOS</a></p>
+
+  <h3>Windows（Automatic Mode・推奨）</h3>
+  <ol>
+    <li><strong>Certificate</strong> メニュー → <strong>Install Certificate on this Windows...</strong></li>
+    <li><strong>Install &amp; Trust</strong> をクリック</li>
+    <li>システムのプロンプトで <strong>YES</strong> を選ぶ（裏では管理者権限で <code>certutil -addstore "Root" &lt;証明書のパス&gt;</code> が実行されます）</li>
+  </ol>
+  <p>管理者権限がなくスクリプトを実行できない場合（Manual Mode）：Proxyman を終了 → <code>C:\Users\&lt;ユーザー名&gt;\AppData\Roaming\Proxyman\certificate\certs\ca.cer</code> を開く → Install Certificate → <strong>Current User</strong> → <strong>Place all certificates in the following store</strong> でストアを選ぶ（信頼されたルート証明機関） → Next → Finish → YES。</p>
+  <p class="src">出典：<a href="https://docs.proxyman.com/proxyman-windows/install-certificate">Install Certificate on Windows</a></p>
+
+  <h2 id="ssl">3. SSL Proxying の有効化</h2>
+  <p>証明書を入れただけでは HTTPS は復号されません。復号したいドメインごとに SSL Proxying を有効にします。</p>
+  <ol>
+    <li>ブラウザなどで対象の HTTPS サイトに一度アクセスし、Proxyman の左パネルにドメインを表示させる</li>
+    <li>左パネルのアプリまたはドメインを右クリック → <strong>Enable SSL Proxying</strong>（公式：「Right-Click on the app or domain on the Left Panel -&gt; Enable SSL Proxying」）。リクエスト一覧の行を右クリックしても同じ操作ができます</li>
+    <li>ページを再読み込みし、リクエスト／レスポンスの中身が平文で表示されることを確認する</li>
+  </ol>
+  <ul>
+    <li>SSL Proxying List は <code>⌘⌥P</code> で開けます（Mac）。Include List に入れたドメインを復号し、Exclude List に入れたドメインは無視します。</li>
+    <li>ワイルドカード：<code>*</code> はすべての HTTPS、<code>*.example.com</code> はサブドメイン、<code>v?.example.com</code> は 1 文字違いにマッチします。</li>
+    <li>macOS で HTTP/2 の通信を扱う場合は Settings の <strong>Use HTTP/2</strong> を有効にします。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.proxyman.com/basic-features/ssl-proxying">SSL Proxying</a></p>
+
+  <h2 id="ios">4. iOS 実機の設定</h2>
+  <p>前提：iPhone / iPad と PC が同じネットワークにあり、PC で Proxyman が起動していること。PC 側の証明書（第 2 節）を先に入れておきます。</p>
+  <ol>
+    <li>Proxyman の <strong>Certificate</strong> メニュー → <strong>Install Certificate on iOS → Physical Devices...</strong> でガイドを開く</li>
+    <li>iOS の「設定」→「Wi-Fi」→ 接続中のネットワーク → HTTP プロキシを「手動」にし、サーバに <strong>PC の IP アドレス</strong>、ポートに <strong>9090</strong>（Proxyman の既定ポート。アプリの表示で確認）、認証はオフ</li>
+    <li>VPN アプリを使っていれば終了する（プロキシと競合します）</li>
+    <li>Safari（プライベートタブ）で <code>http://proxy.man/ssl</code> または <code>http://cert.proxyman.io</code> を開き、プロファイルをダウンロードする。開けない場合は Wi-Fi に再接続し、Proxyman が起動しているか確認する</li>
+    <li>「設定」→「プロファイルがダウンロード済み」→ Proxyman CA → インストール（iOS 12.2 以降）</li>
+    <li>「設定」→「一般」→「情報」→ <strong>証明書信頼設定（Certificate Trust Settings）</strong> で Proxyman CA をオンにする。プロファイルを入れただけでは信頼されません</li>
+    <li>PC 側で対象ドメインの SSL Proxying を有効にし（第 3 節）、端末で通信して確認する</li>
+  </ol>
+  <ul>
+    <li>Flutter 製アプリはシステムプロキシを使わないため、アプリ側の HTTP クライアントにプロキシを設定する必要があります（公式）。</li>
+    <li>デバッグが終わったら iPhone から証明書を削除してください（公式の注意）。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/ios-device">iOS Device</a></p>
+
+  <h2 id="android">5. Android 実機の設定</h2>
+  <ol>
+    <li>Proxyman の <strong>Certificate</strong> メニュー → <strong>Install Certificate on Android → Device</strong> でガイドを開く。PC 側の証明書（第 2 節）を先に入れておく</li>
+    <li>Android の「設定」→ Wi-Fi → 接続中のネットワーク → プロキシを「手動」にし、ホストに <strong>PC の IP アドレス</strong>、ポートに <strong>9090</strong>、認証なし</li>
+    <li>端末のブラウザで <code>http://proxy.man/ssl</code> または <code>http://cert.proxyman.io</code> を開いて証明書を入手する
+      <ul>
+        <li>Android 11 以降：Chrome でダウンロードしたあと、「設定」→「セキュリティ」→「暗号化と認証情報」→「証明書のインストール」→「CA 証明書」で Proxyman CA のファイルを選ぶ</li>
+        <li>Android 10 以前：自動でインストールされる。用途を聞かれたら「VPN とアプリ」を選ぶ</li>
+      </ul>
+    </li>
+    <li>Android 11 / 12 では「信頼できる認証情報」の「ユーザー」タブに Proxyman CA があることを確認する</li>
+    <li><strong>自社アプリに設定を加える</strong>（Android 7 以降はユーザー証明書を既定で信頼しないため）：<code>res/xml/network_security_config.xml</code> にユーザー CA を信頼する設定（公式サンプルでは <code>debug-overrides</code> に <code>user</code> と <code>system</code>）を書き、<code>AndroidManifest.xml</code> の <code>&lt;application&gt;</code> に <code>android:networkSecurityConfig="@xml/network_security_config"</code> を追加する</li>
+  </ol>
+  <ul>
+    <li>リリースビルドからは network security config の緩和設定を外してください。本番の HTTPS 通信が傍受できる状態になります（公式の注意）。</li>
+    <li>VPN アプリは終了する。一部の Samsung 端末はプロキシ設定後にネットに出られなくなることがあり、ネットワークを削除して再接続します（公式）。</li>
+    <li>他社製アプリ（証明書ピンニング等）は、この手順では復号できない場合があります。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/android-device">Android Device</a></p>
+
+  <h2 id="scripts">6. Node.js / Python の通信を通す</h2>
+
+  <h3>Automatic Setup（推奨・macOS）</h3>
+  <p>Proxyman v4.7.0 以降には、プロキシと証明書の設定済みターミナルを開く機能があります。<strong>Setup</strong> メニュー → <strong>Automatic Setup</strong> → <strong>Open New Terminal</strong> で開いたターミナルからスクリプトやサーバーを起動すると、その通信が Proxyman に表示されます。</p>
+  <ul>
+    <li>Node.js：開いたターミナルで <code>npm start</code> などを実行する。</li>
+    <li>Python：requests、http.client、urllib3、httpx、aiohttp に対応と記載。開いたターミナルで <code>python3 script.py</code> を実行する。</li>
+    <li>公式：「Only the pre-configured Terminal app is able to capture HTTP traffic out of the box」「It doesn't alter your bash_profile or zshrc file」。iTerm2 など別のターミナルを使う場合は <strong>Manual Setup</strong> を使います。</li>
+    <li>Automatic Setup の公式手順は macOS（Terminal.app）前提です。Windows 版での挙動は未確認です。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.proxyman.com/automatic-setup/automatic-setup">Automatic Setup</a> ／ <a href="https://docs.proxyman.com/debug-devices/nodejs">NodeJS</a> ／ <a href="https://docs.proxyman.com/debug-devices/python">Python</a></p>
+
+  <h3>手動で設定する場合（公式は「not recommended」）</h3>
+  <p>Node.js（axios 等）：Proxyman のステータスメニューに表示されるコマンドをターミナルで実行してから、同じターミナルでアプリを起動します。公式ドキュメントの例：</p>
+  <pre><code>export https_proxy=http://192.168.1.103:9090 http_proxy=http://192.168.1.103:9090</code></pre>
+  <p>node-fetch の場合は <code>global-agent</code> パッケージを使い、<code>GLOBAL_AGENT_HTTP_PROXY=http://127.0.0.1:9090</code> を設定します。公式の例では <code>NODE_TLS_REJECT_UNAUTHORIZED=0</code> で証明書検証を無効にしていますが、開発時以外は使わないでください。</p>
+  <p>Python（requests 等）：Mac に証明書を入れたうえで、証明書のパスを環境変数で渡します（公式の例）：</p>
+  <pre><code>export SSL_CERT_FILE=~/.proxyman/proxyman-ca.pem
+export REQUESTS_CA_BUNDLE=~/.proxyman/proxyman-ca.pem</code></pre>
+  <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/nodejs">NodeJS</a> ／ <a href="https://docs.proxyman.com/debug-devices/python">Python</a></p>
+
+  <h2 id="trouble">7. よくあるトラブル</h2>
+  <p>公式ドキュメントの Troubleshooting 節にある項目です（2026-10-19 時点）。症状に合うページをご覧ください。解決しない場合は <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へ日本語でご連絡ください。必要に応じて Proxyman のサポートへ取り次ぎます。</p>
+  <div class="scroll"><table style="width:100%;border-collapse:collapse;font-size:15px">
+    <tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);color:var(--muted)">症状</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);color:var(--muted)">公式ページ</th></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">通信がまったく表示されない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/i-couldnt-see-any-traffics-on-proxyman">I couldn't see any traffics on Proxyman</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">HTTPS のリクエスト／レスポンスで SSL エラーになる</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/get-ssl-error-from-https-request-and-response">SSL Error from HTTPS Request/Response</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">VPN アプリと併用すると動かない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/proxyman-does-not-work-with-vpn-apps">Proxyman does not work with VPN apps</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">iOS / Android 実機が Proxyman に接続できない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/my-ios-devices-couldnt-connect-to-proxyman-via-proxy">My Remote Devices (iOS/Android) could not connect to Proxyman?</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">iOS 16 / 17 で問題が出る</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/ios-16-devices-issues">iOS 16 and iOS 17 issues</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">localhost のサーバーへの通信が見えない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/couldnt-see-any-request-from-localhost-server">I could not see any requests from my localhost server</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">Node.js / Python / Ruby のスクリプトの通信が見えない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/i-could-not-see-any-http-traffic-from-my-nodejs-python-or-ruby-scripts">I could not see any HTTP traffic from my NodeJS, Python, or Ruby scripts</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">サードパーティのネットワークライブラリの通信が見えない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/couldnt-see-any-requests-from-3rd-party-network-libraries">I couldn't see any requests from 3rd-party network libraries</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><code>*.local</code> 宛ての通信が表示されない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/.local-doesnt-appear-in-proxyman">*.local requests do not appear on Proxyman</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">Breakpoint で Raw Message を編集したい</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/breakpoint-modify-request-response-by-raw-message">[Breakpoint] Modify Request/Response by Raw Message</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">更新後にデータが消えた</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/lost-data-after-updating-proxyman-app">Lost data after updating Proxyman app?</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">メモリを大量に消費して応答しなくなる</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/proxyman-consumes-too-much-ram-and-unresponsive">Proxyman consumes too much RAM &amp; unresponsive</a></td></tr>
+    <tr><td style="padding:6px 8px;border-bottom:1px solid var(--line)">アプリのアイコンを変更できない</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)"><a href="https://docs.proxyman.com/troubleshooting/could-not-change-proxyman-app-icons">Could not change Proxyman App Icons</a></td></tr>
+  </table></div>
+  <p class="src">出典：<a href="https://docs.proxyman.com/troubleshooting">Troubleshooting（一覧）</a></p>
+
+  <h2 id="cleanup">8. 使い終わったら（証明書の削除）</h2>
+  <ul>
+    <li>Mac：<strong>Certificate</strong> メニュー → <strong>Reset all Certificates</strong> → Mac のパスワードを入力。公式は、Proxyman を使わなくなったらキーチェーンから Proxyman の証明書を削除するよう注意しています（証明書を持つ者が Mac の通信を傍受できるため）。</li>
+    <li>iOS / Android：端末に入れた Proxyman CA を削除し、Wi-Fi のプロキシ設定を元に戻す。</li>
+    <li>Android アプリ：リリースビルドから network security config の緩和設定を外す。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/macos">Install Certificate on macOS</a> ／ <a href="https://docs.proxyman.com/debug-devices/ios-device">iOS Device</a> ／ <a href="https://docs.proxyman.com/debug-devices/android-device">Android Device</a></p>
+
+  <footer>© 2026 Kiminori Kobo · <a href="./">Proxyman 製品ページへ</a> · <a href="../">トップへ</a><br>Proxyman は Proxyman LLC の製品です。本ガイドは公式ドキュメントに基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
+</main>
+</body>
+</html>
