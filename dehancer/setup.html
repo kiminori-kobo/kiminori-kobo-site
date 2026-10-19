@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dehancer 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="Dehancer の日本語導入ガイド。引換コードとライセンスの移転による有効化、DaVinci Resolve・Premiere Pro / After Effects・Photoshop / Lightroom・Desktop へのインストール、プロファイルの取得、日本語 Windows での Profile Fetcher Error、ライセンスの解除と移転。各手順に公式ページの URL を添付。">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
+  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
+  .crumb a { color:var(--muted) }
+  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
+  .tag { color:var(--muted); margin:0 0 32px }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
+  h3 { font-size:17px; margin:22px 0 6px }
+  p { margin:0 0 14px }
+  ul, ol { padding-left:22px; margin:0 0 14px }
+  li { margin:4px 0 }
+  a { color:var(--accent); overflow-wrap:anywhere }
+  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
+  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
+  pre code { background:none; padding:0 }
+  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
+  .note p:last-child { margin-bottom:0 }
+  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
+  .toc { font-size:15px; }
+  .toc ol { margin:0 }
+  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
+</style>
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Dehancer</a> › 導入ガイド</p>
+
+  <h1>Dehancer 導入ガイド</h1>
+  <p class="tag">有効化・インストール・プロファイル取得・トラブル対応 · 公式ページ確認日 2026-10-19</p>
+
+  <div class="note">
+    <p>本ガイドは Dehancer 公式サイト（dehancer.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています（公式サイトに日本語版は見当たりません）。公式に記載がなく確認できなかった点は「未確認」と書いています。</p>
+  </div>
+
+  <div class="toc">
+    <ol>
+      <li><a href="#activate">有効化（引換コード／ライセンスの移転）</a></li>
+      <li><a href="#install">各ホストへのインストール</a></li>
+      <li><a href="#profiles">初回のプロファイル取得</a></li>
+      <li><a href="#fetcher">日本語 Windows での「Profile Fetcher Error」</a></li>
+      <li><a href="#gpu">GPU 要件とプレビューが半分しか出ないとき</a></li>
+      <li><a href="#keys">Lifetime キーとサブスクリプションの違い</a></li>
+      <li><a href="#cleanup">使い終わったら／ライセンスの移転</a></li>
+    </ol>
+  </div>
+
+  <h2 id="activate">1. 有効化（引換コード／ライセンスの移転）</h2>
+  <p>サブスクリプションは<strong>引換コード</strong>で、Lifetime は<strong>ライセンスの移転（Transfer License）</strong>でお渡しします。</p>
+  <h3>サブスクリプション：引換コード</h3>
+  <ol>
+    <li><strong>Dehancer アカウントを作る</strong> — <a href="https://www.dehancer.com/">dehancer.com</a> の「Log In」からアカウントを登録します。アカウントの User Profile には「License Management」欄があり、購入したライセンスはここに表示されます（License Basics）。</li>
+    <li><strong>引換コードを入力する</strong> — ログインした状態で <a href="https://www.dehancer.com/redeem">https://www.dehancer.com/redeem</a> を開き、当方からお送りした引換コードを入力して <strong>Validate</strong> を押します。</li>
+    <li><strong>ホストアプリで有効化する</strong>（下記の「Login and select License」）。</li>
+  </ol>
+  <p>リセラー経由のサブスクリプションは自動更新されません。期限の1か月前に当方からご案内し、次の期間分の引換コードをお送りします。</p>
+  <h3>Lifetime：ライセンスの移転（Transfer License）</h3>
+  <ol>
+    <li><strong>Dehancer アカウントを作り、メールアドレスを当方へお知らせください</strong> — ライセンスの移転先になります。</li>
+    <li><strong>当方がライセンスを移転する</strong> — 当方の Dehancer アカウントに発行されたライセンスを、Transfer License でお客様のアカウントへ移転します。移転後、ライセンスはお客様の User Profile の License Management に表示され、新しいアクティベーションキーがお知らせいただいたメールアドレスに届きます（License Basics）。</li>
+    <li><strong>ホストアプリで有効化する</strong>（下記の「Login and select License」、または届いたキーを「Enter License Key」で入力）。</li>
+  </ol>
+  <h3>ホストアプリでの有効化（共通）</h3>
+  <ol>
+    <li><strong>Login and select License</strong>（サブスクリプション・Lifetime 共通）
+      <ul>
+        <li>DaVinci Resolve・Ae / Pr・Final Cut Pro：プラグイン画面の下部にある Options の <strong>License info</strong> を押す → License ウィジェットで <strong>Login and select License</strong> → Dehancer アカウントでログイン → 一覧から seat を選び <strong>Activate plugin</strong> → ウィジェットを閉じて再起動。</li>
+        <li>Photoshop・Lightroom・Capture One・Affinity：プラグインの Settings（歯車アイコン）→ <strong>Activate Dehancer</strong> → 以降は同じ。</li>
+        <li>Dehancer Desktop：Application Settings（歯車ボタンまたは [S] キー）→ License Activation → <strong>Activate Dehancer</strong> → アカウントでサインインし seat を選ぶ。</li>
+      </ul>
+    </li>
+  </ol>
+  <ul>
+    <li>有効化にはインターネット接続が必要です（Production プランのオフラインアクティベーションを除く）。</li>
+    <li>サブスクリプションの有効化にはライセンスキーは不要で、「Login and select License」を使います（公式 FAQ：「You don't need a License key to activate a Subscription.」）。Lifetime は、購入時のメールに記載のアクティベーションキーを「Enter License Key」で入力する方法も使えます。</li>
+    <li>サブスクリプションの有効化には最新版の製品が必要です（公式：「may not work with legacy versions」）。</li>
+    <li>Windows で「Plugin activation has been rejected: client is not registered」などのエラーが出たら、<code>C:\Users\&lt;ユーザー名&gt;\AppData\Local\dehancer</code> の <code>com.dehancer.film_pro.v7</code> フォルダ内の preferences ファイルを削除して、もう一度有効化します（DaVinci Resolve FAQ）。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+
+  <h2 id="install">2. 各ホストへのインストール</h2>
+  <p>どの製品も、製品ページで OS を選んで <strong>Download &amp; Try</strong> を押すか、<a href="https://www.dehancer.com/downloads">Download Center</a> で Host と Product を選んで <strong>Show</strong> を押して入手します。以下は Windows の手順です。</p>
+
+  <h3>DaVinci Resolve（OFX プラグイン）</h3>
+  <ol>
+    <li>Products → DaVinci Resolve OFX plugins で製品を選び、Windows を選んで Download &amp; Try。zip を展開します。</li>
+    <li><strong>DaVinci Resolve を終了した状態で</strong>、GPU に合うインストーラを実行します：Nvidia は <strong>CUDA</strong>、AMD は <strong>OpenCL</strong>。</li>
+    <li>DaVinci Resolve を再起動し、<strong>DaVinci Preferences → System → Memory and GPU</strong> で、Nvidia なら CUDA、AMD なら OpenCL を選びます。</li>
+    <li>Color ページの Library パネルで、Film Emulation の最下部にある「Dehancer」をクリップにドラッグしてノードを作ります。</li>
+    <li>Dehancer が Library に出ない・読み込めない場合は、<strong>DaVinci Preferences → System → Video Plugins</strong> で Dehancer のチェックを入れ直し、再起動します。</li>
+  </ol>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx">Dehancer OFX plugin</a>（2026-10-19 確認）</p>
+
+  <h3>Premiere Pro / After Effects</h3>
+  <ol>
+    <li>Products → Adobe Ae, Pr plugins で製品を選び、Windows を選んで Download &amp; Try。zip を展開します。</li>
+    <li>GPU に合うインストーラ（CUDA / OpenCL）を選んで実行します。Premiere Pro と After Effects は同じインストールを共有するため、両方使う場合もインストールと有効化は 1 回で済みます。</li>
+    <li><strong>Premiere Pro では新規プロジェクト作成時に GPU レンダラーを選びます</strong>：New Project → General → Video Rendering and Playback → Renderer で、入れたインストーラに合わせて CUDA または OpenCL を選択。公式によると、この設定はプロジェクト作成時にしか変えられず、選ばないとソフトウェアレンダラーになり非常に遅くなります。</li>
+    <li>Premiere Pro は Effects パネルの Video Effects / Film Emulation、After Effects は Effects &amp; Presets の Film Emulation から Dehancer をクリップ（または調整レイヤー）に適用します。</li>
+  </ol>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/after-affects-pro">Adobe Ae/Pr plugin</a>（2026-10-19 確認）</p>
+
+  <h3>Photoshop / Lightroom</h3>
+  <ol>
+    <li>Products → Ps, LrC, C1, APh plugin で Windows を選んで Download &amp; Try。zip を展開します。Photoshop 用と Lightroom 用でインストーラが分かれています（同じアクティベーションキーを共有）。</li>
+    <li><strong>Photoshop</strong>：Photoshop 用インストーラを実行 → Photoshop を起動（または再起動）→ 写真を開き <strong>Filter → Dehancer → Dehancer Film</strong>。写真は sRGB である必要があります（公式：「your file must be presented in sRGB color space」）。</li>
+    <li><strong>Lightroom Classic</strong>：<code>Lightroom.exe</code> を実行 → Preferences → External Editing → Choose で <code>C:\Program Files\Dehancer Lightroom Plugin\DehancerLightroom.exe</code> を指定 → 写真を右クリックして Dehancer を選びます。</li>
+    <li><strong>Lightroom（CC）</strong>：写真を右クリック → Edit In → Browse… で上と同じ exe を指定します。</li>
+  </ol>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/photoshop">Photoshop plugin</a> ／ <a href="https://www.dehancer.com/learn/article/lightroom">Lightroom plugin</a>（2026-10-19 確認）</p>
+
+  <h3>Dehancer Desktop（単体アプリ）</h3>
+  <ol>
+    <li>Download Center で Host に <strong>Standalone</strong> を選ぶか、<a href="https://www.dehancer.com/shop/desktop">製品ページ</a>の Download &amp; Try から入手してインストールします。</li>
+    <li>インストール後、スタートメニュー（Mac はアプリケーションフォルダ）から起動します。初回起動時に OS がファイルやフォルダへのアクセス許可を求めた場合は許可します。</li>
+    <li>初回起動時にフィルムプロファイルのダウンロードを求められます。</li>
+  </ol>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/downloads">Download Center</a>（2026-10-19 確認）</p>
+
+  <h2 id="profiles">3. 初回のプロファイル取得</h2>
+  <p>Dehancer を使う前に、フィルムプロファイルとカメラプロファイルをダウンロードする必要があります（インターネット接続が必要）。</p>
+  <ul>
+    <li>DaVinci Resolve：プラグイン設定の最下部にある <strong>Check Profiles</strong> を押す → Dehancer Profiles ウィジェットで自動ダウンロード → 完了したら OK で閉じる。</li>
+    <li>Premiere Pro / After Effects：通常はインストールの最後に自動でダウンロードされます。されなかった場合は、Dehancer を適用して Effect Controls → Dehancer の最下部の <strong>Check Profiles</strong> を押します。</li>
+    <li>Photoshop / Lightroom：初回起動時に開く Settings で <strong>Update Film Profiles</strong> を押します。</li>
+    <li>Desktop：初回起動時の案内に従うか、Application Settings → Film Profiles の <strong>Update Profiles</strong> を押します。</li>
+  </ul>
+  <div class="note">
+    <p><strong>画面が真っ黒になる場合</strong>はプロファイルが取得できていません。Check Profiles を押して取得し直してください（公式 FAQ）。取得自体が失敗する場合は次の項を参照してください。</p>
+  </div>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx">Dehancer OFX plugin</a> ／ <a href="https://www.dehancer.com/learn/article/after-affects-pro">Adobe Ae/Pr plugin</a> ／ <a href="https://www.dehancer.com/learn/article/photoshop">Photoshop plugin</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+
+  <h2 id="fetcher">4. 日本語 Windows での「Profile Fetcher Error」</h2>
+  <p>Windows でプロファイル取得時に「Profile Fetcher Error」が出た場合、公式 FAQ の対処は次のとおりです。</p>
+  <ol>
+    <li>まず別のネットワーク（スマートフォンのテザリングなど）に接続するか、VPN を使って取得し直します。</li>
+    <li>それでも直らない場合は、管理者としてサインインし、スタートメニュー → Settings（歯車）→ <strong>Time &amp; Language → Language</strong> → 右側の <strong>Administrative language settings</strong> → <strong>Administrative</strong> タブ → <strong>Change system locale</strong> を開きます。Windows のバージョンによっては、Settings → Time &amp; Language → Date, time, &amp; regional formatting → Additional date, time, &amp; region settings → Region → Administrative → Change system locale にあります。</li>
+    <li><strong>BETA: Use Unicode UTF-8 for worldwide language support</strong> にチェックを入れ、PC を再起動します。</li>
+  </ol>
+  <div class="note">
+    <p>メニュー名は公式の英語表記です。日本語版 Windows での表記は未確認です。公式はこの不具合と日本語環境との関係を明記していません。この設定は名前のとおりベータ機能で、システム全体に効くため、変更前に他のアプリへの影響をご確認ください。</p>
+  </div>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ（Known Issues and Fixes [Windows]）</a>（2026-10-19 確認）</p>
+
+  <h2 id="gpu">5. GPU 要件とプレビューが半分しか出ないとき</h2>
+  <ul>
+    <li>Windows 版はどれも <strong>Nvidia または AMD の GPU</strong> が前提です（公式システム要件：「PC with Nvidia or AMD GPU」）。Premiere Pro / After Effects・写真用プラグイン・Desktop の Windows 版について、公式は「Intel Iris and Intel HD Graphics GPUs are not officially supported」と記載しています。</li>
+    <li>映像用の GPU メモリの目安：FullHD は最低 4GB / 推奨 8GB、4K は 8GB / 12GB、6K は 12GB / 16GB、8K は 16GB / 24GB。</li>
+    <li><strong>プレビューが半分しか表示されない場合</strong>は、GPU に合わないインストーラを入れています。Nvidia は CUDA、AMD は OpenCL のインストーラで入れ直してください。インストーラの説明は配布 zip 内の <code>Please_Read_Before_Installing</code> にあります（公式 FAQ）。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/system-requirements">System Requirements</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+
+  <h2 id="keys">6. Lifetime キーとサブスクリプションの違い</h2>
+  <ul>
+    <li><strong>Lifetime</strong>：製品ごとにライセンスがあり、1 ライセンスに 2 つのアクティベーションキー（2台分）が含まれます。キーは特定のホストアプリ専用で、たとえば DaVinci Resolve 用のキーは Final Cut Pro 用プラグインの有効化には使えません。OS をまたいでの利用は可能です（License Basics）。</li>
+    <li><strong>サブスクリプション</strong>：このホスト制限がなく、どのホストの Dehancer プラグインも有効化できます（公式 FAQ：「These restrictions are not present in the Subscription plans」）。Studio は 1台（ワークステーション）につき 1 seat です。</li>
+    <li>写真用プラグインは Photoshop 用と Lightroom / Capture One 用でインストールが分かれますが、同じアクティベーションキーを共有します。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics（License compatibility、Plans description）</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+
+  <h2 id="cleanup">7. 使い終わったら／ライセンスの移転</h2>
+  <h3>有効化の解除</h3>
+  <ul>
+    <li>プラグインを削除する前、OS を再インストールする前、PC を替える前に、<strong>有効化したバージョンの Dehancer の画面（License info）から Deactivate</strong> します。この方法なら解除の回数に制限はありません。</li>
+    <li>サブスクリプションは、User Profile の <strong>Deactivate all seats</strong> ボタンで全 seat をまとめて解除できます。</li>
+    <li>Desktop は、Application Settings → License Activation → <strong>Manage Your Subscription</strong> から解除します。</li>
+  </ul>
+  <h3>ライセンスの移転（Transfer License）</h3>
+  <ol>
+    <li>dehancer.com にログインし、User Profile の License Management を開きます。</li>
+    <li>対象のライセンスで <strong>Transfer License</strong> を押します。</li>
+    <li>移転先アカウントのメールアドレスを入力して Continue → 内容を確認して Transfer。</li>
+    <li>元のアカウントのライセンスは無効化・取消され、新しいアクティベーションキーが移転先のメールアドレスに送られます。元のアカウントの seat はすべて解除されます。</li>
+  </ol>
+  <div class="note">
+    <p>利用規約（ToS 4.3）により、<strong>組織の外への seat の移転はできません</strong>。移転は担当者の交代など、同じ組織内のアカウント間に限ってください。</p>
+  </div>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics（Transferring license to another account）</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation（Plugin Deactivation）</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル（Uninstall）</a> ／ <a href="https://dehancer-v2.cdn.prismic.io/dehancer-v2/aalWEFxvIZEnjWQ__ToSDehancer20260305en.pdf">Terms of Service（PDF）</a>（2026-10-19 確認）</p>
+
+  <footer>© 2026 Kiminori Kobo · <a href="./">Dehancer 製品ページへ</a> · <a href="../">トップへ</a><br>Dehancer は DEHANCER LTD の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
+</main>
+</body>
+</html>
