@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dehancer 日本語ページ — Kiminori Kobo</title>
-<meta name="description" content="フィルムエミュレーション Dehancer の日本語製品ページ。提供形態と対応 OS・GPU 要件、法人向けプラン（Studio / Production / Lifetime）の価格と円の参考価格、円建て請求書での購入の流れ。">
+<meta name="description" content="フィルムエミュレーション Dehancer の日本語製品ページ。対応ホストの概要、法人向けプラン（Studio / Production / Lifetime）の価格と円の参考価格、円建て請求書での購入の流れ。">
 <style>
   :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
   @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
@@ -52,26 +52,10 @@
   <p>主な利用者は、カラリスト、映像制作会社、写真家です。</p>
   <p class="small">出典：<a href="https://www.dehancer.com/">dehancer.com</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a>（2026-10-19 確認）</p>
 
-  <h2>提供形態と対応環境</h2>
-  <p>対応 OS・ホストのバージョン・GPU 要件は、公式システム要件ページの記載です。Vegas Pro はシステム要件ページに記載がないため、Download Center で配布されているインストーラの OS だけを書いています。</p>
-  <div class="scroll"><table>
-    <tr><th>提供形態</th><th>Windows</th><th>macOS ほか</th></tr>
-    <tr><td>DaVinci Resolve（OFX プラグイン）</td><td>Windows 10 / 11（64 bit）、DaVinci Resolve 18 以降。「PC with Nvidia or AMD GPU」「CUDA or OpenCL compatible GPU」</td><td>macOS 13 Ventura 以降、DaVinci Resolve 19 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS 8/9、Ubuntu 20.04/22.04）、DaVinci Resolve 18 以降</td></tr>
-    <tr><td>Premiere Pro / After Effects</td><td>Windows 10 / 11（64 bit）、Premiere Pro 2022 以降、After Effects 2021 以降。Nvidia または AMD の GPU（CUDA / OpenCL）</td><td>macOS 13 Ventura 以降、Metal 対応 GPU</td></tr>
-    <tr><td>Final Cut Pro</td><td>—（macOS のみ）</td><td>macOS 13 Ventura 以降、Final Cut Pro 11 または 12、Apple Motion 5.6.3 以降</td></tr>
-    <tr><td>Photoshop / Lightroom / Lightroom Classic / Capture One / Affinity</td><td>Windows 10 / 11（64 bit）。Nvidia または AMD の GPU（OpenCL）、GPU ドライバが最新であること。ホストは「Recent version」</td><td>macOS 15 Sequoia 以降、Metal 対応 GPU。Affinity は Photoshop プラグインを読み込める版</td></tr>
-    <tr><td>Baselight</td><td>—（配布は macOS 版と Linux 版のみ）</td><td>macOS 13 Ventura 以降、FilmLight Baselight 6.0 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS、Ubuntu 20.04/22.04）、FilmLight Baselight 6.0 以降、Nvidia の GPU（CUDA のみ）</td></tr>
-    <tr><td>Assimilate SCRATCH</td><td>Windows 10 / 11（64 bit）、Assimilate 9.9（Build 1210）以降。「OpenCL compatible GPU」</td><td>macOS 13 Ventura 以降、Assimilate 9.9（Build 1210）以降、Metal 対応 GPU</td></tr>
-    <tr><td>Vegas Pro（OFX プラグイン）</td><td>Windows 版のインストーラあり（Download Center）。対応する Windows・Vegas Pro のバージョンと GPU 要件は未確認</td><td>—（配布は Windows 版のみ）</td></tr>
-    <tr><td>Dehancer Desktop（単体アプリ・写真用）</td><td>Windows 10 / 11（64 bit）。Nvidia または AMD の GPU（OpenCL）、GPU ドライバが最新であること</td><td>macOS 15 Sequoia 以降、Metal 対応 GPU</td></tr>
-    <tr><td>Dehancer iOS（写真・動画）</td><td>—</td><td>iOS 26 以降、A13 Bionic 以降の端末（iPhone 11、iPad Air 第3世代、iPad mini 第5世代、iPad 第8世代から）</td></tr>
-    <tr><td>Dehancer Online（ブラウザ版・写真用）</td><td colspan="2">ブラウザで動作。jpeg / heic / tiff / dng に対応。動作要件はシステム要件ページに記載がなく未確認</td></tr>
-  </table></div>
-  <div class="note">
-    <p><strong>Windows では Nvidia または AMD の GPU が必要です。</strong> DaVinci Resolve・Premiere Pro / After Effects・写真用プラグイン・Desktop の Windows 版は、要件が「PC with Nvidia or AMD GPU」です。Assimilate SCRATCH の Windows 版の要件は「OpenCL compatible GPU」、Vegas Pro は未確認です。Intel の内蔵 GPU について、公式は Premiere Pro / After Effects・写真用プラグイン・Desktop の各 Windows 版で「Intel Iris and Intel HD Graphics GPUs are not officially supported」、Assimilate SCRATCH の Windows 版で「may produce unexpected plugin crashes, visual glitches and artifacts」と記載しています（DaVinci Resolve の Windows 版の欄には Intel GPU への言及はありません）。</p>
-    <p>映像用の GPU メモリの目安は、DaVinci Resolve・Premiere Pro / After Effects の Windows 版と Baselight の Linux 版で FullHD：最低 4GB / 推奨 8GB、4K：8GB / 12GB、6K：12GB / 16GB、8K：16GB / 24GB です。</p>
-  </div>
-  <p class="small">出典：<a href="https://www.dehancer.com/learn/article/system-requirements">System Requirements</a> ／ <a href="https://www.dehancer.com/downloads">Download Center</a>（<a href="https://www.dehancer.com/downloads/baselight/pro/current">Baselight</a>・<a href="https://www.dehancer.com/downloads/assimilate/pro/current">Assimilate SCRATCH</a>・<a href="https://www.dehancer.com/downloads/vegas/pro/current">Vegas Pro</a>）（2026-10-20 確認）／ <a href="https://www.dehancer.com/shop/online">Dehancer Online</a>（2026-10-19 確認）</p>
+  <h2>対応環境</h2>
+  <p>対応ホスト：DaVinci Resolve、Premiere Pro / After Effects、Final Cut Pro、Photoshop / Lightroom / Capture One / Affinity、Baselight、SCRATCH、Vegas Pro、Desktop（単体）、iOS、Online。</p>
+  <p>Windows 版は Nvidia / AMD の GPU が必要です（ホストにより要件が異なります）。</p>
+  <p>対応 OS・バージョン・GPU 要件の詳細は<a href="setup.html#requirements">導入ガイドの「対応環境」</a>をご覧ください。</p>
 
   <h2>当方で扱うプラン</h2>
   <p>当方で扱うのは、<strong>年払いのサブスクリプション（Studio / Production）</strong>と <strong>Lifetime（買い切り）の Studio 版</strong>のみです。個人向けの Individual プラン（Photo、Photo &amp; Video）と Mobile は扱いません（Dehancer との取り決めによります）。月払いのサブスクリプションは公式サイトから直接ご購入ください。</p>
@@ -85,8 +69,8 @@
   <h3>サブスクリプション</h3>
   <div class="scroll"><table>
     <tr><th>プラン</th><th>内容（台（seat）数）</th><th class="num">公式価格</th><th class="num">円 参考価格</th></tr>
-    <tr><td>Studio（年払い）</td><td>1台あたり。全ての映像・写真用プラグイン、Desktop、iOS（写真・動画）、Online、優先サポート、Business Invoices、ユーザー管理。料金ページの月割表示は $49 / 月</td><td class="num">$588 / 台 / 年</td><td class="num">92,870 円 / 台 / 年</td></tr>
-    <tr><td>Production（年払い）</td><td>台数は個別設定（「Custom seats」）。Studio の内容にオフラインアクティベーションを追加。公式は「Contact Us」。料金ページの月割表示は $184 / 月</td><td class="num">$2,208 / 台 / 年</td><td class="num">348,750 円 / 台 / 年</td></tr>
+    <tr><td>Studio（年払い）</td><td>全プラグイン＋Desktop＋iOS＋Online、優先サポート、請求書</td><td class="num">$588 / 台 / 年</td><td class="num">92,870 円 / 台 / 年</td></tr>
+    <tr><td>Production（年払い）</td><td>Studio の内容＋オフラインアクティベーション。台数は個別設定</td><td class="num">$2,208 / 台 / 年</td><td class="num">348,750 円 / 台 / 年</td></tr>
   </table></div>
   <p class="small">月払いプランは<a href="https://www.dehancer.com/pricing/business">公式サイト</a>から直接ご購入ください。</p>
   <p class="small">リセラー経由のサブスクリプションは自動更新されません。期限の1か月前に当方からご案内し、次の期間分の引換コードをお送りします。Production の価格は、料金ページの「1 seat on workstation (device). Custom seats.」という表示に添えられた金額です。公式の申込みは「Contact Us」のため、台数に応じた実際の価格は見積時に確認します。</p>
@@ -94,12 +78,12 @@
   <h3>Lifetime（買い切り・Studio 版）</h3>
   <div class="scroll"><table>
     <tr><th>製品</th><th>内容（台（seat）数）</th><th class="num">公式価格</th><th class="num">円 参考価格</th></tr>
-    <tr><td>Dehancer Pro for DaVinci Resolve</td><td>2台（ホストごとに1台）。優先サポート、請求書</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
+    <tr><td>Dehancer Pro for DaVinci Resolve</td><td>2台（ホストごとに1台）、優先サポート、請求書</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
     <tr><td>Dehancer Pro for Adobe Ae, Pr</td><td>同上</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
     <tr><td>Dehancer Pro for Final Cut Pro</td><td>同上</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
     <tr><td>Dehancer Film for Adobe Ps, Lr, C1, APh</td><td>同上</td><td class="num">$999</td><td class="num">157,790 円</td></tr>
     <tr><td>Dehancer Desktop</td><td>同上</td><td class="num">$999</td><td class="num">157,790 円</td></tr>
-    <tr><td>Dehancer Pro for Baselight</td><td>ワークステーションごとに1台。オフラインアクティベーション。公式は「Contact Us」</td><td class="num">$4,999</td><td class="num">789,590 円</td></tr>
+    <tr><td>Dehancer Pro for Baselight</td><td>ワークステーションごとに1台、オフラインアクティベーション</td><td class="num">$4,999</td><td class="num">789,590 円</td></tr>
   </table></div>
   <p class="small">表が画面に収まらない場合は横にスクロールできます。</p>
   <div class="note">
