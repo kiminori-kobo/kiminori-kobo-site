@@ -56,7 +56,7 @@
       <li><a href="#install">各ホストへのインストール</a></li>
       <li><a href="#profiles">初回のプロファイル取得</a></li>
       <li><a href="#fetcher">日本語 Windows での「Profile Fetcher Error」</a></li>
-      <li><a href="#gpu">GPU 要件とプレビューが半分しか出ないとき</a></li>
+      <li><a href="#gpu">プレビューが半分しか表示されないとき</a></li>
       <li><a href="#keys">Lifetime キーとサブスクリプションの違い</a></li>
       <li><a href="#cleanup">使い終わったら／ライセンスの移転</a></li>
     </ol>
@@ -180,13 +180,10 @@
   </div>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ（Known Issues and Fixes [Windows]）</a>（2026-10-19 確認）</p>
 
-  <h2 id="gpu">5. GPU 要件とプレビューが半分しか出ないとき</h2>
-  <ul>
-    <li>Windows 版はどれも <strong>Nvidia または AMD の GPU</strong> が前提です（公式システム要件：「PC with Nvidia or AMD GPU」）。Premiere Pro / After Effects・写真用プラグイン・Desktop の Windows 版について、公式は「Intel Iris and Intel HD Graphics GPUs are not officially supported」と記載しています。</li>
-    <li>映像用の GPU メモリの目安：FullHD は最低 4GB / 推奨 8GB、4K は 8GB / 12GB、6K は 12GB / 16GB、8K は 16GB / 24GB。</li>
-    <li><strong>プレビューが半分しか表示されない場合</strong>は、GPU に合わないインストーラを入れています。Nvidia は CUDA、AMD は OpenCL のインストーラで入れ直してください。インストーラの説明は配布 zip 内の <code>Please_Read_Before_Installing</code> にあります（公式 FAQ）。</li>
-  </ul>
-  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/system-requirements">System Requirements</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+  <h2 id="gpu">5. プレビューが半分しか表示されないとき</h2>
+  <p>GPU に合わないインストーラを入れています。Nvidia は <strong>CUDA</strong>、AMD は <strong>OpenCL</strong> のインストーラで入れ直してください。インストーラの説明は配布 zip 内の <code>Please_Read_Before_Installing</code> にあります（公式 FAQ）。</p>
+  <p>GPU 要件は<a href="#requirements">「0. 対応環境」</a>をご覧ください。</p>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
 
   <h2 id="keys">6. Lifetime キーとサブスクリプションの違い</h2>
   <ul>
