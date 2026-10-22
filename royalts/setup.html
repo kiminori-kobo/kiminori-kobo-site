@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Royal TS 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="Royal TS の日本語導入ガイド。対応環境、MSI でのインストール、ライセンスキーの登録（Options → License）、表示言語の設定、最初のリモートデスクトップ接続の作り方。各手順に公式ページの URL を添付。">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
+  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
+  .crumb a { color:var(--muted) }
+  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
+  .tag { color:var(--muted); margin:0 0 32px }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
+  h3 { font-size:17px; margin:22px 0 6px }
+  p { margin:0 0 14px }
+  ul, ol { padding-left:22px; margin:0 0 14px }
+  li { margin:4px 0 }
+  a { color:var(--accent); overflow-wrap:anywhere }
+  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
+  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
+  pre code { background:none; padding:0 }
+  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
+  .note p:last-child { margin-bottom:0 }
+  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
+  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
+  .scroll table { margin:0; min-width:520px }
+  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
+  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
+  th { color:var(--muted); font-weight:600 }
+  td.num, th.num { text-align:right; white-space:nowrap }
+  .req td:first-child { min-width:7.5em }
+  .toc { font-size:15px; }
+  .toc ol { margin:0 }
+  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
+</style>
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Royal TS</a> › 導入ガイド</p>
+
+  <h1>Royal TS 導入ガイド</h1>
+  <p class="tag">対応環境・インストール・ライセンス登録・表示言語・最初の接続 · 公式ページ確認日 2026-10-22</p>
+
+  <div class="note">
+    <p>本ガイドは Royal Apps 公式のドキュメント（docs.royalapps.com）とナレッジベース（community.royalapps.com）を日本語で整理したものです。各項に公式ページの URL を添えています。手順は Windows 版 Royal TS（V7）のもので、Mac 版 Royal TSX は対応環境とインストールだけを載せています。メニュー名・ボタン名は公式の英語表記のまま書いています。公式に記載がなく確認できなかった点は「未確認」と書いています。</p>
+  </div>
+
+  <div class="toc">
+    <ol start="0">
+      <li><a href="#requirements">対応環境</a></li>
+      <li><a href="#install">インストール</a></li>
+      <li><a href="#license">ライセンスキーの登録</a></li>
+      <li><a href="#language">日本語 UI への切替（日本語は未確認）</a></li>
+      <li><a href="#first-connection">最初の接続を作る</a></li>
+    </ol>
+  </div>
+
+  <h2 id="requirements">0. 対応環境</h2>
+  <div class="scroll"><table class="req">
+    <tr><th>項目</th><th>Royal TS（Windows）</th><th>Royal TSX（macOS）</th></tr>
+    <tr><td>現行バージョン</td><td>7.4（7.04.50922、2026-09-22 公開）</td><td>6.4.5</td></tr>
+    <tr><td>対応 OS</td><td>V7 は .NET 10 を同梱しており、要件は基本的に .NET 10 と同じです（公式 KB）。Microsoft の .NET 10 対応表では、Windows 11（26H1 / 25H2 / 24H2。23H2 は Enterprise / Education のみ）、Windows 10（LTSC / Enterprise のみ）、Windows Server 2012〜2025</td><td>macOS 11 Big Sur 以降（それより前の macOS では動作しない）。公式の対応一覧は macOS 11 Big Sur〜macOS 27 Golden Gate。macOS のベータ版は原則サポート外</td></tr>
+    <tr><td>CPU</td><td>x64、ARM64（Windows 11 on ARM64 でネイティブ動作）。32 bit（x86）は V6 から公式サポート外</td><td>未確認</td></tr>
+    <tr><td>公式の動作テスト環境</td><td>Windows 10 Client（22H2）、Windows Server 2016 / 2019</td><td>—</td></tr>
+    <tr><td>配布形式</td><td>MSI（x64 / ARM64）、ZIP（x64 / ARM64）</td><td>DMG</td></tr>
+  </table></div>
+  <div class="note">
+    <p>Windows 10 の Home / Pro が正式な対応環境かは未確認です。Royal Apps の KB は「Windows 10 Client (22H2)」でテストしていると書いていますが、Microsoft の .NET 10 対応表は Windows 10 を LTSC と Enterprise エディションに限っています。</p>
+  </div>
+  <p class="src">出典：<a href="https://community.royalapps.com/t/system-requirements-for-royal-ts-for-windows/233">System Requirements for Royal TS (for Windows)</a> ／ <a href="https://learn.microsoft.com/en-us/dotnet/core/install/windows#supported-versions">Microsoft：.NET 10 の対応 OS</a> ／ <a href="https://community.royalapps.com/t/royal-tsx-system-requirements/240">Royal TSX System Requirements</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a> ／ <a href="https://www.royalapps.com/ts/win/download">Downloads</a>（2026-10-22 確認）</p>
+
+  <h2 id="install">1. インストール</h2>
+  <h3>Windows（Royal TS）</h3>
+  <ol>
+    <li>公式の <a href="https://www.royalapps.com/ts/win/download">Downloads</a> ページで、Royal TS for Windows の <strong>Download now</strong> を押します。x64 版の MSI がダウンロードされます（2026-10-22 時点は <code>royaltsinstaller_7.04.50922.0_x64.msi</code>）。ARM64 版と ZIP 版は、同じ欄の <strong>Other Downloads</strong>（公式 KB「<a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a>」）にあり、各ファイルの sha256 も載っています。</li>
+    <li>ダウンロードした .msi ファイルをダブルクリックし、画面の指示に従ってインストールします。</li>
+  </ol>
+  <ul>
+    <li>（一般的な手順で、公式の手順ではありません）ダウンロードしたファイルの sha256 は、PowerShell の <code>Get-FileHash -Algorithm SHA256 &lt;ファイル名&gt;</code> で表示し、上記 KB の値と比べられます。</li>
+    <li>複数の PC に画面なしでインストールする場合は、<code>msiexec /i [path-to-RoyalTSInstaller.msi] /qn</code> を使えます（公式 KB）。</li>
+    <li>ZIP 版を使う場合は、展開したファイルのブロックを解除します。公式 KB の例：<code>dir '.\RoyalTS\' -Recurse | Unblock-File</code>（PowerShell）。</li>
+    <li>アンインストールは、Control Panel → Programs and Features → Royal TS → Uninstall（Windows のバージョンにより表記が異なります）。</li>
+    <li>Microsoft Store・winget での配布は、公式 KB とドキュメントに記載がないため、本ガイドでは扱いません。</li>
+  </ul>
+  <h3>Mac（Royal TSX）</h3>
+  <ol>
+    <li><a href="https://www.royalapps.com/ts/mac/download">Downloads</a> ページから Royal TSX の .dmg ファイルをダウンロードし、ダブルクリックします。</li>
+    <li>開いた Finder のウインドウで、「Royal TSX」を「Applications」フォルダにドラッグします。</li>
+  </ol>
+  <p class="src">出典：<a href="https://community.royalapps.com/t/install-and-uninstall-instructions/222">Install and Uninstall Instructions</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a> ／ <a href="https://community.royalapps.com/t/deploy-and-register-royal-ts-on-multiple-computers/265">Deploy and Register Royal TS on Multiple Computers</a> ／ <a href="https://community.royalapps.com/t/make-royal-ts-portable/262">Make Royal TS Portable</a> ／ <a href="https://www.royalapps.com/ts/win/download">Downloads</a>（2026-10-22 確認）</p>
+
+  <h2 id="license">2. ライセンスキーの登録</h2>
+  <p>当方経由でご購入の場合、ライセンス情報（「Licensed To」と「License Key」）の届き先（お客様に直接メールが届くか、当方からお送りするか）は未確認です。発行時にご案内します。お客様に直接届く場合に備え、fastspring.com と royalapps.com からのメールを受信できるようにしておいてください（公式 Licensing FAQ の案内）。</p>
+  <ol>
+    <li>リボンの <strong>File</strong> タブを押し、表示された画面（backstage view）で <strong>Options</strong> を押します（<strong>View</strong> タブの <strong>Options</strong> からも開けます）。</li>
+    <li>Options の <strong>License</strong> ページを開きます。</li>
+    <li><strong>License Information</strong> の <strong>Licensed to</strong> と <strong>License Key</strong> に、メールの記載を<strong>そのまま正確に</strong>入力します（公式：「Enter the exact "Licensed To" text from the email」「Enter the exact "License Key" text from the email」）。</li>
+  </ol>
+  <ul>
+    <li>ライセンスキーを入力すると、Shareware Mode の制限（接続 10 件・資格情報 10 件・ドキュメント 1 つ）がなくなります。</li>
+    <li>同じページの <strong>Reset License</strong> を押すと、ライセンスがリセットされ Shareware Mode に戻ります。</li>
+  </ul>
+  <div class="note">
+    <p>上の手順は V7 の公式ドキュメントによります。V7.4 の実際の画面の表示は未確認です。公式 KB「Deploy and Register Royal TS on Multiple Computers」には「Help - About - License dialog」という別の手順が載っていますが、本ガイドでは V7 のドキュメント（Options → License）の手順を採っています。</p>
+  </div>
+  <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/reference/options.html">Options（Open the Options Dialog、License）</a> ／ <a href="https://community.royalapps.com/t/licensing-faqs/213">Licensing FAQ</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/introduction/what-is-royal-ts.html">What is Royal TS</a>（2026-10-22 確認）</p>
+
+  <h2 id="language">3. 日本語 UI への切替（日本語は未確認）</h2>
+  <p>表示言語は、Options の <strong>User Interface</strong> ページ → <strong>General</strong> → <strong>Language</strong> で選びます（Options の開き方は<a href="#license">「2. ライセンスキーの登録」</a>の手順 1）。</p>
+  <div class="note">
+    <p><strong>公式の注記：</strong>「Languages other than English are supported by the community. Translations may be incomplete or inaccurate.」（英語以外の言語はコミュニティによる翻訳で、不完全または不正確な場合があります。）</p>
+    <p><strong>日本語を選べるかは未確認です。</strong> 公式ドキュメントには選べる言語の一覧がありません。参考までに、公式の配布 ZIP（7.04.50922 x64）に含まれる翻訳ファイルは da / de / en / es / fr / it / nl / pl / pt / ru / zh-Hans の 11 言語分で、日本語（ja）は含まれていません。日本語が選べない場合は English のままお使いください。本ガイドのメニュー名も英語表記です。</p>
+  </div>
+  <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/reference/options.html#language">Options（User Interface → General → Language）</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a>（ZIP の配布元）（2026-10-22 確認）</p>
+
+  <h2 id="first-connection">4. 最初の接続を作る</h2>
+  <p>初めて起動すると、Navigation パネルに Application document が表示されます。接続は Application document に直接は追加できないため、まず接続を保存する自分のドキュメントを作ります。</p>
+  <ol>
+    <li><strong>ドキュメントを作る</strong> — <strong>Home</strong> タブの File グループで <strong>New</strong> を押し、<strong>Display Name</strong> にドキュメント名を入れて <strong>OK</strong>。</li>
+    <li><strong>ドキュメントを保存する</strong> — <strong>Home</strong> タブの File グループで <strong>Save</strong> を押し、ファイル名を入れて <strong>OK</strong>（拡張子 <code>.rtsx</code> のファイルができます）。パスワード付きの資格情報を保存する場合は、ドキュメントの Security 設定でパスワード保護することを公式が強く勧めています。</li>
+    <li><strong>接続を作る</strong>（例：リモートデスクトップ） — Navigation パネルでドキュメント（またはその中のフォルダ）を選び、<strong>Home</strong> タブの Edit グループで <strong>Add</strong> → <strong>Remote Desktop</strong>。<strong>Computer Name</strong> に DNS 名または IP アドレス、<strong>Display Name</strong> に表示名を入れて <strong>OK</strong>。</li>
+    <li><strong>接続する</strong> — Navigation パネルで接続を選び、<strong>Home</strong> タブの Actions グループで <strong>Connect</strong>。セッションのタブが開きます。切断は <strong>Actions</strong> タブの Common Actions グループの <strong>Disconnect</strong> です。</li>
+  </ol>
+  <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/getting-started/your-first-connection.html">Your First Connection</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/getting-started/documents-and-files.html">Documents and Files</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/getting-started/connections.html">Connections</a>（2026-10-22 確認）</p>
+
+  <footer>© 2026 Kiminori Kobo · <a href="./">Royal TS 製品ページへ</a> · <a href="../">トップへ</a><br>Royal TS・Royal TSX は Royal Apps GmbH の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
+</main>
+</body>
+</html>
