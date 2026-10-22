@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fologram 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="Fologram の日本語導入ガイド。対応する Rhino・デバイス・ネットワーク、app.fologram.com でのアカウント作成とデバイスの紐付け、Rhino の Package Manager でのプラグインのインストール、QR コード・PIN コードでの接続、接続できないときの公式の確認点。各手順に公式ページの URL を添付。">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
+  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
+  .crumb a { color:var(--muted) }
+  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
+  .tag { color:var(--muted); margin:0 0 32px }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
+  h3 { font-size:17px; margin:22px 0 6px }
+  p { margin:0 0 14px }
+  ul, ol { padding-left:22px; margin:0 0 14px }
+  li { margin:4px 0 }
+  a { color:var(--accent); overflow-wrap:anywhere }
+  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
+  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
+  pre code { background:none; padding:0 }
+  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
+  .note p:last-child { margin-bottom:0 }
+  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
+  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
+  .scroll table { margin:0; min-width:520px }
+  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
+  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
+  th { color:var(--muted); font-weight:600 }
+  td.num, th.num { text-align:right; white-space:nowrap }
+  .toc { font-size:15px; }
+  .toc ol { margin:0 }
+  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
+</style>
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Fologram</a> › 導入ガイド</p>
+
+  <h1>Fologram 導入ガイド</h1>
+  <p class="tag">対応環境・アカウント・インストール・接続・トラブル対応 · 公式ページ確認日 2026-10-22</p>
+
+  <div class="note">
+    <p>本ガイドは Fologram 公式サイト（fologram.com）と公式ドキュメント（docs.fologram.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名・コマンド名は公式の英語表記のまま書いています。公式に記載がなく確認できなかった点や、公式ページ同士で記載が食い違う点は「未確認」と書いています。</p>
+  </div>
+
+  <div class="toc">
+    <ol start="0">
+      <li><a href="#requirements">対応環境</a></li>
+      <li><a href="#account">アカウント作成とライセンスの確認</a></li>
+      <li><a href="#install">Rhino プラグインのインストール（Package Manager）</a></li>
+      <li><a href="#connect">デバイスとの接続（QR コード）</a></li>
+      <li><a href="#trouble">うまく接続できないときの公式の確認点</a></li>
+    </ol>
+  </div>
+
+  <h2 id="requirements">0. 対応環境</h2>
+  <h3>PC（Rhino）</h3>
+  <ul>
+    <li><strong>Rhino 7 以降、Windows / Mac。</strong> 公式ダウンロードページ：「Free to download and install with the Rhino Package Manager for Rhino 7 or above.」「Fologram for Rhino (Win and Mac)」。プラグインは無料で、Grasshopper 用のコンポーネントも一緒に入ります。</li>
+  </ul>
+  <h3>デバイス</h3>
+  <div class="scroll"><table>
+    <tr><th>デバイス</th><th>アプリの入手先</th><th>要件・備考</th></tr>
+    <tr><td>HoloLens 2</td><td><a href="https://apps.microsoft.com/detail/9nn9sjwh9qc1">Microsoft Store</a></td><td>Store 版では research mode を使う機能（深度スキャン、ライブ点群）は使えません。これらを使う場合は App Installer でのインストールが必要です</td></tr>
+    <tr><td>Meta Quest</td><td><a href="https://www.meta.com/en-gb/experiences/fologram/3728318473914995/">Meta Store（App Lab）</a></td><td>公式サイトと Docs の表記は Quest 3 と Quest Pro です。Meta Store の掲載には Quest 2・Quest 3S も対応機種として載っています。Quest 2・Quest 3S での動作は未確認です</td></tr>
+    <tr><td>iPhone / iPad</td><td><a href="https://apps.apple.com/us/app/fologram/id1445114984">App Store</a></td><td>iPhone は iOS 13.0 以降、iPad は iPadOS 13.0 以降（App Store の記載）。iOS の更新や ARKit の導入を求められることがあります</td></tr>
+    <tr><td>Android</td><td><a href="https://play.google.com/store/apps/details?id=com.fologram.android&amp;hl=en&amp;gl=US">Google Play</a></td><td>Android 7.0 以降（Google Play の記載）。ARCore 対応機種は未確認です。Android の更新や ARCore の導入を求められることがあります</td></tr>
+    <tr><td>HoloLens（第1世代）</td><td>—</td><td>現行版（2024.X）は非対応です。レガシー版（2020.X）が必要です</td></tr>
+  </table></div>
+  <ul>
+    <li>モバイル版は、ハンドトラッキングと深度スキャンを除き、HoloLens と同じ画面で表示・配置・操作ができます。</li>
+    <li>ハンドトラッキングは HoloLens 2 と Quest、PIN コードでの接続は Quest のみです（Feature Comparison）。</li>
+    <li>ライセンスはヘッドセット用（HoloLens 2 / Quest）とモバイル用に分かれ、互いに流用できません。</li>
+  </ul>
+  <h3>ネットワーク</h3>
+  <ul>
+    <li>セッションの開始にはインターネット接続が必要です。開始後のデータはデバイス間で直接（peer-to-peer）やり取りされます。公式：「Fologram works best when all devices share the same WiFi connection.」（すべてのデバイスが同じ Wi-Fi につながっているときに最もよく動作します。）</li>
+    <li>2024.X で、接続に必要だったローカルネットワークとファイアウォールの許可が不要になりました。</li>
+  </ul>
+  <p>次の点は未確認です：Apple Silicon Mac への正式な対応（Release Notes に「Silicon Macs」でのインストール不具合の修正があるのみ）、現行版のファイアウォール要件（ポートなど）、インターネットのない場所での接続（Upgrade Guide と Release Notes で記載が異なります）。</p>
+  <p class="src">出典：<a href="https://fologram.com/download">fologram.com/download</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a> ／ <a href="https://docs.fologram.com/d19731141fc648d08681b02e48652abf">Installing Fologram for HoloLens</a> ／ <a href="https://docs.fologram.com/035b43f254f34a5f854aa13d7a0ef7a0">Fologram for Quest</a> ／ <a href="https://docs.fologram.com/69129a631b784521a6281fd4534d82fe">Fologram for Mobile</a> ／ <a href="https://docs.fologram.com/ab4a1cb1e9504494afff2f3befaf0050">Feature Comparison</a> ／ <a href="https://docs.fologram.com/7140452ad4cd4baa99d9a15d3e3578b2">Versions and Updates</a> ／ <a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models</a> ／ <a href="https://docs.fologram.com/0a850caa81fe4b45b66b3faaf390dfdd">Features and Changes</a> ／ <a href="https://docs.fologram.com/8418c2eeb45b415baac588d6460650d8">Upgrade Guide</a> ／ <a href="https://fologram.com/terms">Fologram Terms of Use</a> ／ 各ストアの掲載ページ（2026-10-22 確認）</p>
+
+  <h2 id="account">1. アカウント作成とライセンスの確認</h2>
+  <h3>アカウントの作成</h3>
+  <p><a href="https://app.fologram.com/">https://app.fologram.com/</a> を開き、サインイン方法を選んで登録します。画面の選択肢は <strong>Sign in with Google</strong> / <strong>Sign in with Apple</strong> / <strong>Sign in with Microsoft</strong> / <strong>Sign in with email</strong> です。アカウントは無料です。公式は、Fologram を実際に使う人が日常的に使うメールアドレスでの登録を勧めています（更新・サブスクリプション・請求書の連絡が届くように）。</p>
+  <p>（当方経由でご購入の場合）登録したメールアドレスを当方にお知らせください。当方から Fologram に発注し、Fologram がこのアカウントにライセンスを付与します。</p>
+  <h3>ライセンスの確認</h3>
+  <ul>
+    <li><a href="https://app.fologram.com/account">app.fologram.com/account</a> のダッシュボードで、サブスクリプションの確認と変更ができます。</li>
+    <li>当方経由でご購入いただいたライセンスが、ダッシュボードでどう表示されるかは未確認です。付与のご連絡後に表示が見当たらない場合は、当方までご連絡ください。</li>
+    <li>ライセンスはフローティング方式で、アカウントに紐付けたどのデバイスでも使えます。同時に使うヘッドセット1台につき1シートが必要です。</li>
+  </ul>
+  <h3>デバイスをアカウントに紐付ける（Attach Device）</h3>
+  <ol>
+    <li><a href="https://app.fologram.com/account">app.fologram.com/account</a> にサインインし、<strong>Attach Device</strong> を押します。アカウント固有の API キーを含む QR コードが表示されます。</li>
+    <li>HoloLens 2 またはモバイル端末の電源を入れ、インターネットにつながっていることを確かめます。</li>
+    <li>デバイスでその QR コードを読み取り（HoloLens では表示される再生ボタンを押す）、案内に従って紐付けます。</li>
+    <li>次にモデルをダウンロードするか、セッションに接続したときに、デバイスがアカウントとペアになり、ダッシュボードの紐付け済みデバイスの一覧に表示されます。</li>
+  </ol>
+  <ul>
+    <li>デバイスをアカウントから外すには、support@fologram.com に連絡します（公式）。</li>
+    <li>Quest をアカウントに紐付ける手順は Docs に記載がなく、未確認です（Release Notes に「account attachment via OTP」への対応とあるのみ）。</li>
+  </ul>
+  <p class="src">出典：<a href="https://docs.fologram.com/bb5ab84d1a3b4433a5896b6057be0ee8">Creating a Fologram account</a> ／ <a href="https://app.fologram.com/">app.fologram.com（サインイン画面）</a> ／ <a href="https://docs.fologram.com/a8880e64594043a89bdd7fe8399ed650">Fologram Dashboard</a> ／ <a href="https://docs.fologram.com/d775694a127b45ecb926a0b818bfc433">Managing Subscriptions</a> ／ <a href="https://docs.fologram.com/dbd97d5d8d2a4233b7a5181a49a3e37d">Attaching devices to your Fologram account</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a>（2026-10-22 確認）</p>
+
+  <h2 id="install">2. Rhino プラグインのインストール（Package Manager）</h2>
+  <p>Fologram for Rhino は無料で、Rhino の Package Manager から入れます。Grasshopper 用のコンポーネントも一緒に入ります。Package Manager の利用にはインターネット接続が必要です。</p>
+  <ol>
+    <li>Rhino で <code>PackageManager</code> コマンドを実行するか、<strong>Tools &gt; Package Manager</strong> を開きます。公式ダウンロードページの <strong>LAUNCH RHINO PACKAGE MANAGER</strong> ボタン（リンク先 <code>rhino://package/search?name=Fologram</code>）からも開けます。</li>
+    <li><strong>Online</strong> タブの検索ボックスに <code>Fologram</code> と入力し、一覧から Fologram を選びます。</li>
+    <li>バージョンを選んで <strong>Install</strong> を押します。</li>
+    <li>Rhino を再起動してプラグインを読み込みます。</li>
+    <li>Fologram プラグインが読み込まれたことを確かめ、<code>Fologram</code> コマンドでプラグインのウィンドウを開きます。公式は、このウィンドウを Layers パネルにドッキングしておくことを勧めています。</li>
+  </ol>
+  <ul>
+    <li><strong>以前のバージョンが入っている場合</strong> — Release Notes（2024年2月5日）：「Note that due to a Rhino bug old installs should be removed before installing updates.」（Rhino の不具合のため、更新の前に古いインストールを削除してください。）削除は Package Manager の <strong>Installed</strong> タブで Fologram を選び <strong>Uninstall</strong> を押します。</li>
+    <li>Rhino 8 では、Package Manager で入れたプラグインは新しいバージョンが出ると自動で更新されます（Rhino 8 ヘルプ）。Rhino 7 では <strong>Installed</strong> タブで Fologram を選び <strong>Update</strong> を押して更新します（Rhino 7 ヘルプ）。Quest で使うには最新の Fologram for Rhino が必要で、公式は <code>XRUpdate</code> コマンドでの更新を案内しています。</li>
+    <li>Docs の「Fologram for Rhino」ページにはインストーラーを使う手順（「Just for Me」を選ぶ）が残っていますが、2026-10-22 時点のダウンロードページにインストーラーのリンクはなく、Package Manager へのリンクだけです。</li>
+  </ul>
+  <p class="src">出典：<a href="https://fologram.com/download">fologram.com/download</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino</a> ／ <a href="https://docs.fologram.com/373b89b25537466b8b875a6ccd5122fc">Fologram for Grasshopper</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a> ／ <a href="https://docs.fologram.com/1277d1db432a44f38cda1a7d1b26395b">Getting Started（Quest）</a> ／ <a href="https://docs.mcneel.com/rhino/8/help/en-us/commands/packagemanager.htm">Rhino 8 ヘルプ：PackageManager</a> ／ <a href="https://docs.mcneel.com/rhino/7/help/en-us/commands/packagemanager.htm">Rhino 7 ヘルプ：PackageManager</a> ／ <a href="https://www.rhino3d.com/features/package-manager/">rhino3d.com：Package Manager</a>（2026-10-22 確認）</p>
+
+  <h2 id="connect">3. デバイスとの接続（QR コード）</h2>
+  <p>デバイスに Fologram のアプリを入れておきます（入手先は<a href="#requirements">「0. 対応環境」</a>の表）。デバイスはインターネットにつながっている必要があります。</p>
+  <h3>HoloLens 2・iPhone / iPad・Android</h3>
+  <ol>
+    <li>Rhino で <code>Fologram</code> コマンドを実行してプラグインのウィンドウを開き、<strong>Connect</strong> を押します（または <code>XRStart</code> コマンド）。</li>
+    <li>セッションが始まると、接続用の QR コード（アプリへのリンク）がポップアップで表示されます。</li>
+    <li>デバイスで QR コードを読み取り、コードの上に表示される再生ボタンをタップすると、Fologram が起動してセッションに接続します。先にアプリを起動しておく必要はありません。アプリの起動中に読み取った場合は、再生ボタンの代わりに <strong>Connect</strong> ボタンが表示されるので、それを押します。</li>
+    <li>モデルは目の前に実寸（1:1）で表示されます。面をタップしてからデバイスを向けてモデルの軸を合わせると、おおよその位置と向きに置けます。置き直すには、Fologram のメニューのリセットアイコンをタップします。</li>
+    <li>2台目のデバイスをつなぐには、もう一度 <strong>Connect</strong> を押して QR コードを読み取ります。</li>
+    <li>セッションを終えるには、Rhino で <code>XRStop</code> コマンドを実行します。</li>
+  </ol>
+  <p>アプリを最小化しても、前のセッションに自動で再接続します。QR コードを読み取り直して再参加することもできます。</p>
+  <h3>Meta Quest（PIN コード）</h3>
+  <ol>
+    <li>Rhino で <code>Fologram</code> コマンドを実行し、<strong>Connect</strong> を押します。QR コードの横に PIN コードが表示されます。</li>
+    <li>Quest で Fologram を起動し、4 桁の接続コードを入力して connect を押します。</li>
+    <li>セッションが自動で見つかった場合は、数字キーの代わりにそのセッションのボタンが表示されるので、それをタップします。</li>
+    <li>モデルを置くには、Rhino の原点を置きたい面をコントローラーで指し、トリガーを押したまま x 軸を向けたい方向に向けて、トリガーを離します。</li>
+  </ol>
+  <div class="note">
+    <p>Quest での QR コードの対応は未確認です。Feature Comparison は「QR codes are not currently supported in Fologram for Quest」（Quest では現在 QR コードに非対応）と書いていますが、Release Notes（2026年1月20日、Quest 2024.4.8）には「Added support for using QR codes for Rhino connections, cloud models and markers.」とあります。</p>
+  </div>
+  <p class="src">出典：<a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models</a> ／ <a href="https://docs.fologram.com/c3ee7728ed334a2aaee9c7af95141909">Viewing models in mixed reality</a> ／ <a href="https://docs.fologram.com/5c57b71be9fd46ad9ead000c1e885a81">Locating models</a> ／ <a href="https://docs.fologram.com/1277d1db432a44f38cda1a7d1b26395b">Getting Started（Quest）</a> ／ <a href="https://docs.fologram.com/ab4a1cb1e9504494afff2f3befaf0050">Feature Comparison</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a>（2026-10-22 確認）</p>
+
+  <h2 id="trouble">4. うまく接続できないときの公式の確認点</h2>
+  <h3>QR コードが読み取れない</h3>
+  <p>公式の HoloLens 2 向けの確認点です。HoloLens 2 は QR コードを認識すると緑の枠と再生ボタンを表示します。</p>
+  <ul>
+    <li><strong>コードが小さい</strong> — ヘッドセットをゆっくりコードに近づけます。画面を拡大するか、大きな紙に印刷してコードを大きくします。</li>
+    <li><strong>光っている</strong> — ノート PC の画面に表示している場合は、画面を傾けて映り込みを減らします。モニターの場合は、画面に映り込む外の光を遮ります。</li>
+    <li><strong>暗い</strong> — 照明をつけるか、画面の明るさを上げます。</li>
+    <li><strong>カメラが使用中</strong> — HoloLens のアプリをすべて終了し、デバイスを再起動します。</li>
+    <li><strong>余白がない</strong> — コードの周りに、できるだけ広い白い余白をとります。</li>
+  </ul>
+  <h3>接続できてもモデルが見えない</h3>
+  <ul>
+    <li><strong>接続済みデバイスの一覧で「New」のまま</strong> — <code>XRStop</code> で実行中のセッションを止めてから、接続し直します。</li>
+    <li><strong>「Connected」なのに見えない</strong> — Rhino の原点に 50 × 50 × 50 cm の立方体を作り、表示されるか確かめます。表示されれば、モデルの縮尺と、モデルが原点にあるかを確認します。表示されなければネットワークの問題の可能性があります。PC とデバイスをスマートフォンのホットスポット（テザリング）につなぎ、Rhino を再起動して試します。</li>
+  </ul>
+  <h3>バージョンとネットワーク</h3>
+  <ul>
+    <li><strong>バージョンをそろえる</strong> — 2024.X より前のデバイス用アプリは、2024.X の Fologram for Rhino に接続できません（逆も同様）。Rhino 側とデバイス側を両方 2024.X 以降にします。</li>
+    <li><strong>HoloLens と社内ネットワーク</strong> — 公式：「The HoloLens has known issues verifying security certificates with some enterprise networks.」（HoloLens は一部の企業ネットワークで、セキュリティ証明書の検証に問題があることが知られています。）大きなモデルのストリーミングや多数のデバイスでの共有は帯域を使うため、スマートフォンのホットスポット経由では注意が必要です。</li>
+  </ul>
+  <h3>プラグインが読み込まれない・不具合を報告する</h3>
+  <ul>
+    <li><strong>Error: Plugin ID Already In Use</strong> — 以前のインストールとの競合で起こることがあります。対処手順は公式の <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino</a>（Troubleshooting common installation issues）にあります。</li>
+    <li><strong>Unable to load plugin: Initialization Failed</strong> — 公式は同じページで3つの対処方法を挙げています。</li>
+    <li><strong>不具合の報告</strong> — support@fologram.com に連絡します。サポートからログを求められた場合は、公式の <a href="https://docs.fologram.com/9fcf165f018a47ffb6505bfd1b64776d">Reporting Issues</a> の手順でデバイスと Rhino（<code>XRLogs</code> コマンド）のログを送り、それぞれの Reference ID を添えて連絡します。</li>
+  </ul>
+  <p>当方にご相談の際は Reference ID をお知らせください。</p>
+  <p class="src">出典：<a href="https://docs.fologram.com/99376b122ecc4eee9c609b9e5b0ef0ea">Detecting QR codes</a> ／ <a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models（Troubleshooting）</a> ／ <a href="https://docs.fologram.com/7140452ad4cd4baa99d9a15d3e3578b2">Versions and Updates</a> ／ <a href="https://docs.fologram.com/79039e6059ed46258f0b2708bec9183c">Connecting to Wifi</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino（Troubleshooting）</a> ／ <a href="https://docs.fologram.com/9fcf165f018a47ffb6505bfd1b64776d">Reporting Issues</a>（2026-10-22 確認）</p>
+
+  <footer>© 2026 Kiminori Kobo · <a href="./">Fologram 製品ページへ</a> · <a href="../">トップへ</a><br>Fologram は Fologram Pty Ltd の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
+</main>
+</body>
+</html>
