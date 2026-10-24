@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kiminori Kobo — Japan distribution for software tools</title>
-<meta name="description" content="Kiminori Kobo handles Japanese distribution for independent software tools: Japanese documentation, Japanese-language support, and JPY invoicing for Japanese companies.">
+<title>Kiminori Kobo（きみのり工房）— 海外ソフトウェアの日本向け販売窓口</title>
+<meta name="description" content="海外の小規模ソフトウェアを、日本語の製品情報・導入ガイド・日本語サポート・円建て請求書払い（銀行振込）で日本の法人・個人事業主に提供する販売窓口です。">
 <style>
   :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; }
   @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; } }
@@ -15,64 +15,60 @@
   .tag { color:var(--muted); margin:0 0 40px }
   h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:40px 0 10px }
   p { margin:0 0 14px }
-  ul { padding-left:20px; margin:0 0 14px }
+  ul, ol { padding-left:20px; margin:0 0 14px }
   li { margin:4px 0 }
   a { color:var(--accent) }
-  .row { display:flex; gap:28px; flex-wrap:wrap }
-  .row > div { flex:1 1 280px }
-  .ja { border-top:1px solid var(--line); margin-top:48px; padding-top:28px; color:var(--muted); font-size:15px }
+  .vendors { border-top:1px solid var(--line); margin-top:48px; padding-top:28px; color:var(--muted); font-size:15px }
+  .vendors h2 { margin-top:0 }
   footer { margin-top:56px; color:var(--muted); font-size:14px }
 </style>
 </head>
 <body>
 <main>
-  <h1>Kiminori Kobo</h1>
-  <p class="tag">Japan distribution for independent software tools · Tokyo</p>
+  <h1>Kiminori Kobo（きみのり工房）</h1>
+  <p class="tag">海外の小規模ソフトウェアの日本向け販売窓口 · 東京</p>
 
-  <p>Kiminori Kobo is run by a software engineer based in Tokyo. We help small software vendors sell to Japanese developers and companies by removing the three things that usually stop a purchase in Japan: no Japanese documentation, no Japanese support, and no way to pay by invoice.</p>
+  <p>Kiminori Kobo は、海外の小規模ベンダーが開発するソフトウェアを、日本の法人・個人事業主のお客様に提供しています。日本語の製品情報と導入ガイドを用意し、日本語でサポートします。お支払いは円建ての請求書払い（銀行振込）です。</p>
+  <p>個人のお客様への販売は行っていません。各製品の公式サイトから直接ご購入ください。</p>
 
-  <h2>What we provide</h2>
-  <div class="row">
-    <div>
-      <p><strong>For vendors</strong></p>
-      <ul>
-        <li>Japanese product page, installation guide and FAQ, written and maintained by us</li>
-        <li>First-line support in Japanese; escalation to you only when needed</li>
-        <li>JPY invoicing and bank transfer for Japanese companies, with monthly remittance and reporting</li>
-        <li>Consolidated feedback and bug reports from Japanese users</li>
-      </ul>
-    </div>
-    <div>
-      <p><strong>For Japanese customers</strong></p>
-      <ul>
-        <li>日本語の製品説明・導入手順・FAQ</li>
-        <li>日本語でのサポート窓口</li>
-        <li>請求書払い（銀行振込）での購入</li>
-        <li>複数ライセンスの一括購入</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>Products / 取扱製品</h2>
+  <h2 id="products">取扱製品</h2>
   <!-- 製品を追加するときは <li> を 1 つ足す。各製品は /<slug>/index.html（製品ページ）と /<slug>/setup.html（導入ガイド）の構成にする -->
   <ul class="products">
-    <li><a href="proxyman/">Proxyman</a> — HTTPS debugging proxy for macOS / Windows / Linux（Proxyman LLC）· <span lang="ja">日本語ページ・導入ガイド・円建て請求書</span></li>
-    <li><a href="dehancer/">Dehancer</a> — Film emulation for photo and video（DEHANCER LTD）· <span lang="ja">日本語ページ・導入ガイド・円建て請求書</span></li>
-    <li><a href="fologram/">Fologram</a> — Mixed reality for Rhino / Grasshopper（Fologram Pty Ltd）· <span lang="ja">日本語ページ・導入ガイド・円建て請求書</span></li>
-    <li>Sublime Text / Sublime Merge — <span lang="ja">法人向けライセンスの円建て請求書での購入代行（製品ページなし。お問い合わせください）</span></li>
+    <li><a href="proxyman/">Proxyman</a> — macOS / Windows / Linux 向け HTTPS デバッグプロキシ（開発元 Proxyman LLC）&nbsp;· <a href="proxyman/setup.html">導入ガイド</a></li>
+    <li><a href="dehancer/">Dehancer</a> — 写真・映像向けフィルムエミュレーション（開発元 DEHANCER LTD）&nbsp;· <a href="dehancer/setup.html">導入ガイド</a></li>
+    <li><a href="fologram/">Fologram</a> — Rhino / Grasshopper 向けの MR（複合現実）ツール（開発元 Fologram Pty Ltd）&nbsp;· <a href="fologram/setup.html">導入ガイド</a></li>
+    <li>Sublime Text / Sublime Merge — テキストエディタ / Git クライアント（開発元 Sublime HQ Pty Ltd）&nbsp;· 法人向けライセンスの円建て請求書での購入代行（製品ページはありません。<a href="#contact">お問い合わせ</a>ください）</li>
   </ul>
 
-  <h2>Background</h2>
-  <p>Software engineer, 11 years in web and backend development. Daily user of the kinds of tools we distribute. Code and tooling on <a href="https://github.com/kiminori-kobo">GitHub</a>.</p>
+  <h2>購入の流れ</h2>
+  <ol>
+    <li><strong>お問い合わせ</strong> — 製品、プラン、台数、会社名をメールでお知らせください。</li>
+    <li><strong>円建て見積</strong> — 見積書をお送りします。有効期限は発行日から 2 週間です。</li>
+    <li><strong>前払い（銀行振込）</strong> — 見積額を銀行振込でお支払いください。振込手数料はご負担ください。</li>
+    <li><strong>ライセンス発行</strong> — 入金確認後にライセンスをお渡しします。お渡しの方法は製品ごとに異なり、各製品ページに記載しています。</li>
+    <li><strong>納品書・領収書</strong> — ライセンス発行後に納品書と領収書を PDF でお送りします。</li>
+  </ol>
 
-  <h2>Contact</h2>
-  <p><a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+  <h2>運営者</h2>
+  <p>Kiminori Kobo（きみのり工房）&nbsp;· 東京都 · 個人事業</p>
+  <p>運営者は Web・バックエンド開発 11 年のソフトウェアエンジニアです。コードとツールは <a href="https://github.com/kiminori-kobo">GitHub</a> で公開しています。</p>
 
-  <div class="ja">
-    <p><strong>Kiminori Kobo（きみのり工房）</strong> は、海外の小規模な開発者向けツールの日本向け販売を行っています。日本語の製品情報とサポート、請求書払いに対応します。お問い合わせは上記メールまで。</p>
-  </div>
+  <h2 id="contact">お問い合わせ</h2>
+  <p><a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a>（3 営業日以内に返信します）</p>
 
-  <footer>© 2026 Kiminori Kobo · Sole proprietorship registered in Tokyo, Japan</footer>
+  <section class="vendors" lang="en">
+    <h2>For software vendors</h2>
+    <p>Kiminori Kobo is run by a software engineer based in Tokyo. We help small software vendors sell to Japanese developers and companies by removing the three things that usually stop a purchase in Japan: no Japanese documentation, no Japanese support, and no way to pay by invoice.</p>
+    <ul>
+      <li>Japanese product page, installation guide and FAQ, written and maintained by us</li>
+      <li>First-line support in Japanese; escalation to you only when needed</li>
+      <li>JPY invoicing and bank transfer for Japanese companies, with monthly remittance and reporting</li>
+      <li>Consolidated feedback and bug reports from Japanese users</li>
+    </ul>
+    <p>Contact: <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+  </section>
+
+  <footer>© 2026 Kiminori Kobo · 東京都（個人事業）</footer>
 </main>
 </body>
 </html>
