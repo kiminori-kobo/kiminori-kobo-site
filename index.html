@@ -5,25 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kiminori Kobo（きみのり工房）— 海外ソフトウェアの日本向け販売窓口</title>
 <meta name="description" content="海外の小規模ソフトウェアを、日本語の製品情報・導入ガイド・日本語サポート・円建て請求書払い（銀行振込）で日本の法人・個人事業主に提供する販売窓口です。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.65 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:64px 20px 96px; }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 40px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:40px 0 10px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:20px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent) }
-  .vendors { border-top:1px solid var(--line); margin-top:48px; padding-top:28px; color:var(--muted); font-size:15px }
-  .vendors h2 { margin-top:0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px }
-</style>
+<meta property="og:title" content="Kiminori Kobo（きみのり工房）— 海外ソフトウェアの日本向け販売窓口">
+<meta property="og:description" content="海外の小規模ソフトウェアを、日本語の製品情報・導入ガイド・日本語サポート・円建て請求書払い（銀行振込）で日本の法人・個人事業主に提供する販売窓口です。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="#products">取扱製品</a><a href="#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <h1>Kiminori Kobo（きみのり工房）</h1>
   <p class="tag">海外の小規模ソフトウェアの日本向け販売窓口 · 東京</p>
@@ -39,16 +34,36 @@
   </ul>
 
   <h2 id="products">取扱製品</h2>
-  <!-- 製品を追加するときは <li> を 1 つ足す。各製品は /<slug>/index.html（製品ページ）と /<slug>/setup.html（導入ガイド）の構成にする -->
-  <ul class="products">
-    <li><a href="proxyman/">Proxyman</a> — iOS / Android / Web 開発者向けの HTTPS デバッグプロキシ（macOS / Windows / Linux、開発元 Proxyman LLC）&nbsp;· <a href="proxyman/setup.html">導入ガイド</a></li>
-    <li><a href="dehancer/">Dehancer</a> — 映像制作・カラリスト向けのフィルムエミュレーション（写真・映像用、開発元 DEHANCER LTD）&nbsp;· <a href="dehancer/setup.html">導入ガイド</a></li>
-    <li><a href="fologram/">Fologram</a> — 建築設計・大学向けの、Rhino / Grasshopper で使う MR（複合現実）ツール（開発元 Fologram Pty Ltd）&nbsp;· <a href="fologram/setup.html">導入ガイド</a></li>
-    <li>Sublime Text / Sublime Merge — テキストエディタ / Git クライアント（開発元 Sublime HQ Pty Ltd）&nbsp;· 法人のライセンス一括購入向けに、円建て請求書払いで手配を代行します（製品ページはありません。<a href="#contact">お問い合わせ</a>ください）</li>
-  </ul>
+  <!-- 製品を追加するときは <article class="card"> を 1 つ足す。各製品は /<slug>/index.html（製品ページ）と /<slug>/setup.html（導入ガイド）の構成にする -->
+  <div class="cards">
+    <article class="card">
+      <h3><a href="proxyman/">Proxyman</a></h3>
+      <p>HTTPS デバッグプロキシ（macOS / Windows / Linux、開発元 Proxyman LLC）</p>
+      <p class="for">対象：iOS / Android / Web 開発者</p>
+      <p class="links"><a href="proxyman/">製品ページ</a><a href="proxyman/setup.html">導入ガイド</a></p>
+    </article>
+    <article class="card">
+      <h3><a href="dehancer/">Dehancer</a></h3>
+      <p>フィルムエミュレーション（写真・映像用、開発元 DEHANCER LTD）</p>
+      <p class="for">対象：映像制作・カラリスト</p>
+      <p class="links"><a href="dehancer/">製品ページ</a><a href="dehancer/setup.html">導入ガイド</a></p>
+    </article>
+    <article class="card">
+      <h3><a href="fologram/">Fologram</a></h3>
+      <p>Rhino / Grasshopper で使う MR（複合現実）ツール（開発元 Fologram Pty Ltd）</p>
+      <p class="for">対象：建築設計・大学</p>
+      <p class="links"><a href="fologram/">製品ページ</a><a href="fologram/setup.html">導入ガイド</a></p>
+    </article>
+    <article class="card">
+      <h3>Sublime Text / Sublime Merge</h3>
+      <p>テキストエディタ / Git クライアント（開発元 Sublime HQ Pty Ltd）。円建て請求書払いで手配を代行します。製品ページはありません。</p>
+      <p class="for">対象：法人のライセンス一括購入</p>
+      <p class="links"><a href="#contact">お問い合わせください</a></p>
+    </article>
+  </div>
 
   <h2>購入の流れ</h2>
-  <ol>
+  <ol class="steps">
     <li><strong>お問い合わせ</strong> — 製品、プラン、台数（Sublime Text / Sublime Merge は利用者数）、会社名をメールでお知らせください。</li>
     <li><strong>円建て見積</strong> — 見積書をお送りします。有効期限は発行日から 2 週間です。</li>
     <li><strong>前払い（銀行振込）</strong> — 見積額を銀行振込でお支払いください。振込手数料はご負担ください。</li>
@@ -82,7 +97,12 @@
     <p>Contact: <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
   </section>
 
-  <footer>© 2026 Kiminori Kobo · 東京都（個人事業）</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>
