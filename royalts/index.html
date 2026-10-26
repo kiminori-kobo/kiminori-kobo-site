@@ -6,37 +6,20 @@
 <meta name="robots" content="noindex">
 <title>Royal TS 日本語ページ — Kiminori Kobo</title>
 <meta name="description" content="RDP・SSH・VNC・Web などのリモート接続を 1 つで管理する Royal TS の日本語製品ページ。無料の Shareware Mode、法人向けライセンス（Individual User / Site / Global / Extended Global）の EUR 価格と円の参考価格、円建て請求書での購入の流れ。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
-  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
-  .crumb a { color:var(--muted) }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 32px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
-  h3 { font-size:17px; margin:22px 0 6px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:22px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent); overflow-wrap:anywhere }
-  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
-  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
-  .scroll table { margin:0; min-width:520px }
-  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
-  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
-  th { color:var(--muted); font-weight:600 }
-  td.num, th.num { text-align:right; white-space:nowrap }
-  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
-  .note p:last-child { margin-bottom:0 }
-  .small { font-size:14px; color:var(--muted) }
-  .cta { display:inline-block; border:1px solid var(--accent); border-radius:6px; padding:8px 14px; text-decoration:none; margin:4px 8px 4px 0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
-</style>
+<meta property="og:title" content="Royal TS 日本語ページ — Kiminori Kobo">
+<meta property="og:description" content="RDP・SSH・VNC・Web などのリモート接続を 1 つで管理する Royal TS の日本語製品ページ。無料の Shareware Mode、法人向けライセンス（Individual User / Site / Global / Extended Global）の EUR 価格と円の参考価格、円建て請求書での購入の流れ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/royalts/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › Royal TS</p>
 
@@ -46,7 +29,7 @@
   <!-- ベンダーとの関係の表記はこの1か所にまとめる -->
   <p id="vendor-relationship" class="note">本ページは <strong>Kiminori Kobo（販売窓口）</strong> が運営しています。日本の事業者向けに、Royal TS の法人向けライセンスを円建て請求書でご購入いただけます。</p>
 
-  <p><a class="cta" href="mailto:contact@kiminori-kobo.com?subject=Royal%20TS%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a> <a class="cta" href="setup.html">日本語 導入ガイド</a></p>
+  <p><a class="cta primary" href="mailto:contact@kiminori-kobo.com?subject=Royal%20TS%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a> <a class="cta" href="setup.html">日本語 導入ガイド</a></p>
 
   <h2>Royal TS とは</h2>
   <p>Royal TS は、RDP・SSH・VNC・Web などのリモート接続を 1 つのアプリで管理するツールです。接続の種類には、リモートデスクトップ（Microsoft RDP / FreeRDP ベース）、SSH・Telnet のターミナル、VNC、Web、ファイル転送（FTP / SFTP / SCP）、TeamViewer、VMware、Hyper-V、PowerShell などがあります。接続先と資格情報（credentials）は「ドキュメント」（拡張子 <code>.rtsx</code> のファイル）にまとめて保存し、個人の資格情報を渡さずに接続の一覧だけをチームで共有することもできます（公式：「Share a list of connections, without sharing your personal credentials.」）。</p>
@@ -81,7 +64,7 @@
 
   <h2>料金</h2>
   <p>価格は Royal Apps 公式ストア（Royal Store）の記載です（2026-10-22 確認）。価格は EUR・税抜です（公式：「All prices excluding VAT.」「Reference currency is EUR.」）。円の価格は参考値で、<strong>1 EUR = 177.75 円（三菱UFJ銀行 TTS 179.25 / TTB 176.25 の仲値、2026年10月22日時点）で換算</strong>し、10 円未満を切り捨てています。実際の価格は見積時のレートで確定します。<strong>消費税別</strong>です。</p>
-  <div class="scroll"><table>
+  <div class="scroll" tabindex="0"><table>
     <tr><th>プラン（公式名）</th><th>内容</th><th class="num">公式価格</th><th class="num">円 参考価格</th></tr>
     <tr><td>Individual User License</td><td>1 ユーザー。1 ユーザーにつき最大 10 台にインストール可。保守 1 年</td><td class="num">€49</td><td class="num">8,700 円</td></tr>
     <tr><td>Site License</td><td>1 拠点（同じ住所の事業所）の全従業員。拠点の従業員のリモートアクセスも可。保守 1 年</td><td class="num">€849</td><td class="num">150,900 円</td></tr>
@@ -97,7 +80,7 @@
   <p class="small">出典：<a href="https://www.royalapps.com/ts/win/buy">Royal Store</a> ／ <a href="https://community.royalapps.com/t/licensing-faqs/213">Licensing FAQ</a> ／ <a href="https://community.royalapps.com/t/general-license-terms-eula/212">General License Terms (EULA) 9.a</a>（2026-10-22 確認）／ 為替：<a href="https://www.murc-kawasesouba.jp/fx/index.php">三菱UFJリサーチ＆コンサルティング 外国為替相場</a></p>
 
   <h2>購入の流れ</h2>
-  <ol>
+  <ol class="steps">
     <li><strong>お問い合わせ</strong> — プラン、ユーザー数（Individual User）または拠点数（Site）、会社名、ライセンスを受け取るご担当者のメールアドレスを <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へお送りください。</li>
     <li><strong>見積</strong> — 円建ての見積書をお送りします。<strong>有効期限は発行日から 2 週間</strong>です。</li>
     <li><strong>前払い（銀行振込）</strong> — 見積額を銀行振込でお支払いください。振込手数料はご負担ください。</li>
@@ -128,7 +111,13 @@
   <h2>お問い合わせ</h2>
   <p><a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a>（3 営業日以内に返信します）</p>
 
-  <footer>© 2026 Kiminori Kobo · 東京都（個人事業） · <a href="../">トップへ</a><br>Royal TS・Royal TSX は Royal Apps GmbH の製品です。本ページの製品情報は公式サイト（royalapps.com）の記載に基づき、確認日を併記しています。</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Royal TS・Royal TSX は Royal Apps GmbH の製品です。本ページの製品情報は公式サイト（royalapps.com）の記載に基づき、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>

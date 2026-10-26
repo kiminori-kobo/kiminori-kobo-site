@@ -5,37 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dehancer 日本語ページ — Kiminori Kobo</title>
 <meta name="description" content="フィルムエミュレーション Dehancer の日本語製品ページ。対応ホストの概要、法人向けプラン（Studio / Production / Lifetime）の価格と円の参考価格、円建て請求書での購入の流れ。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
-  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
-  .crumb a { color:var(--muted) }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 32px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
-  h3 { font-size:17px; margin:22px 0 6px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:22px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent); overflow-wrap:anywhere }
-  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
-  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
-  .scroll table { margin:0; min-width:520px }
-  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
-  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
-  th { color:var(--muted); font-weight:600 }
-  td.num, th.num { text-align:right; white-space:nowrap }
-  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
-  .note p:last-child { margin-bottom:0 }
-  .small { font-size:14px; color:var(--muted) }
-  .cta { display:inline-block; border:1px solid var(--accent); border-radius:6px; padding:8px 14px; text-decoration:none; margin:4px 8px 4px 0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
-</style>
+<meta property="og:title" content="Dehancer 日本語ページ — Kiminori Kobo">
+<meta property="og:description" content="フィルムエミュレーション Dehancer の日本語製品ページ。対応ホストの概要、法人向けプラン（Studio / Production / Lifetime）の価格と円の参考価格、円建て請求書での購入の流れ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/dehancer/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › Dehancer</p>
 
@@ -45,7 +28,7 @@
   <!-- ベンダーとの関係の表記はこの1か所にまとめる -->
   <p id="vendor-relationship" class="note">本ページは <strong>Kiminori Kobo（販売窓口）</strong> が運営しています。日本の事業者向けに、Dehancer の法人向けプランを円建て請求書でご購入いただけます。</p>
 
-  <p><a class="cta" href="mailto:contact@kiminori-kobo.com?subject=Dehancer%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a> <a class="cta" href="setup.html">日本語 導入ガイド</a></p>
+  <p><a class="cta primary" href="mailto:contact@kiminori-kobo.com?subject=Dehancer%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a> <a class="cta" href="setup.html">日本語 導入ガイド</a></p>
 
   <h2>Dehancer とは</h2>
   <p>Dehancer は、デジタルの写真や映像にアナログフィルムの見た目を与えるフィルムエミュレーション製品です。実際のフィルムを撮影・現像・プリントして作ったフィルムプロファイル（公式：「60+ Films」）とカメラ Log プロファイル（「130+ Camera Log Profiles」）に加え、グレイン（Film Grain）、ハレーション（Halation）、ブルーム（Bloom）などの効果を、DaVinci Resolve や Photoshop などのホストアプリ上、または単体アプリで使えます。</p>
@@ -67,7 +50,7 @@
   <p>価格は Dehancer 公式料金ページの記載です（2026-10-19 確認）。価格は USD（Dehancer 確認済み）です。円の価格は参考値で、<strong>1 USD = 157.95 円（三菱UFJ銀行 TTS 158.95 / TTB 156.95 の仲値、2026年10月19日時点）で換算</strong>し、10 円未満を切り捨てています。実際の価格は見積時のレートで確定します。<strong>消費税別</strong>です。価格は<strong>ライセンス数（Dehancer では seat＝ワークステーション（端末）1台分）</strong>に応じて決まり、以下では「台」で数えます。</p>
 
   <h3>サブスクリプション</h3>
-  <div class="scroll"><table>
+  <div class="scroll" tabindex="0"><table>
     <tr><th>プラン</th><th>内容（台（seat）数）</th><th class="num">公式価格</th><th class="num">円 参考価格</th></tr>
     <tr><td>Studio（年払い）</td><td>全プラグイン＋Desktop＋iOS＋Online、優先サポート、請求書</td><td class="num">$588 / 台 / 年</td><td class="num">92,870 円 / 台 / 年</td></tr>
     <tr><td>Production（年払い）</td><td>Studio の内容＋オフラインアクティベーション。台数は個別設定</td><td class="num">$2,208 / 台 / 年</td><td class="num">348,750 円 / 台 / 年</td></tr>
@@ -76,7 +59,7 @@
   <p class="small">リセラー経由のサブスクリプションは自動更新されません。期限の1か月前に当方からご案内し、次の期間分の引換コードをお送りします。Production の価格は、料金ページの「1 seat on workstation (device). Custom seats.」という表示に添えられた金額です。公式の申込みは「Contact Us」のため、台数に応じた実際の価格は見積時に確認します。</p>
 
   <h3>Lifetime（買い切り・Studio 版）</h3>
-  <div class="scroll"><table>
+  <div class="scroll" tabindex="0"><table>
     <tr><th>製品</th><th>内容（台（seat）数）</th><th class="num">公式価格</th><th class="num">円 参考価格</th></tr>
     <tr><td>Dehancer Pro for DaVinci Resolve</td><td>2台（ホストごとに1台）、優先サポート、請求書</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
     <tr><td>Dehancer Pro for Adobe Ae, Pr</td><td>同上</td><td class="num">$1,999</td><td class="num">315,740 円</td></tr>
@@ -93,7 +76,7 @@
   <p class="small">出典：<a href="https://www.dehancer.com/pricing/business">Pricing（Business）</a> ／ <a href="https://www.dehancer.com/pricing/lifetime">Pricing（Lifetime）</a> ／ <a href="https://www.dehancer.com/learn/article/license-basics">License Basics</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a> ／ 為替：<a href="https://www.murc-kawasesouba.jp/fx/index.php">三菱UFJリサーチ＆コンサルティング 外国為替相場</a></p>
 
   <h2>購入の流れ</h2>
-  <ol>
+  <ol class="steps">
     <li><strong>お問い合わせ</strong> — プラン、製品、台数、会社名、ご担当者のメールアドレスを <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へお送りください。</li>
     <li><strong>見積</strong> — 円建ての見積書をお送りします。<strong>有効期限は発行日から 2 週間</strong>です。</li>
     <li><strong>前払い（銀行振込）</strong> — 見積額を銀行振込でお支払いください。振込手数料はご負担ください。</li>
@@ -126,7 +109,13 @@
   <h2>お問い合わせ</h2>
   <p><a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a>（3 営業日以内に返信します）</p>
 
-  <footer>© 2026 Kiminori Kobo · 東京都（個人事業） · <a href="../">トップへ</a><br>Dehancer は DEHANCER LTD の製品です。本ページの製品情報は公式サイト（dehancer.com）の記載に基づき、確認日を併記しています。</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Dehancer は DEHANCER LTD の製品です。本ページの製品情報は公式サイト（dehancer.com）の記載に基づき、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>

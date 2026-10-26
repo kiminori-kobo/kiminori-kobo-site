@@ -6,41 +6,20 @@
 <meta name="robots" content="noindex">
 <title>Royal TS 導入ガイド（日本語） — Kiminori Kobo</title>
 <meta name="description" content="Royal TS の日本語導入ガイド。対応環境、MSI でのインストール、ライセンスキーの登録（Options → License）、表示言語の設定、最初のリモートデスクトップ接続の作り方。各手順に公式ページの URL を添付。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
-  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
-  .crumb a { color:var(--muted) }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 32px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
-  h3 { font-size:17px; margin:22px 0 6px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:22px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent); overflow-wrap:anywhere }
-  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
-  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
-  pre code { background:none; padding:0 }
-  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
-  .note p:last-child { margin-bottom:0 }
-  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
-  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
-  .scroll table { margin:0; min-width:520px }
-  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
-  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
-  th { color:var(--muted); font-weight:600 }
-  td.num, th.num { text-align:right; white-space:nowrap }
-  .req td:first-child { min-width:7.5em }
-  .toc { font-size:15px; }
-  .toc ol { margin:0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
-</style>
+<meta property="og:title" content="Royal TS 導入ガイド（日本語） — Kiminori Kobo">
+<meta property="og:description" content="Royal TS の日本語導入ガイド。対応環境、MSI でのインストール、ライセンスキーの登録（Options → License）、表示言語の設定、最初のリモートデスクトップ接続の作り方。各手順に公式ページの URL を添付。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/royalts/setup.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="guide">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Royal TS</a> › 導入ガイド</p>
 
@@ -62,7 +41,7 @@
   </div>
 
   <h2 id="requirements">0. 対応環境</h2>
-  <div class="scroll"><table class="req">
+  <div class="scroll" tabindex="0"><table class="req">
     <tr><th>項目</th><th>Royal TS（Windows）</th><th>Royal TSX（macOS）</th></tr>
     <tr><td>現行バージョン</td><td>7.4（7.04.50922、2026-09-22 公開）</td><td>6.4.5</td></tr>
     <tr><td>対応 OS</td><td>V7 は .NET 10 を同梱しており、要件は基本的に .NET 10 と同じです（公式 KB）。Microsoft の .NET 10 対応表では、Windows 11（26H1 / 25H2 / 24H2。23H2 は Enterprise / Education のみ）、Windows 10（LTSC / Enterprise のみ）、Windows Server 2012〜2025</td><td>macOS 11 Big Sur 以降（それより前の macOS では動作しない）。公式の対応一覧は macOS 11 Big Sur〜macOS 27 Golden Gate。macOS のベータ版は原則サポート外</td></tr>
@@ -129,7 +108,14 @@
   </ol>
   <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/getting-started/your-first-connection.html">Your First Connection</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/getting-started/documents-and-files.html">Documents and Files</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/getting-started/connections.html">Connections</a>（2026-10-22 確認）</p>
 
-  <footer>© 2026 Kiminori Kobo · <a href="./">Royal TS 製品ページへ</a> · <a href="../">トップへ</a><br>Royal TS・Royal TSX は Royal Apps GmbH の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Royal TS・Royal TSX は Royal Apps GmbH の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</p>
+    <p><a href="./">Royal TS 製品ページへ</a></p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -5,40 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fologram 導入ガイド（日本語） — Kiminori Kobo</title>
 <meta name="description" content="Fologram の日本語導入ガイド。対応する Rhino・デバイス・ネットワーク、app.fologram.com でのアカウント作成とデバイスの紐付け、Rhino の Package Manager でのプラグインのインストール、QR コード・PIN コードでの接続、接続できないときの公式の確認点。各手順に公式ページの URL を添付。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
-  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
-  .crumb a { color:var(--muted) }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 32px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
-  h3 { font-size:17px; margin:22px 0 6px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:22px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent); overflow-wrap:anywhere }
-  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
-  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
-  pre code { background:none; padding:0 }
-  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
-  .note p:last-child { margin-bottom:0 }
-  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
-  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
-  .scroll table { margin:0; min-width:520px }
-  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
-  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
-  th { color:var(--muted); font-weight:600 }
-  td.num, th.num { text-align:right; white-space:nowrap }
-  .toc { font-size:15px; }
-  .toc ol { margin:0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
-</style>
+<meta property="og:title" content="Fologram 導入ガイド（日本語） — Kiminori Kobo">
+<meta property="og:description" content="Fologram の日本語導入ガイド。対応する Rhino・デバイス・ネットワーク、app.fologram.com でのアカウント作成とデバイスの紐付け、Rhino の Package Manager でのプラグインのインストール、QR コード・PIN コードでの接続、接続できないときの公式の確認点。各手順に公式ページの URL を添付。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/fologram/setup.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="guide">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Fologram</a> › 導入ガイド</p>
 
@@ -65,7 +45,7 @@
     <li><strong>Rhino 7 以降、Windows / Mac。</strong> 公式ダウンロードページ：「Free to download and install with the Rhino Package Manager for Rhino 7 or above.」「Fologram for Rhino (Win and Mac)」。プラグインは無料で、Grasshopper 用のコンポーネントも一緒に入ります。</li>
   </ul>
   <h3>デバイス</h3>
-  <div class="scroll"><table>
+  <div class="scroll" tabindex="0"><table>
     <tr><th>デバイス</th><th>アプリの入手先</th><th>要件・備考</th></tr>
     <tr><td>HoloLens 2</td><td><a href="https://apps.microsoft.com/detail/9nn9sjwh9qc1">Microsoft Store</a></td><td>Store 版では research mode を使う機能（深度スキャン、ライブ点群）は使えません。これらを使う場合は App Installer でのインストールが必要です</td></tr>
     <tr><td>Meta Quest</td><td><a href="https://www.meta.com/en-gb/experiences/fologram/3728318473914995/">Meta Store（App Lab）</a></td><td>公式サイトと Docs の表記は Quest 3 と Quest Pro です。Meta Store の掲載には Quest 2・Quest 3S も対応機種として載っています。Quest 2・Quest 3S での動作は未確認です</td></tr>
@@ -178,7 +158,14 @@
   <p>当方にご相談の際は Reference ID をお知らせください。</p>
   <p class="src">出典：<a href="https://docs.fologram.com/99376b122ecc4eee9c609b9e5b0ef0ea">Detecting QR codes</a> ／ <a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models（Troubleshooting）</a> ／ <a href="https://docs.fologram.com/7140452ad4cd4baa99d9a15d3e3578b2">Versions and Updates</a> ／ <a href="https://docs.fologram.com/79039e6059ed46258f0b2708bec9183c">Connecting to Wifi</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino（Troubleshooting）</a> ／ <a href="https://docs.fologram.com/9fcf165f018a47ffb6505bfd1b64776d">Reporting Issues</a>（2026-10-22 確認）</p>
 
-  <footer>© 2026 Kiminori Kobo · <a href="./">Fologram 製品ページへ</a> · <a href="../">トップへ</a><br>Fologram は Fologram Pty Ltd の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Fologram は Fologram Pty Ltd の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</p>
+    <p><a href="./">Fologram 製品ページへ</a></p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>

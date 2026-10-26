@@ -5,40 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dehancer 導入ガイド（日本語） — Kiminori Kobo</title>
 <meta name="description" content="Dehancer の日本語導入ガイド。対応 OS・GPU 要件、引換コードとライセンスの移転による有効化、DaVinci Resolve・Premiere Pro / After Effects・Photoshop / Lightroom・Desktop へのインストール、プロファイルの取得、日本語 Windows での Profile Fetcher Error、ライセンスの解除と移転。各手順に公式ページの URL を添付。">
-<style>
-  :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e58; --line:#e5e2da; --accent:#1f4e79; --soft:#f1efe9; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#141413; --fg:#ecebe6; --muted:#a09e95; --line:#2c2b28; --accent:#8fb6dc; --soft:#1e1e1c; } }
-  * { box-sizing:border-box }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.75 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:48px 20px 96px; }
-  .crumb { font-size:14px; color:var(--muted); margin:0 0 28px }
-  .crumb a { color:var(--muted) }
-  h1 { font-size:28px; margin:0 0 6px; letter-spacing:-0.01em }
-  .tag { color:var(--muted); margin:0 0 32px }
-  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:44px 0 10px }
-  h3 { font-size:17px; margin:22px 0 6px }
-  p { margin:0 0 14px }
-  ul, ol { padding-left:22px; margin:0 0 14px }
-  li { margin:4px 0 }
-  a { color:var(--accent); overflow-wrap:anywhere }
-  code { font:0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere }
-  pre { background:var(--soft); padding:10px 14px; border-radius:6px; overflow-x:auto; font-size:14px; line-height:1.5; margin:8px 0 14px }
-  pre code { background:none; padding:0 }
-  .note { background:var(--soft); border-left:3px solid var(--accent); padding:10px 14px; margin:14px 0; font-size:15px }
-  .note p:last-child { margin-bottom:0 }
-  .src { font-size:14px; color:var(--muted); margin:6px 0 18px }
-  .scroll { overflow-x:auto; margin:8px 0 14px; -webkit-overflow-scrolling:touch }
-  .scroll table { margin:0; min-width:520px }
-  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:15px }
-  th, td { text-align:left; vertical-align:top; padding:8px 8px; border-bottom:1px solid var(--line) }
-  th { color:var(--muted); font-weight:600 }
-  td.num, th.num { text-align:right; white-space:nowrap }
-  .toc { font-size:15px; }
-  .toc ol { margin:0 }
-  footer { margin-top:56px; color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:20px }
-</style>
+<meta property="og:title" content="Dehancer 導入ガイド（日本語） — Kiminori Kobo">
+<meta property="og:description" content="Dehancer の日本語導入ガイド。対応 OS・GPU 要件、引換コードとライセンスの移転による有効化、DaVinci Resolve・Premiere Pro / After Effects・Photoshop / Lightroom・Desktop へのインストール、プロファイルの取得、日本語 Windows での Profile Fetcher Error、ライセンスの解除と移転。各手順に公式ページの URL を添付。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/dehancer/setup.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="guide">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
 <main>
   <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Dehancer</a> › 導入ガイド</p>
 
@@ -64,7 +44,7 @@
 
   <h2 id="requirements">0. 対応環境</h2>
   <p>対応 OS・ホストのバージョン・GPU 要件は、公式システム要件ページの記載です。Vegas Pro はシステム要件ページに記載がないため、Download Center で配布されているインストーラの OS だけを書いています。</p>
-  <div class="scroll"><table>
+  <div class="scroll" tabindex="0"><table>
     <tr><th>提供形態</th><th>Windows</th><th>macOS ほか</th></tr>
     <tr><td>DaVinci Resolve（OFX プラグイン）</td><td>Windows 10 / 11（64 bit）、DaVinci Resolve 18 以降。「PC with Nvidia or AMD GPU」「CUDA or OpenCL compatible GPU」</td><td>macOS 13 Ventura 以降、DaVinci Resolve 19 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS 8/9、Ubuntu 20.04/22.04）、DaVinci Resolve 18 以降</td></tr>
     <tr><td>Premiere Pro / After Effects</td><td>Windows 10 / 11（64 bit）、Premiere Pro 2022 以降、After Effects 2021 以降。Nvidia または AMD の GPU（CUDA / OpenCL）</td><td>macOS 13 Ventura 以降、Metal 対応 GPU</td></tr>
@@ -212,7 +192,14 @@
   </div>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics（Transferring license to another account）</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation（Plugin Deactivation）</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル（Uninstall）</a> ／ <a href="https://dehancer-v2.cdn.prismic.io/dehancer-v2/aalWEFxvIZEnjWQ__ToSDehancer20260305en.pdf">Terms of Service（PDF）</a>（2026-10-19 確認）</p>
 
-  <footer>© 2026 Kiminori Kobo · <a href="./">Dehancer 製品ページへ</a> · <a href="../">トップへ</a><br>Dehancer は DEHANCER LTD の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</footer>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Dehancer は DEHANCER LTD の製品です。本ガイドは公式サイトの記事に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</p>
+    <p><a href="./">Dehancer 製品ページへ</a></p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
 </body>
 </html>
