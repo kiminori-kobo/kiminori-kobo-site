@@ -23,7 +23,7 @@
   <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Proxyman</a> › 導入ガイド</p>
 
   <h1>Proxyman 導入ガイド</h1>
-  <p class="tag">インストールから実機・スクリプトの通信捕捉まで · 公式ドキュメント確認日 2026-10-19</p>
+  <p class="tag">インストールから実機・スクリプトの通信捕捉まで · 公式ドキュメント確認日 2026-10-19（ライセンスの節は 2026-10-28）</p>
 
   <div class="note">
     <p>本ガイドは Proxyman 公式ドキュメント（docs.proxyman.com）の内容を日本語で整理したものです。各手順に公式ページの URL を添えています。メニュー名は公式の英語表記のまま書いています（アプリに日本語 UI はありません）。公式に記載がなく当方が補った手順には「一般的な手順」と付けています。</p>
@@ -33,6 +33,7 @@
     <ol start="0">
       <li><a href="#requirements">対応 OS</a></li>
       <li><a href="#install">インストール（Mac / Windows）</a></li>
+      <li><a href="#license">ライセンスの有効化</a></li>
       <li><a href="#cert">証明書の導入</a></li>
       <li><a href="#ssl">SSL Proxying の有効化</a></li>
       <li><a href="#ios">iOS 実機の設定</a></li>
@@ -71,7 +72,40 @@
   </ol>
   <p class="src">出典：<a href="https://proxyman.com/download">Download</a> ／ <a href="https://github.com/ProxymanApp/proxyman-windows-linux">GitHub README（Windows / Linux）</a> ／ <a href="https://proxyman.com/changelog-windows">Windows 版 Changelog</a></p>
 
-  <h2 id="cert">2. 証明書の導入</h2>
+  <h2 id="license">2. ライセンスの有効化</h2>
+  <p>当方からメールでお送りしたライセンスキーを、アプリに入力して有効化します。</p>
+
+  <h3>Mac / Windows / Linux</h3>
+  <ol>
+    <li>Proxyman を起動し、<strong>Proxyman Menu → Buy Proxyman Pro</strong> を開きます。</li>
+    <li><strong>Activate License</strong> ボタンを押し、ライセンスキーを入力します。</li>
+  </ol>
+  <p class="small">メニュー項目の名前は、公式の中でも表記が分かれています（有効化の手順では「Buy Proxyman Pro」、解除の手順では「Proxyman Pro…」、購入完了画面の案内では「Register License」）。ボタン名「Activate License」は、公式ドキュメントと公式スクリーンショット（macOS 版）で一致しています。Windows / Linux 版の画面は未確認です。</p>
+  <p>macOS ではコマンドでも有効化できます。アプリを /Applications に置き、1 回起動して終了してから実行します：<code>/Applications/Proxyman.app/Contents/MacOS/proxyman-cli activate &lt;ライセンスキー&gt;</code></p>
+
+  <h3>iOS / Android アプリ（Personal・Team のみ）</h3>
+  <p>料金ページの比較表では、iOS / Android アプリは Personal と Team に含まれ、Standard には含まれません（ドキュメントの License ページにはプラン別の記載がありません）。</p>
+  <ul>
+    <li><strong>iOS</strong>：App Store から Proxyman for iOS を入れ、<strong>More</strong> タブ → <strong>Face ID &amp; Passcode</strong> → <strong>Unlock</strong> → ライセンスキーを入力します。</li>
+    <li><strong>Android</strong>：Google Play から Proxyman for Android を入れ、<strong>More</strong> タブ → <strong>Proxyman PRO</strong> → 一番下までスクロール → <strong>Unlock with desktop key</strong> → ライセンスキーを入力します。</li>
+  </ul>
+  <p class="small">1 シートで使えるモバイル端末の台数は、公式の記載が分かれています（ドキュメントは「1 seat can be activated on 2 iOS devices」、料金ページは「1 license seat can activate 1 iOS or Android device」）。Personal は料金ページで「up to 2 iOS or Android devices」です。</p>
+
+  <h3>台数と端末の入れ替え</h3>
+  <ul>
+    <li>同時に有効化できる台数は、Standard が 1 台、Personal が 2 台、Team が 1 シートにつき 1 台です（Mac・Windows・Linux のどれでも）。</li>
+    <li>PC を入れ替えるときは、古い端末で解除してから新しい端末で有効化します。macOS では <strong>Proxyman Menu → Proxyman Pro… → More → Revoke this Device…</strong> で解除します。Windows / Linux 版のアプリ内での解除方法は未確認です。</li>
+    <li>License Manager（<a href="https://proxyman.com/license-manager/access-link">https://proxyman.com/license-manager/access-link</a>）でも解除できます。購入時のメールアドレスを入れて <strong>Send Access Link</strong> を押し、届いたリンク（7 日で失効）を開いて端末を削除します。ライセンスの登録メールアドレスが当方のままの場合、リンクは当方に届くので、端末の削除は当方にご依頼ください。</li>
+  </ul>
+
+  <h3>有効化できないとき</h3>
+  <ul>
+    <li>社内プロキシがあると、ライセンスサーバーに届かず有効化できないことがあります。<strong>Tools → Proxy Settings → External Proxy Settings…</strong> で <strong>Enable External Proxy Tool</strong> にチェックを入れ、HTTP と HTTPS に社内プロキシのホストとポートを入れます。社内プロキシに認証がある場合は、ユーザー名とパスワードも入力します。そのあと、もう一度有効化します。公式の対応バージョンの記載は「macOS 5.5.0 以降」と「4.12.0 以降」の 2 通りあり、Windows / Linux で使えるかは未確認です。</li>
+    <li>解決しない場合は <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> にご連絡ください。Proxyman のサポート（support@proxyman.com）へ英語で取り次ぎます。</li>
+  </ul>
+  <p class="src">出典：<a href="https://proxyman.com/docs/license">License</a>（日本語版 <a href="https://proxyman.com/docs/ja/license">ライセンス</a>）／ <a href="https://proxyman.com/pricing">Pricing</a> ／ <a href="https://proxyman.com/android">Proxyman for Android</a> ／ <a href="https://proxyman.com/license-manager/access-link">License Manager</a>（2026-10-28 確認）</p>
+
+  <h2 id="cert">3. 証明書の導入</h2>
   <p>HTTPS を復号するには、Proxyman が生成するルート証明書（Proxyman CA）を PC に入れて信頼させる必要があります。公式によれば、この証明書はお使いの PC 上で生成される自己署名証明書で、個人データを保存・送信することはありません。</p>
 
   <h3>Mac（Automatic Mode・推奨）</h3>
@@ -93,7 +127,7 @@
   <p>管理者権限がなくスクリプトを実行できない場合（Manual Mode）：Proxyman を終了 → <code>C:\Users\&lt;ユーザー名&gt;\AppData\Roaming\Proxyman\certificate\certs\ca.cer</code> を開く → Install Certificate → <strong>Current User</strong> → <strong>Place all certificates in the following store</strong> でストアを選ぶ（信頼されたルート証明機関） → Next → Finish → YES。</p>
   <p class="src">出典：<a href="https://docs.proxyman.com/proxyman-windows/install-certificate">Install Certificate on Windows</a></p>
 
-  <h2 id="ssl">3. SSL Proxying の有効化</h2>
+  <h2 id="ssl">4. SSL Proxying の有効化</h2>
   <p>証明書を入れただけでは HTTPS は復号されません。復号したいドメインごとに SSL Proxying を有効にします。</p>
   <ol>
     <li>ブラウザなどで対象の HTTPS サイトに一度アクセスし、Proxyman の左パネルにドメインを表示させる</li>
@@ -107,8 +141,8 @@
   </ul>
   <p class="src">出典：<a href="https://docs.proxyman.com/basic-features/ssl-proxying">SSL Proxying</a></p>
 
-  <h2 id="ios">4. iOS 実機の設定</h2>
-  <p>前提：iPhone / iPad と PC が同じネットワークにあり、PC で Proxyman が起動していること。PC 側の証明書（第 2 節）を先に入れておきます。</p>
+  <h2 id="ios">5. iOS 実機の設定</h2>
+  <p>前提：iPhone / iPad と PC が同じネットワークにあり、PC で Proxyman が起動していること。PC 側の証明書（第 3 節）を先に入れておきます。</p>
   <ol>
     <li>Proxyman の <strong>Certificate</strong> メニュー → <strong>Install Certificate on iOS → Physical Devices...</strong> でガイドを開く</li>
     <li>iOS の「設定」→「Wi-Fi」→ 接続中のネットワーク → HTTP プロキシを「手動」にし、サーバに <strong>PC の IP アドレス</strong>、ポートに <strong>9090</strong>（Proxyman の既定ポート。アプリの表示で確認）、認証はオフ</li>
@@ -116,7 +150,7 @@
     <li>Safari（プライベートタブ）で <code>http://proxy.man/ssl</code> または <code>http://cert.proxyman.io</code> を開き、プロファイルをダウンロードする。開けない場合は Wi-Fi に再接続し、Proxyman が起動しているか確認する</li>
     <li>「設定」→「プロファイルがダウンロード済み」→ Proxyman CA → インストール（iOS 12.2 以降）</li>
     <li>「設定」→「一般」→「情報」→ <strong>証明書信頼設定（Certificate Trust Settings）</strong> で Proxyman CA をオンにする。プロファイルを入れただけでは信頼されません</li>
-    <li>PC 側で対象ドメインの SSL Proxying を有効にし（第 3 節）、端末で通信して確認する</li>
+    <li>PC 側で対象ドメインの SSL Proxying を有効にし（第 4 節）、端末で通信して確認する</li>
   </ol>
   <ul>
     <li>Flutter 製アプリはシステムプロキシを使わないため、アプリ側の HTTP クライアントにプロキシを設定する必要があります（公式）。</li>
@@ -124,9 +158,9 @@
   </ul>
   <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/ios-device">iOS Device</a></p>
 
-  <h2 id="android">5. Android 実機の設定</h2>
+  <h2 id="android">6. Android 実機の設定</h2>
   <ol>
-    <li>Proxyman の <strong>Certificate</strong> メニュー → <strong>Install Certificate on Android → Device</strong> でガイドを開く。PC 側の証明書（第 2 節）を先に入れておく</li>
+    <li>Proxyman の <strong>Certificate</strong> メニュー → <strong>Install Certificate on Android → Device</strong> でガイドを開く。PC 側の証明書（第 3 節）を先に入れておく</li>
     <li>Android の「設定」→ Wi-Fi → 接続中のネットワーク → プロキシを「手動」にし、ホストに <strong>PC の IP アドレス</strong>、ポートに <strong>9090</strong>、認証なし</li>
     <li>端末のブラウザで <code>http://proxy.man/ssl</code> または <code>http://cert.proxyman.io</code> を開いて証明書を入手する
       <ul>
@@ -144,7 +178,7 @@
   </ul>
   <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/android-device">Android Device</a></p>
 
-  <h2 id="scripts">6. Node.js / Python の通信を通す</h2>
+  <h2 id="scripts">7. Node.js / Python の通信を通す</h2>
 
   <h3>Automatic Setup（推奨・macOS）</h3>
   <p>Proxyman v4.7.0 以降には、プロキシと証明書の設定済みターミナルを開く機能があります。<strong>Setup</strong> メニュー → <strong>Automatic Setup</strong> → <strong>Open New Terminal</strong> で開いたターミナルからスクリプトやサーバーを起動すると、その通信が Proxyman に表示されます。</p>
@@ -165,7 +199,7 @@
 export REQUESTS_CA_BUNDLE=~/.proxyman/proxyman-ca.pem</code></pre>
   <p class="src">出典：<a href="https://docs.proxyman.com/debug-devices/nodejs">NodeJS</a> ／ <a href="https://docs.proxyman.com/debug-devices/python">Python</a></p>
 
-  <h2 id="trouble">7. よくあるトラブル</h2>
+  <h2 id="trouble">8. よくあるトラブル</h2>
   <p>公式ドキュメントの Troubleshooting 節にある項目です（2026-10-19 時点）。症状に合うページをご覧ください。解決しない場合は <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へ日本語でご連絡ください。必要に応じて Proxyman のサポートへ取り次ぎます。</p>
   <div class="scroll" tabindex="0"><table>
     <tr><th>症状</th><th>公式ページ</th></tr>
@@ -185,7 +219,7 @@ export REQUESTS_CA_BUNDLE=~/.proxyman/proxyman-ca.pem</code></pre>
   </table></div>
   <p class="src">出典：<a href="https://docs.proxyman.com/troubleshooting">Troubleshooting（一覧）</a></p>
 
-  <h2 id="cleanup">8. 使い終わったら（証明書の削除）</h2>
+  <h2 id="cleanup">9. 使い終わったら（証明書の削除）</h2>
   <ul>
     <li>Mac：<strong>Certificate</strong> メニュー → <strong>Reset all Certificates</strong> → Mac のパスワードを入力。公式は、Proxyman を使わなくなったらキーチェーンから Proxyman の証明書を削除するよう注意しています（証明書を持つ者が Mac の通信を傍受できるため）。</li>
     <li>iOS / Android：端末に入れた Proxyman CA を削除し、Wi-Fi のプロキシ設定を元に戻す。</li>
