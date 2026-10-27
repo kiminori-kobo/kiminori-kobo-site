@@ -32,7 +32,7 @@
   <div class="toc">
     <ol start="0">
       <li><a href="#requirements">対応環境</a></li>
-      <li><a href="#activate">有効化（引換コード／ライセンスの移転）</a></li>
+      <li><a href="#activate">有効化（引換コード／ライセンスの移転／DPLS）</a></li>
       <li><a href="#install">各ホストへのインストール</a></li>
       <li><a href="#profiles">初回のプロファイル取得</a></li>
       <li><a href="#fetcher">日本語 Windows での「Profile Fetcher Error」</a></li>
@@ -63,14 +63,19 @@
   </div>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/system-requirements">System Requirements</a> ／ <a href="https://www.dehancer.com/downloads">Download Center</a>（<a href="https://www.dehancer.com/downloads/baselight/pro/current">Baselight</a>・<a href="https://www.dehancer.com/downloads/assimilate/pro/current">Assimilate SCRATCH</a>・<a href="https://www.dehancer.com/downloads/vegas/pro/current">Vegas Pro</a>）（2026-10-20 確認）／ <a href="https://www.dehancer.com/shop/online">Dehancer Online</a>（2026-10-19 確認）</p>
 
-  <h2 id="activate">1. 有効化（引換コード／ライセンスの移転）</h2>
-  <p>サブスクリプションは<strong>引換コード</strong>で、Lifetime は<strong>ライセンスの移転（Transfer License）</strong>でお渡しします。</p>
+  <h2 id="activate">1. 有効化（引換コード／ライセンスの移転／DPLS）</h2>
+  <p>サブスクリプションは<strong>引換コード</strong>で、Lifetime は<strong>ライセンスの移転（Transfer License）</strong>でお渡しします。Production プランは社内の<a href="#dpls">ライセンスサーバー（DPLS）</a>で有効化します。</p>
   <h3>サブスクリプション：引換コード</h3>
   <ol>
     <li><strong>Dehancer アカウントを作る</strong> — <a href="https://www.dehancer.com/">dehancer.com</a> の「Log In」からアカウントを登録します。アカウントの User Profile には「License Management」欄があり、購入したライセンスはここに表示されます（License Basics）。</li>
-    <li><strong>引換コードを入力する</strong> — ログインした状態で <a href="https://www.dehancer.com/redeem">https://www.dehancer.com/redeem</a> を開き、当方からお送りした引換コードを入力して <strong>Validate</strong> を押します。</li>
+    <li><strong>引換コードを確かめる</strong> — <a href="https://www.dehancer.com/redeem">https://www.dehancer.com/redeem</a> を開き、「Enter code」の欄に当方からお送りした引換コードを貼り付けて <strong>Validate</strong> を押します。サブスクリプションの内容（名前、Expires または Renews の日付、Total seats など）が表示されます。</li>
+    <li><strong>アカウントに登録する</strong> — <strong>Redeem Code</strong> を押すと、コードが Dehancer アカウントに登録され、User Profile のライセンス一覧（Your Licenses）に移ります。ログインしていないと「To have it issued to your account, either Login or Sign up.」と表示されるので、<strong>Login</strong>（アカウントがなければ <strong>Sign up</strong>）を押します。ログイン後はコードの入った引換ページに戻ります。<strong>Redeem Code</strong> が出ていなければ、もう一度 <strong>Validate</strong> を押してください。</li>
     <li><strong>ホストアプリで有効化する</strong>（下記の「Login and select License」）。</li>
   </ol>
+  <ul>
+    <li>コードに問題があると、次のように表示されます：「This Subscription Code is invalid or doesn't exist.」（無効）、「This Subscription Code has expired and can no longer be redeemed.」（期限切れ）、「This Subscription Code has already been redeemed.」（引換済み）。このときは当方にご連絡ください。</li>
+    <li>引換の手順を説明した公式の記事はありません。上の手順は、引換ページ（dehancer.com/redeem）の表示とボタンの名前から整理しました（2026-10-28 確認）。画面が違っていたら当方にお知らせください。</li>
+  </ul>
   <p>リセラー経由のサブスクリプションは自動更新されません。期限の1か月前に当方からご案内し、次の期間分の引換コードをお送りします。</p>
   <h3>Lifetime：ライセンスの移転（Transfer License）</h3>
   <ol>
@@ -78,9 +83,9 @@
     <li><strong>当方がライセンスを移転する</strong> — 当方の Dehancer アカウントに発行されたライセンスを、Transfer License でお客様のアカウントへ移転します。移転後、ライセンスはお客様の User Profile の License Management に表示され、新しいアクティベーションキーがお知らせいただいたメールアドレスに届きます（License Basics）。</li>
     <li><strong>ホストアプリで有効化する</strong>（下記の「Login and select License」、または届いたキーを「Enter License Key」で入力）。</li>
   </ol>
-  <h3>ホストアプリでの有効化（共通）</h3>
+  <h3>ホストアプリでの有効化（Studio・Lifetime）</h3>
   <ol>
-    <li><strong>Login and select License</strong>（サブスクリプション・Lifetime 共通）
+    <li><strong>Login and select License</strong>（Studio のサブスクリプション・Lifetime 共通。Production は<a href="#dpls">下記の DPLS</a>）
       <ul>
         <li>DaVinci Resolve・Ae / Pr・Final Cut Pro：プラグイン画面の下部にある Options の <strong>License info</strong> を押す → License ウィジェットで <strong>Login and select License</strong> → Dehancer アカウントでログイン → 一覧から seat を選び <strong>Activate plugin</strong> → ウィジェットを閉じて再起動。</li>
         <li>Photoshop・Lightroom・Capture One・Affinity：プラグインの Settings（歯車アイコン）→ <strong>Activate Dehancer</strong> → 以降は同じ。</li>
@@ -89,12 +94,29 @@
     </li>
   </ol>
   <ul>
-    <li>有効化にはインターネット接続が必要です（Production プランのオフラインアクティベーションを除く）。</li>
-    <li>サブスクリプションの有効化にはライセンスキーは不要で、「Login and select License」を使います（公式 FAQ：「You don't need a License key to activate a Subscription.」）。Lifetime は、購入時のメールに記載のアクティベーションキーを「Enter License Key」で入力する方法も使えます。</li>
+    <li>有効化にはインターネット接続が必要です（Production プランの <a href="#dpls">DPLS</a> を除く）。</li>
+    <li>Studio のサブスクリプションの有効化にはライセンスキーは不要で、「Login and select License」を使います（公式 FAQ：「You don't need a License key to activate a Subscription.」）。Lifetime は、購入時のメールに記載のアクティベーションキーを「Enter License Key」で入力する方法も使えます。</li>
     <li>サブスクリプションの有効化には最新版の製品が必要です（公式：「may not work with legacy versions」）。</li>
     <li>Windows で「Plugin activation has been rejected: client is not registered」などのエラーが出たら、<code>C:\Users\&lt;ユーザー名&gt;\AppData\Local\dehancer</code> の <code>com.dehancer.film_pro.v7</code> フォルダ内の preferences ファイルを削除して、もう一度有効化します（DaVinci Resolve FAQ）。</li>
   </ul>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+
+  <h3 id="dpls">Production プラン：社内のライセンスサーバー（DPLS）</h3>
+  <p>Production プランは、社内ネットワークに置く Dehancer Production License Server（DPLS）で各ワークステーションを有効化します。インターネットから切り離した環境（air-gapped）でも使えます。サーバーの準備は貴社の管理者が行います。</p>
+  <ol>
+    <li><strong>サーバーを用意する</strong> — DPLS は単体で動くサーバーのプログラムで、対応は Linux（x86_64 / aarch64。Debian 推奨）と macOS（Intel / Apple Silicon）です。公式は「a VM with 512MB ram would be sufficient」としています。Windows は対応一覧にありません。</li>
+    <li><strong>DPLS を入手して展開する</strong> — 公式記事にはプラットフォームごとのアーカイブ名（例：<code>dpls_linux-x64-baseline_&lt;version&gt;.tar.xz</code>）が載っていますが、入手先のリンクはありません。入手先は当方から Dehancer に確認してご案内します。</li>
+    <li><strong>起動する</strong> — root 以外のユーザーで、データディレクトリを指定して起動します（例：<code>/srv/dpls/dpls --datadir /srv/dpls/data</code>）。既定ではポート 9899 で待ち受けます。公式は <code>--host</code> に 0.0.0.0 ではなく LAN 内のアドレスを指定するよう勧めています。常駐させる設定例（Linux は systemd、macOS は launchd）は公式記事にあります。</li>
+    <li><strong>初期設定</strong> — ブラウザで <code>http://&lt;サーバーのアドレス&gt;:9899</code> を開き、最初の画面で管理者のユーザー名とパスワードを作って、Production License キーを貼り付けます。キーの検証はオフラインで行われます。設定が終わると、ワークステーションに入力する DPLS の URL が表示されます。</li>
+    <li><strong>各ワークステーションで有効化する</strong> — 最新のプラグインを入れ、ライセンス画面で <strong>Production License</strong> タブを選び、DPLS の URL（例：<code>http://192.168.0.1:9899</code>）を入れて <strong>Login</strong> を押します。終わったらウィジェットを閉じてホストアプリを再起動します。Film Profiles は DPLS から自動で取得されます。air-gapped の環境では、有効化の前にインターネットからプロファイルを取得しないでください（公式の注意）。</li>
+  </ol>
+  <ul>
+    <li>ワークステーションから DPLS のアドレスとポートに接続できる必要があります。公式に書かれているネットワークの条件はこれだけで、ファイアウォールの設定例はありません。</li>
+    <li>DPLS の管理画面では、有効化したワークステーションの一覧と名前の変更、Production License キーの差し替えができます。席を空ける操作は公式に記載がなく、未確認です。</li>
+    <li>Production License キーの受け取り方（当方からお送りするか、Dehancer から届くか）は未確認です。ご注文時にご案内します。</li>
+    <li>Baselight は、付属のコマンドラインの activator でも有効化できます：<code>activator dpls &lt;DPLS の URL&gt;</code>。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/offline-license-activation">Offline License Activation（DPLS）</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/pricing/business">Pricing（Business）</a>（2026-10-28 確認）</p>
 
   <h2 id="install">2. 各ホストへのインストール</h2>
   <p>どの製品も、製品ページで OS を選んで <strong>Download &amp; Try</strong> を押すか、<a href="https://www.dehancer.com/downloads">Download Center</a> で Host と Product を選んで <strong>Show</strong> を押して入手します。以下は Windows の手順です。</p>
