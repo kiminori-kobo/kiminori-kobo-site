@@ -26,7 +26,7 @@
   <p class="tag">対応環境・アカウント・インストール・接続・トラブル対応 · 公式ページ確認日 2026-10-22</p>
 
   <div class="note">
-    <p>本ガイドは Fologram 公式サイト（fologram.com）と公式ドキュメント（docs.fologram.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名・コマンド名は公式の英語表記のまま書いています。公式に記載がなく確認できなかった点や、公式ページ同士で記載が食い違う点は「未確認」と書いています。</p>
+    <p>本ガイドは Fologram 公式サイト（fologram.com）と公式ドキュメント（docs.fologram.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名・コマンド名は公式の英語表記のまま書いています。</p>
   </div>
 
   <div class="toc">
@@ -42,15 +42,15 @@
   <h2 id="requirements">0. 対応環境</h2>
   <h3>PC（Rhino）</h3>
   <ul>
-    <li><strong>Rhino 7 以降、Windows / Mac。</strong> 公式ダウンロードページ：「Free to download and install with the Rhino Package Manager for Rhino 7 or above.」「Fologram for Rhino (Win and Mac)」。プラグインは無料で、Grasshopper 用のコンポーネントも一緒に入ります。</li>
+    <li><strong>Rhino 7 以降、Windows / Mac。</strong> プラグインは無料で、Rhino の Package Manager から入れます。Grasshopper 用のコンポーネントも一緒に入ります。</li>
   </ul>
   <h3>デバイス</h3>
   <div class="scroll" tabindex="0"><table>
     <tr><th>デバイス</th><th>アプリの入手先</th><th>要件・備考</th></tr>
     <tr><td>HoloLens 2</td><td><a href="https://apps.microsoft.com/detail/9nn9sjwh9qc1">Microsoft Store</a></td><td>Store 版では research mode を使う機能（深度スキャン、ライブ点群）は使えません。これらを使う場合は App Installer でのインストールが必要です</td></tr>
-    <tr><td>Meta Quest</td><td><a href="https://www.meta.com/en-gb/experiences/fologram/3728318473914995/">Meta Store（App Lab）</a></td><td>公式サイトと Docs の表記は Quest 3 と Quest Pro です。Meta Store の掲載には Quest 2・Quest 3S も対応機種として載っています。Quest 2・Quest 3S での動作は未確認です</td></tr>
-    <tr><td>iPhone / iPad</td><td><a href="https://apps.apple.com/us/app/fologram/id1445114984">App Store</a></td><td>iPhone は iOS 13.0 以降、iPad は iPadOS 13.0 以降（App Store の記載）。iOS の更新や ARKit の導入を求められることがあります</td></tr>
-    <tr><td>Android</td><td><a href="https://play.google.com/store/apps/details?id=com.fologram.android&amp;hl=en&amp;gl=US">Google Play</a></td><td>Android 7.0 以降（Google Play の記載）。ARCore 対応機種は未確認です。Android の更新や ARCore の導入を求められることがあります</td></tr>
+    <tr><td>Meta Quest</td><td><a href="https://www.meta.com/en-gb/experiences/fologram/3728318473914995/">Meta Store（App Lab）</a></td><td>Quest 3 と Quest Pro に対応しています。Quest 2・Quest 3S は、14 日間の無料トライアルで動作をご確認ください</td></tr>
+    <tr><td>iPhone / iPad</td><td><a href="https://apps.apple.com/us/app/fologram/id1445114984">App Store</a></td><td>iPhone は iOS 13.0 以降、iPad は iPadOS 13.0 以降。iOS の更新や ARKit の導入を求められることがあります</td></tr>
+    <tr><td>Android</td><td><a href="https://play.google.com/store/apps/details?id=com.fologram.android&amp;hl=en&amp;gl=US">Google Play</a></td><td>Android 7.0 以降。Android の更新や ARCore の導入を求められることがあります</td></tr>
     <tr><td>HoloLens（第1世代）</td><td>—</td><td>現行版（2024.X）は非対応です。レガシー版（2020.X）が必要です</td></tr>
   </table></div>
   <ul>
@@ -60,10 +60,10 @@
   </ul>
   <h3>ネットワーク</h3>
   <ul>
-    <li>セッションの開始にはインターネット接続が必要です。開始後のデータはデバイス間で直接（peer-to-peer）やり取りされます。公式：「Fologram works best when all devices share the same WiFi connection.」（すべてのデバイスが同じ Wi-Fi につながっているときに最もよく動作します。）</li>
+    <li>セッションの開始にはインターネット接続が必要です。開始後のデータはデバイス間で直接（peer-to-peer）やり取りされます。すべてのデバイスを同じ Wi-Fi につなぐと、最もよく動作します。</li>
     <li>2024.X で、接続に必要だったローカルネットワークとファイアウォールの許可が不要になりました。</li>
   </ul>
-  <p>次の点は未確認です：Apple Silicon Mac への正式な対応（Release Notes に「Silicon Macs」でのインストール不具合の修正があるのみ）、現行版のファイアウォール要件（ポートなど）、インターネットのない場所での接続（Upgrade Guide と Release Notes で記載が異なります）。</p>
+  <p>Apple Silicon 搭載の Mac での動作と、インターネットのない場所での接続は、14 日間の無料トライアルでご確認ください。現行版で必要なファイアウォールの設定（ポートなど）は、お見積時にご案内します。</p>
   <p class="src">出典：<a href="https://fologram.com/download">fologram.com/download</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a> ／ <a href="https://docs.fologram.com/d19731141fc648d08681b02e48652abf">Installing Fologram for HoloLens</a> ／ <a href="https://docs.fologram.com/035b43f254f34a5f854aa13d7a0ef7a0">Fologram for Quest</a> ／ <a href="https://docs.fologram.com/69129a631b784521a6281fd4534d82fe">Fologram for Mobile</a> ／ <a href="https://docs.fologram.com/ab4a1cb1e9504494afff2f3befaf0050">Feature Comparison</a> ／ <a href="https://docs.fologram.com/7140452ad4cd4baa99d9a15d3e3578b2">Versions and Updates</a> ／ <a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models</a> ／ <a href="https://docs.fologram.com/0a850caa81fe4b45b66b3faaf390dfdd">Features and Changes</a> ／ <a href="https://docs.fologram.com/8418c2eeb45b415baac588d6460650d8">Upgrade Guide</a> ／ <a href="https://fologram.com/docs/terms-of-use.html">Fologram Terms of Use</a> ／ 各ストアの掲載ページ（2026-10-22 確認）</p>
 
   <h2 id="account">1. アカウント作成とライセンスの確認</h2>
@@ -73,7 +73,7 @@
   <h3>ライセンスの確認</h3>
   <ul>
     <li><a href="https://app.fologram.com/account">app.fologram.com/account</a> のダッシュボードで、サブスクリプションの確認と変更ができます。</li>
-    <li>当方経由でご購入いただいたライセンスが、ダッシュボードでどう表示されるかは未確認です。付与のご連絡後に表示が見当たらない場合は、当方までご連絡ください。</li>
+    <li>付与のご連絡後に、ダッシュボードにライセンスが見当たらない場合は、当方までご連絡ください。</li>
     <li>ライセンスはフローティング方式で、アカウントに紐付けたどのデバイスでも使えます。同時に使うヘッドセット1台につき1シートが必要です。</li>
   </ul>
   <h3>デバイスをアカウントに紐付ける（Attach Device）</h3>
@@ -84,8 +84,8 @@
     <li>次にモデルをダウンロードするか、セッションに接続したときに、デバイスがアカウントとペアになり、ダッシュボードの紐付け済みデバイスの一覧に表示されます。</li>
   </ol>
   <ul>
-    <li>デバイスをアカウントから外すには、support@fologram.com に連絡します（公式）。</li>
-    <li>Quest をアカウントに紐付ける手順は Docs に記載がなく、未確認です（Release Notes に「account attachment via OTP」への対応とあるのみ）。</li>
+    <li>デバイスをアカウントから外すには、support@fologram.com に連絡します。</li>
+    <li>Quest をアカウントに紐付ける手順は、お見積時にご案内します。</li>
   </ul>
   <p class="src">出典：<a href="https://docs.fologram.com/bb5ab84d1a3b4433a5896b6057be0ee8">Creating a Fologram account</a> ／ <a href="https://app.fologram.com/">app.fologram.com（サインイン画面）</a> ／ <a href="https://docs.fologram.com/a8880e64594043a89bdd7fe8399ed650">Fologram Dashboard</a> ／ <a href="https://docs.fologram.com/d775694a127b45ecb926a0b818bfc433">Managing Subscriptions</a> ／ <a href="https://docs.fologram.com/dbd97d5d8d2a4233b7a5181a49a3e37d">Attaching devices to your Fologram account</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a>（2026-10-22 確認）</p>
 
@@ -99,9 +99,8 @@
     <li>Fologram プラグインが読み込まれたことを確かめ、<code>Fologram</code> コマンドでプラグインのウィンドウを開きます。公式は、このウィンドウを Layers パネルにドッキングしておくことを勧めています。</li>
   </ol>
   <ul>
-    <li><strong>以前のバージョンが入っている場合</strong> — Release Notes（2024年2月5日）：「Note that due to a Rhino bug old installs should be removed before installing updates.」（Rhino の不具合のため、更新の前に古いインストールを削除してください。）削除は Package Manager の <strong>Installed</strong> タブで Fologram を選び <strong>Uninstall</strong> を押します。</li>
+    <li><strong>以前のバージョンが入っている場合</strong> — Rhino の不具合のため、更新の前に古いバージョンを削除してください。削除は Package Manager の <strong>Installed</strong> タブで Fologram を選び <strong>Uninstall</strong> を押します。</li>
     <li>Rhino 8 では、Package Manager で入れたプラグインは新しいバージョンが出ると自動で更新されます（Rhino 8 ヘルプ）。Rhino 7 では <strong>Installed</strong> タブで Fologram を選び <strong>Update</strong> を押して更新します（Rhino 7 ヘルプ）。Quest で使うには最新の Fologram for Rhino が必要で、公式は <code>XRUpdate</code> コマンドでの更新を案内しています。</li>
-    <li>Docs の「Fologram for Rhino」ページにはインストーラーを使う手順（「Just for Me」を選ぶ）が残っていますが、2026-10-22 時点のダウンロードページにインストーラーのリンクはなく、Package Manager へのリンクだけです。</li>
   </ul>
   <p class="src">出典：<a href="https://fologram.com/download">fologram.com/download</a> ／ <a href="https://docs.fologram.com/06a14a21e33a4406ba047ad84e03c53b">Fologram for Rhino</a> ／ <a href="https://docs.fologram.com/373b89b25537466b8b875a6ccd5122fc">Fologram for Grasshopper</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a> ／ <a href="https://docs.fologram.com/1277d1db432a44f38cda1a7d1b26395b">Getting Started（Quest）</a> ／ <a href="https://docs.mcneel.com/rhino/8/help/en-us/commands/packagemanager.htm">Rhino 8 ヘルプ：PackageManager</a> ／ <a href="https://docs.mcneel.com/rhino/7/help/en-us/commands/packagemanager.htm">Rhino 7 ヘルプ：PackageManager</a> ／ <a href="https://www.rhino3d.com/features/package-manager/">rhino3d.com：Package Manager</a>（2026-10-22 確認）</p>
 
@@ -124,9 +123,7 @@
     <li>セッションが自動で見つかった場合は、数字キーの代わりにそのセッションのボタンが表示されるので、それをタップします。</li>
     <li>モデルを置くには、Rhino の原点を置きたい面をコントローラーで指し、トリガーを押したまま x 軸を向けたい方向に向けて、トリガーを離します。</li>
   </ol>
-  <div class="note">
-    <p>Quest での QR コードの対応は未確認です。Feature Comparison は「QR codes are not currently supported in Fologram for Quest」（Quest では現在 QR コードに非対応）と書いていますが、Release Notes（2026年1月20日、Quest 2024.4.8）には「Added support for using QR codes for Rhino connections, cloud models and markers.」とあります。</p>
-  </div>
+  <p>Quest で QR コード（接続やモデルの配置）が使えるかは、お見積時にご案内します。</p>
   <p class="src">出典：<a href="https://docs.fologram.com/071697d0778a49589367eaa6e22d8846">Connecting and Streaming Models</a> ／ <a href="https://docs.fologram.com/c3ee7728ed334a2aaee9c7af95141909">Viewing models in mixed reality</a> ／ <a href="https://docs.fologram.com/5c57b71be9fd46ad9ead000c1e885a81">Locating models</a> ／ <a href="https://docs.fologram.com/1277d1db432a44f38cda1a7d1b26395b">Getting Started（Quest）</a> ／ <a href="https://docs.fologram.com/ab4a1cb1e9504494afff2f3befaf0050">Feature Comparison</a> ／ <a href="https://docs.fologram.com/d02bb5a24efa4547bacd2f58783b7da4">Release Notes</a>（2026-10-22 確認）</p>
 
   <h2 id="trouble">4. うまく接続できないときの公式の確認点</h2>
@@ -147,7 +144,7 @@
   <h3>バージョンとネットワーク</h3>
   <ul>
     <li><strong>バージョンをそろえる</strong> — 2024.X より前のデバイス用アプリは、2024.X の Fologram for Rhino に接続できません（逆も同様）。Rhino 側とデバイス側を両方 2024.X 以降にします。</li>
-    <li><strong>HoloLens と社内ネットワーク</strong> — 公式：「The HoloLens has known issues verifying security certificates with some enterprise networks.」（HoloLens は一部の企業ネットワークで、セキュリティ証明書の検証に問題があることが知られています。）大きなモデルのストリーミングや多数のデバイスでの共有は帯域を使うため、スマートフォンのホットスポット経由では注意が必要です。</li>
+    <li><strong>HoloLens と社内ネットワーク</strong> — HoloLens は、一部の企業ネットワークでセキュリティ証明書の検証に問題が起きることが知られています。大きなモデルのストリーミングや多数のデバイスでの共有は帯域を使うため、スマートフォンのホットスポット経由では注意が必要です。</li>
   </ul>
   <h3>プラグインが読み込まれない・不具合を報告する</h3>
   <ul>

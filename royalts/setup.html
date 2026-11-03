@@ -27,7 +27,7 @@
   <p class="tag">対応環境・インストール・ライセンス登録・表示言語・最初の接続 · 公式ページ確認日 2026-10-22</p>
 
   <div class="note">
-    <p>本ガイドは Royal Apps 公式のドキュメント（docs.royalapps.com）とナレッジベース（community.royalapps.com）を日本語で整理したものです。各項に公式ページの URL を添えています。手順は Windows 版 Royal TS（V7）のもので、Mac 版 Royal TSX は対応環境とインストールだけを載せています。メニュー名・ボタン名は公式の英語表記のまま書いています。公式に記載がなく確認できなかった点は「未確認」と書いています。</p>
+    <p>本ガイドは Royal Apps 公式のドキュメント（docs.royalapps.com）とナレッジベース（community.royalapps.com）を日本語で整理したものです。各項に公式ページの URL を添えています。手順は Windows 版 Royal TS（V7）のもので、Mac 版 Royal TSX は対応環境とインストールだけを載せています。メニュー名・ボタン名は公式の英語表記のまま書いています。</p>
   </div>
 
   <div class="toc">
@@ -35,7 +35,7 @@
       <li><a href="#requirements">対応環境</a></li>
       <li><a href="#install">インストール</a></li>
       <li><a href="#license">ライセンスキーの登録</a></li>
-      <li><a href="#language">日本語 UI への切替（日本語は未確認）</a></li>
+      <li><a href="#language">表示言語の設定</a></li>
       <li><a href="#first-connection">最初の接続を作る</a></li>
     </ol>
   </div>
@@ -44,20 +44,20 @@
   <div class="scroll" tabindex="0"><table class="req">
     <tr><th>項目</th><th>Royal TS（Windows）</th><th>Royal TSX（macOS）</th></tr>
     <tr><td>現行バージョン</td><td>7.4（7.04.50922、2026-09-22 公開）</td><td>6.4.5</td></tr>
-    <tr><td>対応 OS</td><td>V7 は .NET 10 を同梱しており、要件は基本的に .NET 10 と同じです（公式 KB）。Microsoft の .NET 10 対応表では、Windows 11（26H1 / 25H2 / 24H2。23H2 は Enterprise / Education のみ）、Windows 10（LTSC / Enterprise のみ）、Windows Server 2012〜2025</td><td>macOS 11 Big Sur 以降（それより前の macOS では動作しない）。公式の対応一覧は macOS 11 Big Sur〜macOS 27 Golden Gate。macOS のベータ版は原則サポート外</td></tr>
-    <tr><td>CPU</td><td>x64、ARM64（Windows 11 on ARM64 でネイティブ動作）。32 bit（x86）は V6 から公式サポート外</td><td>未確認</td></tr>
+    <tr><td>対応 OS</td><td>V7 は .NET 10 を同梱しており、要件は基本的に .NET 10 と同じです。.NET 10 の対応 OS は、Windows 11（26H1 / 25H2 / 24H2。23H2 は Enterprise / Education のみ）、Windows 10（LTSC / Enterprise のみ）、Windows Server 2012〜2025</td><td>macOS 11 Big Sur 以降（それより前の macOS では動作しない）。公式の対応一覧は macOS 11 Big Sur〜macOS 27 Golden Gate。macOS のベータ版は原則サポート外</td></tr>
+    <tr><td>CPU</td><td>x64、ARM64（Windows 11 on ARM64 でネイティブ動作）。32 bit（x86）は V6 から公式サポート外</td><td>お見積時にご案内します</td></tr>
     <tr><td>公式の動作テスト環境</td><td>Windows 10 Client（22H2）、Windows Server 2016 / 2019</td><td>—</td></tr>
     <tr><td>配布形式</td><td>MSI（x64 / ARM64）、ZIP（x64 / ARM64）</td><td>DMG</td></tr>
   </table></div>
   <div class="note">
-    <p>Windows 10 の Home / Pro が正式な対応環境かは未確認です。Royal Apps の KB は「Windows 10 Client (22H2)」でテストしていると書いていますが、Microsoft の .NET 10 対応表は Windows 10 を LTSC と Enterprise エディションに限っています。</p>
+    <p>Windows 10 の Home / Pro でお使いの場合は、購入前に無料の Shareware Mode で動作をご確認ください。</p>
   </div>
   <p class="src">出典：<a href="https://community.royalapps.com/t/system-requirements-for-royal-ts-for-windows/233">System Requirements for Royal TS (for Windows)</a> ／ <a href="https://learn.microsoft.com/en-us/dotnet/core/install/windows#supported-versions">Microsoft：.NET 10 の対応 OS</a> ／ <a href="https://community.royalapps.com/t/royal-tsx-system-requirements/240">Royal TSX System Requirements</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a> ／ <a href="https://www.royalapps.com/ts/win/download">Downloads</a>（2026-10-22 確認）</p>
 
   <h2 id="install">1. インストール</h2>
   <h3>Windows（Royal TS）</h3>
   <ol>
-    <li>公式の <a href="https://www.royalapps.com/ts/win/download">Downloads</a> ページで、Royal TS for Windows の <strong>Download now</strong> を押します。x64 版の MSI がダウンロードされます（2026-10-22 時点は <code>royaltsinstaller_7.04.50922.0_x64.msi</code>）。ARM64 版と ZIP 版は、同じ欄の <strong>Other Downloads</strong>（公式 KB「<a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a>」）にあり、各ファイルの sha256 も載っています。</li>
+    <li>公式の <a href="https://www.royalapps.com/ts/win/download">Downloads</a> ページで、Royal TS for Windows の <strong>Download now</strong> を押します。x64 版の MSI がダウンロードされます（現行の 7.4 では <code>royaltsinstaller_7.04.50922.0_x64.msi</code>）。ARM64 版と ZIP 版は、同じ欄の <strong>Other Downloads</strong>（公式 KB「<a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a>」）にあり、各ファイルの sha256 も載っています。</li>
     <li>ダウンロードした .msi ファイルをダブルクリックし、画面の指示に従ってインストールします。</li>
   </ol>
   <ul>
@@ -65,7 +65,6 @@
     <li>複数の PC に画面なしでインストールする場合は、<code>msiexec /i [path-to-RoyalTSInstaller.msi] /qn</code> を使えます（公式 KB）。</li>
     <li>ZIP 版を使う場合は、展開したファイルのブロックを解除します。公式 KB の例：<code>dir '.\RoyalTS\' -Recurse | Unblock-File</code>（PowerShell）。</li>
     <li>アンインストールは、Control Panel → Programs and Features → Royal TS → Uninstall（Windows のバージョンにより表記が異なります）。</li>
-    <li>Microsoft Store・winget での配布は、公式 KB とドキュメントに記載がないため、本ガイドでは扱いません。</li>
   </ul>
   <h3>Mac（Royal TSX）</h3>
   <ol>
@@ -75,26 +74,26 @@
   <p class="src">出典：<a href="https://community.royalapps.com/t/install-and-uninstall-instructions/222">Install and Uninstall Instructions</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a> ／ <a href="https://community.royalapps.com/t/deploy-and-register-royal-ts-on-multiple-computers/265">Deploy and Register Royal TS on Multiple Computers</a> ／ <a href="https://community.royalapps.com/t/make-royal-ts-portable/262">Make Royal TS Portable</a> ／ <a href="https://www.royalapps.com/ts/win/download">Downloads</a>（2026-10-22 確認）</p>
 
   <h2 id="license">2. ライセンスキーの登録</h2>
-  <p>当方経由でご購入の場合、ライセンス情報（「Licensed To」と「License Key」）の届き先（お客様に直接メールが届くか、当方からお送りするか）は、見積書に記載します（<a href="../terms/#art6">販売約款 第6条1</a>）。お客様に直接届く場合に備え、fastspring.com と royalapps.com からのメールを受信できるようにしておいてください（公式 Licensing FAQ の案内）。</p>
+  <p>当方経由でご購入の場合、ライセンス情報（「Licensed To」と「License Key」）の届き先（お客様に直接メールが届くか、当方からお送りするか）は、見積書に記載します（<a href="../terms/#art6">販売約款 第6条1</a>）。お客様に直接届く場合に備え、fastspring.com と royalapps.com からのメールを受信できるようにしておいてください。</p>
   <ol>
     <li>リボンの <strong>File</strong> タブを押し、表示された画面（backstage view）で <strong>Options</strong> を押します（<strong>View</strong> タブの <strong>Options</strong> からも開けます）。</li>
     <li>Options の <strong>License</strong> ページを開きます。</li>
-    <li><strong>License Information</strong> の <strong>Licensed to</strong> と <strong>License Key</strong> に、メールの記載を<strong>そのまま正確に</strong>入力します（公式：「Enter the exact "Licensed To" text from the email」「Enter the exact "License Key" text from the email」）。</li>
+    <li><strong>License Information</strong> の <strong>Licensed to</strong> と <strong>License Key</strong> に、メールの記載を<strong>そのまま正確に</strong>入力します。</li>
   </ol>
   <ul>
     <li>ライセンスキーを入力すると、Shareware Mode の制限（接続 10 件・資格情報 10 件・ドキュメント 1 つ）がなくなります。</li>
     <li>同じページの <strong>Reset License</strong> を押すと、ライセンスがリセットされ Shareware Mode に戻ります。</li>
   </ul>
   <div class="note">
-    <p>上の手順は V7 の公式ドキュメントによります。V7.4 の実際の画面の表示は未確認です。公式 KB「Deploy and Register Royal TS on Multiple Computers」には「Help - About - License dialog」という別の手順が載っていますが、本ガイドでは V7 のドキュメント（Options → License）の手順を採っています。</p>
+    <p>画面の表示が上の手順と違う場合は、<strong>Help</strong> → <strong>About</strong> の <strong>License</strong> ダイアログもお試しください。それでも見つからない場合は、<a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> までお問い合わせください。</p>
   </div>
   <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/reference/options.html">Options（Open the Options Dialog、License）</a> ／ <a href="https://community.royalapps.com/t/licensing-faqs/213">Licensing FAQ</a> ／ <a href="https://docs.royalapps.com/r2023/royalts/introduction/what-is-royal-ts.html">What is Royal TS</a>（2026-10-22 確認）</p>
 
-  <h2 id="language">3. 日本語 UI への切替（日本語は未確認）</h2>
+  <h2 id="language">3. 表示言語の設定</h2>
   <p>表示言語は、Options の <strong>User Interface</strong> ページ → <strong>General</strong> → <strong>Language</strong> で選びます（Options の開き方は<a href="#license">「2. ライセンスキーの登録」</a>の手順 1）。</p>
   <div class="note">
-    <p><strong>公式の注記：</strong>「Languages other than English are supported by the community. Translations may be incomplete or inaccurate.」（英語以外の言語はコミュニティによる翻訳で、不完全または不正確な場合があります。）</p>
-    <p><strong>日本語を選べるかは未確認です。</strong> 公式ドキュメントには選べる言語の一覧がありません。参考までに、公式の配布 ZIP（7.04.50922 x64）に含まれる翻訳ファイルは da / de / en / es / fr / it / nl / pl / pt / ru / zh-Hans の 11 言語分で、日本語（ja）は含まれていません。日本語が選べない場合は English のままお使いください。本ガイドのメニュー名も英語表記です。</p>
+    <p>英語以外の言語はコミュニティによる翻訳で、不完全または不正確な場合があります。</p>
+    <p>日本語 UI を選べるかは、お見積時にご案内します。公式の配布 ZIP（7.04.50922 x64）に含まれる翻訳ファイルは da / de / en / es / fr / it / nl / pl / pt / ru / zh-Hans の 11 言語分で、日本語（ja）は含まれていません。日本語が選べない場合は English のままお使いください。本ガイドのメニュー名も英語表記です。</p>
   </div>
   <p class="src">出典：<a href="https://docs.royalapps.com/r2023/royalts/reference/options.html#language">Options（User Interface → General → Language）</a> ／ <a href="https://community.royalapps.com/t/royal-ts-v7-previous-versions/238">Royal TS V7 Previous Versions</a>（ZIP の配布元）（2026-10-22 確認）</p>
 

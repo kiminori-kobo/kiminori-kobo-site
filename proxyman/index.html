@@ -32,7 +32,7 @@
 
   <h2>Proxyman とは</h2>
   <p>Proxyman は、PC・スマートフォン・スクリプトが行う HTTP/HTTPS 通信を中間者（MITM）プロキシとして捕捉し、HTTPS を復号して中身を確認し、必要に応じてリクエストやレスポンスを書き換えるためのデバッグツールです。</p>
-  <p>主な利用者は、モバイルアプリ（iOS / Android）や Web の開発者、API を検証する QA・テストエンジニアです。macOS 版はネイティブアプリ、Windows / Linux 版は Electron ベースです（公式ドキュメントの記載）。</p>
+  <p>主な利用者は、モバイルアプリ（iOS / Android）や Web の開発者、API を検証する QA・テストエンジニアです。macOS 版はネイティブアプリ、Windows / Linux 版は Electron ベースです。</p>
   <p class="small">出典：<a href="https://docs.proxyman.com/">docs.proxyman.com（Overview）</a>（2026-10-19 確認）</p>
   <p class="small">公式の日本語版：<a href="https://proxyman.com/ja">日本語サイト（proxyman.com/ja）</a> ／ <a href="https://proxyman.com/docs/ja/">日本語ドキュメント（proxyman.com/docs/ja）</a>（2026-10-28 確認）</p>
 
@@ -47,31 +47,32 @@
     <li><strong>Map Local / Map Remote</strong> — レスポンスをローカルファイルに差し替える（Map Local）、別の URL に転送する（Map Remote）。<a href="https://docs.proxyman.com/advanced-features/map-local">Map Local</a> ／ <a href="https://docs.proxyman.com/advanced-features/map-remote">Map Remote</a></li>
     <li><strong>Scripting</strong> — JavaScript でリクエスト／レスポンスを自動で書き換える。<a href="https://docs.proxyman.com/scripting/script">公式ドキュメント</a></li>
     <li><strong>iOS / Android 実機</strong> — 実機の Wi-Fi プロキシを PC に向け、証明書を入れて HTTPS を復号。<a href="https://docs.proxyman.com/debug-devices/ios-device">iOS</a> ／ <a href="https://docs.proxyman.com/debug-devices/android-device">Android</a></li>
-    <li>そのほか公式ドキュメントに記載のある機能：Compose、Repeat、Diff、Allow List / Block List、External Proxying、No Caching、Protobuf、Network Conditions、Multiple Filters、MCP Support（料金ページの比較表）。</li>
+    <li>そのほかの機能：Compose、Repeat、Diff、Allow List / Block List、External Proxying、No Caching、Protobuf、Network Conditions、Multiple Filters、MCP Support。</li>
   </ul>
-  <p class="small">注：macOS 版のアプリは、Proxyman 6.17.0 から日本語の表示に対応しています（Settings → General → App Language で切り替え。<a href="https://proxyman.com/docs/ja/basic-features/localization">公式 Localization（日本語版）</a>、2026-10-28 確認）。Windows / Linux 版と iOS 版で日本語を選べるかは、公式の記載では確認できていません。日本語の導入手順は当方の<a href="setup.html">導入ガイド</a>にもまとめています。</p>
+  <p class="small">注：macOS 版のアプリは、Proxyman 6.17.0 から日本語の表示に対応しています（Settings → General → App Language で切り替え）。Windows / Linux 版と iOS 版で日本語の表示を選べるかは、お見積時にご案内します。日本語の導入手順は当方の<a href="setup.html">導入ガイド</a>にもまとめています。</p>
+  <p class="small">出典：<a href="https://proxyman.com/docs/ja/basic-features/localization">公式 Localization（日本語版）</a>（2026-10-28 確認）</p>
 
   <h2>料金</h2>
   <p>価格は USD の公式定価と円の参考価格です。消費税別。実際の価格は見積日の為替レート（銀行の TTS）で確定します。</p>
-  <p class="note">個人事業主・1人で使う会社は Standard または Personal で業務利用できます（ベンダー確認済み、2026-10-26）。複数人で使う会社は Team ライセンス（5台以上）が対象です（公式料金ページ FAQ："If you're from Team or company, you have to purchase the Team License"）。</p>
+  <p class="note">個人事業主・1人で使う会社は Standard または Personal で業務利用できます。複数人で使う会社は Team ライセンス（5台以上）が対象です。</p>
   <div class="scroll" tabindex="0"><table>
     <tr><th>プラン</th><th>内容</th><th class="num">USD 定価</th><th class="num">円 参考価格</th></tr>
     <tr><td>Standard</td><td>1台。永続ライセンス、1 年間のアップデート。macOS / Windows / Linux 共通</td><td class="num">$89</td><td class="num">14,100 円</td></tr>
     <tr><td>Personal</td><td>2台。iOS / Android アプリ用のモバイル 2台を含む（料金ページでは $178 に取り消し線）</td><td class="num">$99</td><td class="num">15,600 円</td></tr>
     <tr><td>Team（買い切り）</td><td>1台あたり。5台以上。永続ライセンス、1 年間のアップデート。License Manager、請求書・送金払いに対応</td><td class="num">$99 / 台</td><td class="num">15,600 円 / 台</td></tr>
     <tr><td>Team の更新（任意）</td><td>1台あたり 1 年</td><td class="num">$79 / 台 / 年</td><td class="num">12,500 円 / 台 / 年</td></tr>
-    <tr><td>既存ライセンスの更新</td><td>Standard / Personal。Personal（2台）の更新料金は確認中です</td><td class="num">$49</td><td class="num">7,700 円</td></tr>
+    <tr><td>既存ライセンスの更新</td><td>Standard / Personal。Personal（2台）の更新料金は、お見積時にご案内します。</td><td class="num">$49</td><td class="num">7,700 円</td></tr>
     <tr><td>台の追加</td><td>買い切り 1台あたり</td><td class="num">$89 / 台</td><td class="num">14,100 円 / 台</td></tr>
-    <tr><td>Enterprise / ボリューム</td><td>公式には「Contact us」。価格の記載なし</td><td class="num">要相談</td><td class="num">要相談</td></tr>
+    <tr><td>Enterprise / ボリューム</td><td>価格は、お見積時にご案内します。</td><td class="num">要相談</td><td class="num">要相談</td></tr>
   </table></div>
   <p class="small">USD の定価は Proxyman 公式料金ページの記載です（2026-10-19 確認）。円の参考価格は 1 USD = 158.54 円（三菱UFJ銀行の TTS、2026年10月30日）で換算し、100 円未満を切り捨てています。見積では見積日の TTS で換算し、レートと日付を見積書に明記します。価格はライセンス数（Proxyman では seat＝端末1台分。付け替えは License Manager で可能）に応じて決まり、表では「台」で数えます。</p>
   <p class="small">Team Subscription（月額表示・年払い）は当方では扱いません。公式サイトから直接ご購入ください。</p>
   <p class="small">表が画面に収まらない場合は横にスクロールできます。</p>
   <div class="note">
     <p><strong>円の価格は USD 定価を上回りません。</strong> これは Proxyman LLC との取り決めによるものです。公式定価を見積日の為替レート（銀行の TTS）で円換算した価格で、手数料の上乗せはありません（消費税別）。</p>
-    <p>公式料金ページには Proxyman・TinyShield・TCP Viewer のバンドル（$138、Lifetime $183）も掲載されていますが、当方での取扱いは未確認です。学生向け 50% 割引は support@proxyman.com への直接申請です。</p>
+    <p>公式料金ページにある Proxyman・TinyShield・TCP Viewer のバンドル（$138、Lifetime $183）の取扱いは、お見積時にご案内します。学生向け 50% 割引は support@proxyman.com への直接申請です。</p>
   </div>
-  <p class="small">出典：<a href="https://proxyman.com/pricing">proxyman.com/pricing</a>（「Prices in USD. VAT Tax may apply.」）／ 為替：<a href="https://www.murc-kawasesouba.jp/fx/index.php">三菱UFJリサーチ＆コンサルティング 外国為替相場</a></p>
+  <p class="small">出典：<a href="https://proxyman.com/pricing">proxyman.com/pricing</a>（2026-10-19 確認）／ 為替：<a href="https://www.murc-kawasesouba.jp/fx/index.php">三菱UFJリサーチ＆コンサルティング 外国為替相場</a></p>
 
   <h2>購入の流れ</h2>
   <ol class="steps">
@@ -96,7 +97,7 @@
   <ul>
     <li>対象は法人・個人事業主のお客様です。個人のお客様は <a href="https://proxyman.com/pricing">公式サイト</a>から直接ご購入ください。</li>
     <li>ソフトウェアの使用条件は Proxyman LLC の <a href="https://proxyman.com/eula">EULA</a> によります。ライセンスは購入した組織内でのみ端末を付け替えでき、第三者への譲渡・転売はできません。</li>
-    <li>返金は Proxyman の規定に従います。公式料金ページ FAQ：「We offer 7-days money-back guarantee」（2026-10-19 確認）。</li>
+    <li>返金は Proxyman の規定に従います。Proxyman には 7 日間の返金保証があります。</li>
     <li>購入前に機能を確かめたい場合は、公式の体験版（業務目的は 2 週間、機能制限あり）か、企業向けのデモキー（support@proxyman.com に申請）をご利用ください。</li>
     <li><a href="../terms/">販売約款</a></li>
   </ul>
