@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- noindex（2026-11-03）。Analyse-it の正式な承認は 2026-11-03。公開するときに noindex を外す。ドキュメントの翻訳は Analyse-it の事前の許可が要るので、本文は訳さず公式ページへのリンクだけにしている -->
+<meta name="robots" content="noindex">
+<title>Analyse-it 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="Analyse-it の日本語導入ガイド。対応する Excel・Windows、15 日間の試用版、インストール、ライセンスの認証、使い始め、アップデート、うまく動かないときの確認先を、公式ドキュメント（英語）の該当ページへのリンクで案内します。">
+<meta property="og:title" content="Analyse-it 導入ガイド（日本語） — Kiminori Kobo">
+<meta property="og:description" content="Analyse-it の日本語導入ガイド。対応する Excel・Windows、15 日間の試用版、インストール、ライセンスの認証、使い始め、アップデート、うまく動かないときの確認先を、公式ドキュメント（英語）の該当ページへのリンクで案内します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/analyse-it/setup.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="guide">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">Analyse-it</a> › 導入ガイド</p>
+
+  <h1>Analyse-it 導入ガイド</h1>
+  <p class="tag">対応環境・試用版・インストール・ライセンスの認証・困ったとき · 公式ページ確認日 2026-11-03</p>
+
+  <div class="note">
+    <p>本ガイドは、Analyse-it の公式ドキュメント（英語）の該当ページへご案内するものです。手順の本文は公式ドキュメントをご覧ください。ドキュメントの翻訳は載せていません。各項の説明は、リンク先に何が書かれているかの案内です。</p>
+    <p>本ガイドは <strong>Kiminori Kobo（独立したリセラー・販売窓口）</strong> が作成しています。Analyse-it Software, Ltd. が作成したものではありません。</p>
+  </div>
+
+  <div class="toc">
+    <ol start="0">
+      <li><a href="#requirements">対応環境</a></li>
+      <li><a href="#trial">試用版で動作を確かめる</a></li>
+      <li><a href="#install">インストール</a></li>
+      <li><a href="#license">ライセンスの認証</a></li>
+      <li><a href="#start">使い始める</a></li>
+      <li><a href="#updates">アップデートと保守</a></li>
+      <li><a href="#trouble">うまく動かないとき</a></li>
+    </ol>
+  </div>
+
+  <h2 id="requirements">0. 対応環境</h2>
+  <div class="scroll" tabindex="0"><table class="req">
+    <tr><th>項目</th><th>ナレッジベース・最新版 6.24 のリリースページ</th><th>管理者ガイド（v6.24.0）</th></tr>
+    <tr><td>Excel</td><td>Excel 365、2024、2021、2019、2016 のデスクトップ版（32 ビット・64 ビット）。Excel 2013 も動くが、Microsoft のサポートは終了（ナレッジベースのみの記載）</td><td>Excel 2013 以降（Microsoft 365 を含む、32 ビット・64 ビットのデスクトップ版）</td></tr>
+    <tr><td>OS</td><td>Windows 11、10、Windows Server 2016 以降。Windows 8 も動くが、Microsoft のサポートは終了（ナレッジベースのみの記載）</td><td>Windows 8、10、11、Windows Server 2016、2019、2022</td></tr>
+    <tr><td>Mac・ブラウザ版</td><td colspan="2">非対応。Windows 版の Excel（デスクトップ版）が必要です</td></tr>
+    <tr><td>インターネット接続</td><td colspan="2">自動での認証、アップデートの確認に使います。ファイアウォールの内側では、license-server.analyse-it.com への TCP 443（HTTPS）を開けます。インターネットに接続できない PC は、別の端末で取得したアクティベーションコードで認証できます</td></tr>
+  </table></div>
+  <ul>
+    <li>Analyse-it は、お使いの Excel と同じビット数（32 ビット／64 ビット）の版を入れる必要があります（管理者ガイド：「Install the version of Analyse-it that matches Microsoft Excel.」）。</li>
+    <li>公式のページ同士で、対応する Excel と Windows の書き方が少し違います（上の表）。Excel 2013・Windows 8 をお使いの場合は、試用版で動作をご確認ください。</li>
+  </ul>
+  <p class="src">出典：<a href="https://analyse-it.com/support/kb">Help articles</a>（What are the system requirements? ／ Is Analyse-it available for Mac? ／ Does Analyse-it work with Excel Online…?）／ <a href="https://analyse-it.com/support/release/6.24">Release 6.24</a> ／ <a href="https://analyse-it.com/docs/user-guide/system-requirements">System requirements</a>（2026-11-03 確認）</p>
+
+  <h2 id="trial">1. 試用版で動作を確かめる</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/free-trial">Download 15-day trial</a>（英語）— 15 日間の試用版のダウンロード。全エディションの全機能を試せます。試用中は分析結果に透かしが入り、結果とグラフをブックの外にコピーできません（<a href="https://analyse-it.com/support/kb">Help articles</a>）。</li>
+  </ul>
+
+  <h2 id="install">2. インストール</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/docs/user-guide/installation">Installation</a>（英語）— インストールの章の入口。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/choosinghowtoinstall">Choosing how to install</a>（英語）— インストーラーの種類（EXE と MSI）と、自分だけに入れるか PC の全ユーザーに入れるかの選び方。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/installing">Installing the software</a>（英語）— 1 台ずつインストールする手順。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/deploying">Deploying the software</a>（英語）・<a href="https://analyse-it.com/docs/user-guide/deploymentproperties">Installer properties</a>（英語）— IT 管理者向けの一括展開。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/uninstalling">Uninstalling the software</a>（英語）— アンインストール。</li>
+  </ul>
+  <p>購入後の製品版は、<a href="https://analyse-it.com/support/download">Download</a>（英語）のページで製品キーを入れて入手します。当方経由でご購入の場合の製品キーのお渡し方法は、Analyse-it に確認中です。</p>
+
+  <h2 id="license">3. ライセンスの認証</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/docs/user-guide/licensing">Licensing</a>（英語）— 永続・年間、指名ユーザー・フローティングの違い。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/activating-license">Activating a license</a>（英語）— 製品キーでの認証。インターネットに接続できない場合の手動の認証もここにあります。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/deactivating-license">Deactivating a license</a>（英語）・<a href="https://analyse-it.com/docs/user-guide/transferring">Moving a license to another computer</a>（英語）— PC を入れ替えるとき。</li>
+    <li>フローティングライセンス：<a href="https://analyse-it.com/docs/user-guide/acquiring-license">Acquiring a concurrent license</a>・<a href="https://analyse-it.com/docs/user-guide/releasing-license">Releasing a concurrent license</a>・<a href="https://analyse-it.com/docs/user-guide/who-is-using-licenses">Finding out who is using a concurrent license</a>（いずれも英語）。</li>
+  </ul>
+
+  <h2 id="start">4. 使い始める</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/docs/user-guide/ui">Getting Started</a>（英語）— リボンのタブと作業ウィンドウの構成。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/preparing-data">Preparing &amp; Arranging Data for Analysis</a>（英語）— 分析用のデータの並べ方。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/working-analyses">Working with Analyses &amp; Reports</a>（英語）— 分析の作成と再計算。</li>
+    <li><a href="https://analyse-it.com/docs/tutorials">Tutorials</a>（英語）— 統計の例題。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/statistical-analyses">Statistical reference guide</a>（英語）— 各分析の解説。</li>
+  </ul>
+
+  <h2 id="updates">5. アップデートと保守</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/docs/user-guide/software-updates">Software Updates &amp; Maintenance Renewal</a>（英語）— アップデートと保守の関係。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/updating">Updating the software</a>（英語）— アップデートの手順。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/renewing-maintenance">Checking maintenance expiry and renewing</a>（英語）— 保守の期限の確認と更新。当方経由でご購入の場合は、保守の更新と年間ライセンスの更新も当方からご購入いただけます。</li>
+  </ul>
+
+  <h2 id="trouble">6. うまく動かないとき</h2>
+  <ul>
+    <li><a href="https://analyse-it.com/docs/user-guide/troubleshooting">Troubleshooting</a>（英語）— Excel に Analyse-it のタブが出ないときなどの確認の入口。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/checking-excelversion">Checking Microsoft Excel and Analyse-it match</a>（英語）— Excel と Analyse-it のビット数が合っているかの確認。</li>
+    <li><a href="https://analyse-it.com/docs/user-guide/enabling-add-in">Enabling the add-in</a>（英語）・<a href="https://analyse-it.com/docs/user-guide/repairing-installation">Repairing the installation</a>（英語）— アドインの有効化と、インストールの修復。</li>
+    <li><a href="https://analyse-it.com/support/trouble-shooting">Troubleshooting guide</a>（英語）— 公式のトラブルシューター。</li>
+  </ul>
+  <p>当方からご購入のお客様は、まず <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へ日本語でご連絡ください。当方で解決できないものは、Analyse-it のサポートへ英語で取り次ぎます。</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Analyse-it は Analyse-it Software, Ltd. の製品です。本ページは公式サイト（analyse-it.com）の各ページへの案内で、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>
