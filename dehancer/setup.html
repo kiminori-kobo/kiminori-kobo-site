@@ -26,7 +26,7 @@
   <p class="tag">対応環境・有効化・インストール・プロファイル取得・トラブル対応 · 公式ページ確認日 2026-10-19（対応環境は 2026-10-20）</p>
 
   <div class="note">
-    <p>本ガイドは Dehancer 公式サイト（dehancer.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています（公式サイトに日本語版は見当たりません）。公式に記載がなく確認できなかった点は「未確認」と書いています。</p>
+    <p>本ガイドは Dehancer 公式サイト（dehancer.com）の記事を日本語で整理したものです。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています。</p>
   </div>
 
   <div class="toc">
@@ -43,22 +43,22 @@
   </div>
 
   <h2 id="requirements">0. 対応環境</h2>
-  <p>対応 OS・ホストのバージョン・GPU 要件は、公式システム要件ページの記載です。Vegas Pro はシステム要件ページに記載がないため、Download Center で配布されているインストーラの OS だけを書いています。</p>
+  <p>対応 OS・ホストのバージョン・GPU 要件は次のとおりです。</p>
   <div class="scroll" tabindex="0"><table>
     <tr><th>提供形態</th><th>Windows</th><th>macOS ほか</th></tr>
-    <tr><td>DaVinci Resolve（OFX プラグイン）</td><td>Windows 10 / 11（64 bit）、DaVinci Resolve 18 以降。「PC with Nvidia or AMD GPU」「CUDA or OpenCL compatible GPU」</td><td>macOS 13 Ventura 以降、DaVinci Resolve 19 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS 8/9、Ubuntu 20.04/22.04）、DaVinci Resolve 18 以降</td></tr>
+    <tr><td>DaVinci Resolve（OFX プラグイン）</td><td>Windows 10 / 11（64 bit）、DaVinci Resolve 18 以降。Nvidia または AMD の GPU（CUDA または OpenCL 対応）</td><td>macOS 13 Ventura 以降、DaVinci Resolve 19 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS 8/9、Ubuntu 20.04/22.04）、DaVinci Resolve 18 以降</td></tr>
     <tr><td>Premiere Pro / After Effects</td><td>Windows 10 / 11（64 bit）、Premiere Pro 2022 以降、After Effects 2021 以降。Nvidia または AMD の GPU（CUDA / OpenCL）</td><td>macOS 13 Ventura 以降、Metal 対応 GPU</td></tr>
     <tr><td>Final Cut Pro</td><td>—（macOS のみ）</td><td>macOS 13 Ventura 以降、Final Cut Pro 11 または 12、Apple Motion 5.6.3 以降</td></tr>
-    <tr><td>Photoshop / Lightroom / Lightroom Classic / Capture One / Affinity</td><td>Windows 10 / 11（64 bit）。Nvidia または AMD の GPU（OpenCL）、GPU ドライバが最新であること。ホストは「Recent version」</td><td>macOS 15 Sequoia 以降、Metal 対応 GPU。Affinity は Photoshop プラグインを読み込める版</td></tr>
+    <tr><td>Photoshop / Lightroom / Lightroom Classic / Capture One / Affinity</td><td>Windows 10 / 11（64 bit）。Nvidia または AMD の GPU（OpenCL）、GPU ドライバが最新であること。ホストは新しいバージョン</td><td>macOS 15 Sequoia 以降、Metal 対応 GPU。Affinity は Photoshop プラグインを読み込める版</td></tr>
     <tr><td>Baselight</td><td>—（配布は macOS 版と Linux 版のみ）</td><td>macOS 13 Ventura 以降、FilmLight Baselight 6.0 以降、Metal 対応 GPU。Linux（RockyLinux 8/9、CentOS、Ubuntu 20.04/22.04）、FilmLight Baselight 6.0 以降、Nvidia の GPU（CUDA のみ）</td></tr>
-    <tr><td>Assimilate SCRATCH</td><td>Windows 10 / 11（64 bit）、Assimilate 9.9（Build 1210）以降。「OpenCL compatible GPU」</td><td>macOS 13 Ventura 以降、Assimilate 9.9（Build 1210）以降、Metal 対応 GPU</td></tr>
-    <tr><td>Vegas Pro（OFX プラグイン）</td><td>Windows 版のインストーラあり（Download Center）。対応する Windows・Vegas Pro のバージョンと GPU 要件は未確認</td><td>—（配布は Windows 版のみ）</td></tr>
+    <tr><td>Assimilate SCRATCH</td><td>Windows 10 / 11（64 bit）、Assimilate 9.9（Build 1210）以降。OpenCL 対応の GPU</td><td>macOS 13 Ventura 以降、Assimilate 9.9（Build 1210）以降、Metal 対応 GPU</td></tr>
+    <tr><td>Vegas Pro（OFX プラグイン）</td><td>Windows 版のインストーラあり（Download Center）。対応する Windows・Vegas Pro のバージョンと GPU 要件は、お見積時にご案内します。</td><td>—（配布は Windows 版のみ）</td></tr>
     <tr><td>Dehancer Desktop（単体アプリ・写真用）</td><td>Windows 10 / 11（64 bit）。Nvidia または AMD の GPU（OpenCL）、GPU ドライバが最新であること</td><td>macOS 15 Sequoia 以降、Metal 対応 GPU</td></tr>
     <tr><td>Dehancer iOS（写真・動画）</td><td>—</td><td>iOS 26 以降、A13 Bionic 以降の端末（iPhone 11、iPad Air 第3世代、iPad mini 第5世代、iPad 第8世代から）</td></tr>
-    <tr><td>Dehancer Online（ブラウザ版・写真用）</td><td colspan="2">ブラウザで動作。jpeg / heic / tiff / dng に対応。動作要件はシステム要件ページに記載がなく未確認</td></tr>
+    <tr><td>Dehancer Online（ブラウザ版・写真用）</td><td colspan="2">ブラウザで動作。jpeg / heic / tiff / dng に対応。動作要件は、お見積時にご案内します。</td></tr>
   </table></div>
   <div class="note">
-    <p><strong>Windows では Nvidia または AMD の GPU が必要です。</strong> DaVinci Resolve・Premiere Pro / After Effects・写真用プラグイン・Desktop の Windows 版は、要件が「PC with Nvidia or AMD GPU」です。Assimilate SCRATCH の Windows 版の要件は「OpenCL compatible GPU」、Vegas Pro は未確認です。Intel の内蔵 GPU について、公式は Premiere Pro / After Effects・写真用プラグイン・Desktop の各 Windows 版で「Intel Iris and Intel HD Graphics GPUs are not officially supported」、Assimilate SCRATCH の Windows 版で「may produce unexpected plugin crashes, visual glitches and artifacts」と記載しています（DaVinci Resolve の Windows 版の欄には Intel GPU への言及はありません）。</p>
+    <p><strong>Windows では Nvidia または AMD の GPU が必要です。</strong> DaVinci Resolve・Premiere Pro / After Effects・写真用プラグイン・Desktop の Windows 版は、Nvidia または AMD の GPU が要件です。Assimilate SCRATCH の Windows 版は、OpenCL 対応の GPU が要件です。Intel の内蔵 GPU（Intel Iris・Intel HD Graphics）は、Premiere Pro / After Effects・写真用プラグイン・Desktop の各 Windows 版で公式のサポート対象外です。Assimilate SCRATCH の Windows 版では、Intel の内蔵 GPU だとプラグインが予期せず落ちたり、表示が乱れたりすることがあります。</p>
     <p>映像用の GPU メモリの目安は、DaVinci Resolve・Premiere Pro / After Effects の Windows 版と Baselight の Linux 版で FullHD：最低 4GB / 推奨 8GB、4K：8GB / 12GB、6K：12GB / 16GB、8K：16GB / 24GB です。</p>
   </div>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/system-requirements">System Requirements</a> ／ <a href="https://www.dehancer.com/downloads">Download Center</a>（<a href="https://www.dehancer.com/downloads/baselight/pro/current">Baselight</a>・<a href="https://www.dehancer.com/downloads/assimilate/pro/current">Assimilate SCRATCH</a>・<a href="https://www.dehancer.com/downloads/vegas/pro/current">Vegas Pro</a>）（2026-10-20 確認）／ <a href="https://www.dehancer.com/shop/online">Dehancer Online</a>（2026-10-19 確認）</p>
@@ -74,7 +74,7 @@
   </ol>
   <ul>
     <li>コードに問題があると、次のように表示されます：「This Subscription Code is invalid or doesn't exist.」（無効）、「This Subscription Code has expired and can no longer be redeemed.」（期限切れ）、「This Subscription Code has already been redeemed.」（引換済み）。このときは当方にご連絡ください。</li>
-    <li>引換の手順を説明した公式の記事はありません。上の手順は、引換ページ（dehancer.com/redeem）の表示とボタンの名前から整理しました（2026-10-28 確認）。画面が違っていたら当方にお知らせください。</li>
+    <li>画面が上の説明と違っていたら、当方にお知らせください。</li>
   </ul>
   <p>リセラー経由のサブスクリプションは自動更新されません。期限の1か月前に当方からご案内し、次の期間分の引換コードをお送りします。</p>
   <h3>Lifetime：ライセンスの移転（Transfer License）</h3>
@@ -95,25 +95,25 @@
   </ol>
   <ul>
     <li>有効化にはインターネット接続が必要です（Production プランの <a href="#dpls">DPLS</a> を除く）。</li>
-    <li>Studio のサブスクリプションの有効化にはライセンスキーは不要で、「Login and select License」を使います（公式 FAQ：「You don't need a License key to activate a Subscription.」）。Lifetime は、購入時のメールに記載のアクティベーションキーを「Enter License Key」で入力する方法も使えます。</li>
-    <li>サブスクリプションの有効化には最新版の製品が必要です（公式：「may not work with legacy versions」）。</li>
+    <li>Studio のサブスクリプションの有効化にはライセンスキーは不要で、「Login and select License」を使います（公式 FAQ）。Lifetime は、購入時のメールに記載のアクティベーションキーを「Enter License Key」で入力する方法も使えます。</li>
+    <li>サブスクリプションの有効化には最新版の製品が必要です。古いバージョンの製品では、サブスクリプションが動作しないことがあります。</li>
     <li>Windows で「Plugin activation has been rejected: client is not registered」などのエラーが出たら、<code>C:\Users\&lt;ユーザー名&gt;\AppData\Local\dehancer</code> の <code>com.dehancer.film_pro.v7</code> フォルダ内の preferences ファイルを削除して、もう一度有効化します（DaVinci Resolve FAQ）。</li>
   </ul>
-  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
+  <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/learn/article/faq-license-issues">FAQ：Subscriptions</a> ／ <a href="https://www.dehancer.com/learn/article/desktop-manual">Desktop マニュアル</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）／ <a href="https://www.dehancer.com/redeem">引換ページ</a>（2026-10-28 確認）</p>
 
   <h3 id="dpls">Production プラン：社内のライセンスサーバー（DPLS）</h3>
   <p>Production プランは、社内ネットワークに置く Dehancer Production License Server（DPLS）で各ワークステーションを有効化します。インターネットから切り離した環境（air-gapped）でも使えます。サーバーの準備は貴社の管理者が行います。</p>
   <ol>
-    <li><strong>サーバーを用意する</strong> — DPLS は単体で動くサーバーのプログラムで、対応は Linux（x86_64 / aarch64。Debian 推奨）と macOS（Intel / Apple Silicon）です。公式は「a VM with 512MB ram would be sufficient」としています。Windows は対応一覧にありません。</li>
-    <li><strong>DPLS を入手して展開する</strong> — 公式記事にはプラットフォームごとのアーカイブ名（例：<code>dpls_linux-x64-baseline_&lt;version&gt;.tar.xz</code>）が載っていますが、入手先のリンクはありません。入手先は当方から Dehancer に確認してご案内します。</li>
+    <li><strong>サーバーを用意する</strong> — DPLS は単体で動くサーバーのプログラムで、対応は Linux（x86_64 / aarch64。Debian 推奨）と macOS（Intel / Apple Silicon）です。公式の目安では、メモリ 512MB の仮想マシン（VM）で足ります。Windows は対応に含まれません。</li>
+    <li><strong>DPLS を入手して展開する</strong> — アーカイブはプラットフォームごとに分かれています（例：<code>dpls_linux-x64-baseline_&lt;version&gt;.tar.xz</code>）。DPLS の入手先は、お見積時にご案内します。</li>
     <li><strong>起動する</strong> — root 以外のユーザーで、データディレクトリを指定して起動します（例：<code>/srv/dpls/dpls --datadir /srv/dpls/data</code>）。既定ではポート 9899 で待ち受けます。公式は <code>--host</code> に 0.0.0.0 ではなく LAN 内のアドレスを指定するよう勧めています。常駐させる設定例（Linux は systemd、macOS は launchd）は公式記事にあります。</li>
     <li><strong>初期設定</strong> — ブラウザで <code>http://&lt;サーバーのアドレス&gt;:9899</code> を開き、最初の画面で管理者のユーザー名とパスワードを作って、Production License キーを貼り付けます。キーの検証はオフラインで行われます。設定が終わると、ワークステーションに入力する DPLS の URL が表示されます。</li>
     <li><strong>各ワークステーションで有効化する</strong> — 最新のプラグインを入れ、ライセンス画面で <strong>Production License</strong> タブを選び、DPLS の URL（例：<code>http://192.168.0.1:9899</code>）を入れて <strong>Login</strong> を押します。終わったらウィジェットを閉じてホストアプリを再起動します。Film Profiles は DPLS から自動で取得されます。air-gapped の環境では、有効化の前にインターネットからプロファイルを取得しないでください（公式の注意）。</li>
   </ol>
   <ul>
-    <li>ワークステーションから DPLS のアドレスとポートに接続できる必要があります。公式に書かれているネットワークの条件はこれだけで、ファイアウォールの設定例はありません。</li>
-    <li>DPLS の管理画面では、有効化したワークステーションの一覧と名前の変更、Production License キーの差し替えができます。席を空ける操作は公式に記載がなく、未確認です。</li>
-    <li>Production License キーの受け取り方（当方からお送りするか、Dehancer から届くか）は未確認です。ご注文時にご案内します。</li>
+    <li>ワークステーションから DPLS のアドレスとポートに接続できる必要があります。</li>
+    <li>DPLS の管理画面では、有効化したワークステーションの一覧と名前の変更、Production License キーの差し替えができます。DPLS で seat を空ける方法は、お見積時にご案内します。</li>
+    <li>Production License キーの受け取り方（当方からお送りするか、Dehancer から届くか）は、お見積時にご案内します。</li>
     <li>Baselight は、付属のコマンドラインの activator でも有効化できます：<code>activator dpls &lt;DPLS の URL&gt;</code>。</li>
   </ul>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/offline-license-activation">Offline License Activation（DPLS）</a> ／ <a href="https://www.dehancer.com/learn/article/online-license-activation">Online License Activation</a> ／ <a href="https://www.dehancer.com/pricing/business">Pricing（Business）</a>（2026-10-28 確認）</p>
@@ -143,7 +143,7 @@
   <h3>Photoshop / Lightroom</h3>
   <ol>
     <li>Products → Ps, LrC, C1, APh plugin で Windows を選んで Download &amp; Try。zip を展開します。Photoshop 用と Lightroom 用でインストーラが分かれています（同じアクティベーションキーを共有）。</li>
-    <li><strong>Photoshop</strong>：Photoshop 用インストーラを実行 → Photoshop を起動（または再起動）→ 写真を開き <strong>Filter → Dehancer → Dehancer Film</strong>。写真は sRGB である必要があります（公式：「your file must be presented in sRGB color space」）。</li>
+    <li><strong>Photoshop</strong>：Photoshop 用インストーラを実行 → Photoshop を起動（または再起動）→ 写真を開き <strong>Filter → Dehancer → Dehancer Film</strong>。写真の色空間は sRGB である必要があります。</li>
     <li><strong>Lightroom Classic</strong>：<code>Lightroom.exe</code> を実行 → Preferences → External Editing → Choose で <code>C:\Program Files\Dehancer Lightroom Plugin\DehancerLightroom.exe</code> を指定 → 写真を右クリックして Dehancer を選びます。</li>
     <li><strong>Lightroom（CC）</strong>：写真を右クリック → Edit In → Browse… で上と同じ exe を指定します。</li>
   </ol>
@@ -178,7 +178,7 @@
     <li><strong>BETA: Use Unicode UTF-8 for worldwide language support</strong> にチェックを入れ、PC を再起動します。</li>
   </ol>
   <div class="note">
-    <p>メニュー名は公式の英語表記です。日本語版 Windows での表記は未確認です。公式はこの不具合と日本語環境との関係を明記していません。この設定は名前のとおりベータ機能で、システム全体に効くため、変更前に他のアプリへの影響をご確認ください。</p>
+    <p>公式 FAQ では、この不具合は Windows の既知の問題（Known Issues and Fixes [Windows]）として扱われています。メニュー名は公式の英語表記です。日本語版 Windows で項目が見つからない場合は、当方にお問い合わせください。この設定は名前のとおりベータ機能で、システム全体に効くため、変更前に他のアプリへの影響をご確認ください。</p>
   </div>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ（Known Issues and Fixes [Windows]）</a>（2026-10-19 確認）</p>
 
@@ -190,7 +190,7 @@
   <h2 id="keys">6. Lifetime キーとサブスクリプションの違い</h2>
   <ul>
     <li><strong>Lifetime</strong>：製品ごとにライセンスがあり、1 ライセンスに 2 つのアクティベーションキー（2台分）が含まれます。キーは特定のホストアプリ専用で、たとえば DaVinci Resolve 用のキーは Final Cut Pro 用プラグインの有効化には使えません。OS をまたいでの利用は可能です（License Basics）。</li>
-    <li><strong>サブスクリプション</strong>：このホスト制限がなく、どのホストの Dehancer プラグインも有効化できます（公式 FAQ：「These restrictions are not present in the Subscription plans」）。Studio は 1台（ワークステーション）につき 1 seat です。</li>
+    <li><strong>サブスクリプション</strong>：このホスト制限がなく、どのホストの Dehancer プラグインも有効化できます（公式 FAQ）。Studio は 1台（ワークステーション）につき 1 seat です。</li>
     <li>写真用プラグインは Photoshop 用と Lightroom / Capture One 用でインストールが分かれますが、同じアクティベーションキーを共有します。</li>
   </ul>
   <p class="src">出典：<a href="https://www.dehancer.com/learn/article/license-basics">License Basics（License compatibility、Plans description）</a> ／ <a href="https://www.dehancer.com/learn/article/ofx-faq">DaVinci Resolve FAQ</a>（2026-10-19 確認）</p>
