@@ -47,7 +47,7 @@
   <h2 id="requirements">0. 対応 OS</h2>
   <div class="scroll" tabindex="0"><table>
     <tr><th>プラットフォーム</th><th>対応バージョン</th></tr>
-    <tr><td>macOS</td><td>macOS 13 以降（Apple Silicon・macOS 26 Tahoe に対応）。<span class="small">macOS 12 でお使いの場合は、体験版で動作をご確認ください。</span></td></tr>
+    <tr><td>macOS</td><td>macOS 13 以降（Apple Silicon・macOS 26 Tahoe に対応）。<span class="small"></span></td></tr>
     <tr><td>Windows</td><td>Windows 10 および 11</td></tr>
     <tr><td>Linux</td><td>AppImage で配布。対応ディストリビューション・バージョンは、お見積時にご案内します。</td></tr>
     <tr><td>iOS / Android</td><td>専用アプリを App Store / Google Play で配布。また、iOS・Android の実機からの通信を PC 側の Proxyman で捕捉できます。</td></tr>
@@ -148,7 +148,7 @@
     <li>iOS の「設定」→「Wi-Fi」→ 接続中のネットワーク → HTTP プロキシを「手動」にし、サーバに <strong>PC の IP アドレス</strong>、ポートに <strong>9090</strong>（Proxyman の既定ポート。アプリの表示で確認）、認証はオフ</li>
     <li>VPN アプリを使っていれば終了する（プロキシと競合します）</li>
     <li>Safari（プライベートタブ）で <code>http://proxy.man/ssl</code> または <code>http://cert.proxyman.io</code> を開き、プロファイルをダウンロードする。開けない場合は Wi-Fi に再接続し、Proxyman が起動しているか確認する</li>
-    <li>「設定」→「プロファイルがダウンロード済み」→ Proxyman CA → インストール（iOS 12.2 以降）</li>
+    <li>「設定」→「プロファイルがダウンロード済み」→ Proxyman CA → インストール</li>
     <li>「設定」→「一般」→「情報」→ <strong>証明書信頼設定（Certificate Trust Settings）</strong> で Proxyman CA をオンにする。プロファイルを入れただけでは信頼されません</li>
     <li>PC 側で対象ドメインの SSL Proxying を有効にし（第 4 節）、端末で通信して確認する</li>
   </ol>
