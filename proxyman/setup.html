@@ -111,7 +111,7 @@
   <h3>Mac（Automatic Mode・推奨）</h3>
   <ol>
     <li><strong>Certificate</strong> メニューを開く</li>
-    <li><strong>Install a Certificate on this Mac...</strong> を選ぶ</li>
+    <li><strong>Install Certificate on this Mac…</strong> を選ぶ</li>
     <li>Automatic Mode で Mac のパスワードを入力する（Root Privileges）</li>
     <li>ボタンの表示が <strong>Installed &amp; Trusted</strong> になったことを確認する</li>
   </ol>
@@ -221,7 +221,7 @@ export REQUESTS_CA_BUNDLE=~/.proxyman/proxyman-ca.pem</code></pre>
 
   <h2 id="cleanup">9. 使い終わったら（証明書の削除）</h2>
   <ul>
-    <li>Mac：<strong>Certificate</strong> メニュー → <strong>Reset all Certificates</strong> → Mac のパスワードを入力。Proxyman を使わなくなったら、キーチェーンから Proxyman の証明書を削除してください。証明書を持つ者が Mac の通信を傍受できるためです（公式の注意）。</li>
+    <li>Mac：<strong>Certificate</strong> メニュー → <strong>Reset all Proxyman Certificates</strong> → Mac のパスワードを入力。Proxyman を使わなくなったら、キーチェーンから Proxyman の証明書を削除してください。証明書を持つ者が Mac の通信を傍受できるためです（公式の注意）。</li>
     <li>iOS / Android：端末に入れた Proxyman CA を削除し、Wi-Fi のプロキシ設定を元に戻す。</li>
     <li>Android アプリ：リリースビルドから network security config の緩和設定を外す。</li>
   </ul>
