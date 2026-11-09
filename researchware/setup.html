@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- noindex（2026-11-10）。製品ページ（index.html）と同時に公開する -->
+<meta name="robots" content="noindex">
+<title>HyperRESEARCH／HyperTRANSCRIBE 導入ガイド（日本語） — Kiminori Kobo</title>
+<meta name="description" content="HyperRESEARCH と HyperTRANSCRIBE の日本語導入ガイド。対応する Windows・macOS、無料版、インストール、ライセンスキーの入れ方、別の PC への導入、アップデート、困ったときの連絡先。">
+<meta property="og:title" content="HyperRESEARCH／HyperTRANSCRIBE 導入ガイド（日本語） — Kiminori Kobo">
+<meta property="og:description" content="HyperRESEARCH と HyperTRANSCRIBE の日本語導入ガイド。対応する Windows・macOS、無料版、インストール、ライセンスキーの入れ方、別の PC への導入、アップデート、困ったときの連絡先。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kiminori-kobo.com/researchware/setup.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="guide">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › <a href="./">HyperRESEARCH／HyperTRANSCRIBE</a> › 導入ガイド</p>
+
+  <h1>HyperRESEARCH／HyperTRANSCRIBE 導入ガイド</h1>
+  <p class="tag">対応環境・無料版・インストール・ライセンスキー・別の PC への導入・困ったとき · 公式ページ確認日 2026-11-10</p>
+
+  <div class="note">
+    <p>本ガイドは、ResearchWare の公式サイトの記載をもとにした日本語の要約です。公式の記載と異なる場合は、公式が優先します。メニューやボタンの名前は、ソフトの表示と同じ英語で書いています。</p>
+    <p>本ガイドは <strong>Kiminori Kobo（独立したリセラー）</strong> が作成しています。ResearchWare, Inc. が作成したものではありません。</p>
+  </div>
+
+  <div class="toc">
+    <ol start="0">
+      <li><a href="#requirements">対応環境</a></li>
+      <li><a href="#trial">無料版で動作を確かめる</a></li>
+      <li><a href="#install">インストール</a></li>
+      <li><a href="#license">ライセンスキーを入れる</a></li>
+      <li><a href="#move">別のコンピューターに入れる</a></li>
+      <li><a href="#start">使い始める</a></li>
+      <li><a href="#updates">アップデート</a></li>
+      <li><a href="#trouble">うまく動かないとき</a></li>
+    </ol>
+  </div>
+
+  <h2 id="requirements">0. 対応環境</h2>
+  <div class="scroll" tabindex="0"><table class="req">
+    <tr><th>項目</th><th>HyperRESEARCH 4.5.7</th><th>HyperTRANSCRIBE 2.0.1</th></tr>
+    <tr><td>Windows</td><td colspan="2">Windows 7（32／64 ビット）、8.x（32／64 ビットのデスクトップ版）、10、11 以降</td></tr>
+    <tr><td>macOS</td><td colspan="2">10.9（Mavericks）から 14（Sonoma）以降</td></tr>
+    <tr><td>空きディスク</td><td>200 MB</td><td>50 MB</td></tr>
+    <tr><td>Windows で音声・動画を扱うとき</td><td>無料の LAV Filters を入れることを強くおすすめします</td><td>無料の LAV Filters が必要です</td></tr>
+  </table></div>
+  <ul>
+    <li>HyperRESEARCH 4.5.7 は 2024 年 7 月、HyperTRANSCRIBE 2.0.1 は 2023 年 10 月に公開された版です。</li>
+    <li>macOS Sonoma（14）で動く HyperRESEARCH は 4.5.6 以降です。</li>
+    <li>macOS Catalina（10.15）以降では、HyperRESEARCH 4.5.7 で古い 3.0.0〜3.7.5 のスタディのファイル（.hs2）を変換できません。</li>
+    <li>Linux 版はありません。</li>
+    <li>新しい macOS でお使いの場合は、次の無料版で動作をお確かめのうえご購入ください。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/downloads/downloads-hyperresearch.html">Download HyperRESEARCH</a> ／ <a href="https://www.researchware.com/downloads/downloads-hypertranscribe.html">Download HyperTRANSCRIBE</a> ／ <a href="https://www.researchware.com/news/press-releases/659-hr457-released.html">HyperRESEARCH 4.5.7 Released</a> ／ <a href="https://www.researchware.com/news/press-releases/657-hr456-released.html">HyperRESEARCH 4.5.6 Released</a> ／ <a href="https://www.researchware.com/news/press-releases/658-ht201-released.html">HyperTRANSCRIBE 2.0.1 Released</a> ／ <a href="https://www.researchware.com/media-support.html">Media support</a> ／ <a href="https://www.researchware.com/2-products/hyperresearch/42-hyperresearch-for-linux.html">HyperRESEARCH for Linux</a>（2026-11-10 確認）</p>
+
+  <h2 id="trial">1. 無料版で動作を確かめる</h2>
+  <p>無料版（体験版）と製品版は、同じインストーラーです。まず無料版を入れ、買ったあとでライセンスキーを入れると製品版になります。</p>
+  <ul>
+    <li><a href="https://www.researchware.com/downloads/downloads-hyperresearch.html">Download HyperRESEARCH</a>（英語）— HyperRESEARCH の無料版（Free Limited Edition）。期限なく使え、保存や印刷を含めてすべての機能を使えます。1 つのスタディでコードは 30 まで、ケースは 3 まで、1 ケースのコードの参照は 30 までです。それより大きいスタディも、開いて見ることはできます。</li>
+    <li><a href="https://www.researchware.com/downloads/downloads-hypertranscribe.html">Download HyperTRANSCRIBE</a>（英語）— HyperTRANSCRIBE の体験版。保存・書き出し・コピーなどの一部の命令と、ほかのソフトへのドラッグ＆ドロップが使えないほかは、すべての機能を使えます。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/sales/before-you-buy/try-before-buy.html">Try Before You Buy</a> ／ <a href="https://www.researchware.com/support/faqs/41-hr-faqs/80-faq-hr-free-edition.html">Free Limited Edition FAQ</a> ／ <a href="https://www.researchware.com/support/faqs/41-hr-faqs/81-faq-hr-free-edition-expiration.html">Free Edition expiration FAQ</a> ／ <a href="https://www.researchware.com/support/getting-started.html">Getting Started</a>（2026-11-10 確認）</p>
+
+  <h2 id="install">2. インストール</h2>
+  <h3>Windows</h3>
+  <ol>
+    <li>上のダウンロードのページから、Windows 用のインストーラー（.exe）をダウンロードして実行します。インストールには管理者の権限が要ります（インストール先の既定は「Program Files x86」フォルダ）。</li>
+    <li>HyperTRANSCRIBE を使う場合は、無料の LAV Filters を入れます（必須）。HyperRESEARCH で音声・動画を扱う場合も、入れることを強くおすすめします。LAV Filters の説明は、各製品のダウンロードのページと、公式の <a href="https://www.researchware.com/media-support.html">Media support</a>（英語）のページにあります。</li>
+  </ol>
+  <h3>macOS</h3>
+  <ol>
+    <li>上のダウンロードのページから、macOS 用のインストーラー（.dmg）をダウンロードし、インストーラーを実行します。インストールには管理者の権限が要ります（インストール先の既定は「Applications」フォルダ）。</li>
+    <li>開くときに警告が出たら、<strong>Open</strong> を押してインストーラーを実行します。</li>
+    <li>macOS Catalina 以降では、インストーラーの最後の画面に説明があります。その説明に沿って、HyperRESEARCH（または HyperTRANSCRIBE）に「Full Disk Access」（フルディスクアクセス）を許可します。公式の手順は、Apple メニュー → System Preferences → Security &amp; Privacy → Privacy タブを開き、一覧の Full Disk Access を選び、左下の鍵のアイコンを押してパスワードを入れ、「+」で HyperRESEARCH（または HyperTRANSCRIBE）のアプリを加える、です（macOS のバージョンにより表記が異なります）。</li>
+  </ol>
+  <ul>
+    <li>インストール後、macOS からアクセスの許可を求められたら、正しく動くように、すべて <strong>OK</strong> で許可してください。</li>
+    <li>インストール直後は、無料版（体験版）として動きます。</li>
+    <li>USB ドライブにもインストールできます。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/downloads/downloads-hyperresearch.html">Download HyperRESEARCH</a> ／ <a href="https://www.researchware.com/downloads/downloads-hypertranscribe.html">Download HyperTRANSCRIBE</a> ／ <a href="https://www.researchware.com/products/hyperresearch/download.html">HyperRESEARCH Download</a> ／ <a href="https://www.researchware.com/support/getting-started.html">Getting Started</a>（2026-11-10 確認）</p>
+
+  <h2 id="license">3. ライセンスキーを入れる</h2>
+  <p>当方経由でご購入の場合、ライセンスキーは当方からメールでお送りします。</p>
+  <ol>
+    <li>HyperRESEARCH（または HyperTRANSCRIBE）を起動すると、ライセンスキーを入れるか、無料版（体験版）のまま続けるかを聞かれます。</li>
+    <li>最初の画面（welcome screen）の <strong>License Code</strong> の欄に、ライセンスキーを貼り付けます。</li>
+    <li>キーを入れると制限がなくなり、製品版になります。インストールし直す必要はありません。</li>
+  </ol>
+  <ul>
+    <li>現行の HyperRESEARCH 4.x のキーは、「HR」で始まる大文字です（例：HRXX-XXXX-XXXX-XXXX）。4.0 より前のキーは、現行版では使えません。</li>
+    <li>HyperTRANSCRIBE は、2.0.0 より前のキーが現行版では使えません。</li>
+    <li>入れたキーは、HyperRESEARCH では <strong>Help</strong> → <strong>Show Registration Info</strong>、HyperTRANSCRIBE では <strong>Help</strong> → <strong>Registration</strong> で確かめられます。</li>
+    <li>キーをなくされた場合は、<a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へご連絡ください。当方の控えからお送りします。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/downloads/downloads-hyperresearch.html">Download HyperRESEARCH</a> ／ <a href="https://www.researchware.com/downloads/downloads-hypertranscribe.html">Download HyperTRANSCRIBE</a> ／ <a href="https://www.researchware.com/sales/before-you-buy/try-before-buy.html">Try Before You Buy</a> ／ <a href="https://www.researchware.com/support/faqs/41-hr-faqs/80-faq-hr-free-edition.html">Free Limited Edition FAQ</a> ／ <a href="https://www.researchware.com/support/faqs/43-purchasing-faq/115-faq-move-software.html">Moving the software FAQ</a>（2026-11-10 確認）</p>
+
+  <h2 id="move">4. 別のコンピューターに入れる</h2>
+  <ul>
+    <li>別のコンピューターにも、無料版（体験版）をインストールし、同じライセンスキーを入れれば使えます。</li>
+    <li>何台にでもインストールできますが、同時に使えるのは 1 ライセンスにつき 1 台です。同時に使う人の数だけ、ライセンスが要ります。</li>
+    <li>1 つのキーで、Mac と Windows の両方に使えます。</li>
+    <li>HyperRESEARCH の使用許諾では、購入者が組織の場合、組織の中でキーを割り当て直せます。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/support/faqs/43-purchasing-faq/115-faq-move-software.html">Moving the software FAQ</a> ／ <a href="https://www.researchware.com/support/faqs/43-purchasing-faq/114-faq-licenses.html">Licenses FAQ</a> ／ <a href="https://www.researchware.com/support/faqs/43-purchasing-faq/221-what-are-your-licensing-terms.html">What are your licensing terms?</a>（2026-11-10 確認）</p>
+
+  <h2 id="start">5. 使い始める</h2>
+  <ul>
+    <li>HyperRESEARCH のユーザーガイド、手順を追うチュートリアル、サンプルのスタディは、インストールした HyperRESEARCH のフォルダ（Windows は Programs、Mac は Applications の中）の「Documentation」フォルダに入っています。</li>
+    <li>HyperTRANSCRIBE のユーザーガイドは、HyperTRANSCRIBE のフォルダに入っています。</li>
+    <li>どちらも、ソフトの中にヘルプがあります。</li>
+    <li><a href="https://www.researchware.com/support/download-docs.html">Download Product Documentation</a>（英語）— 公式の資料のページ。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/support/getting-started.html">Getting Started</a> ／ <a href="https://www.researchware.com/support/download-docs.html">Download Product Documentation</a>（2026-11-10 確認）</p>
+
+  <h2 id="updates">6. アップデート</h2>
+  <ul>
+    <li>同じメジャー版の中のアップデートは無料です。HyperRESEARCH 4.5.7 は、4.x のキーをお持ちの方への無料のアップデートです。</li>
+    <li>メジャー版が変わるアップグレード（一般に、版番号の最初の数字が変わるもの）は有料で、新しいライセンスキーが要ります。HyperRESEARCH 3.x から 4.x へ、HyperTRANSCRIBE 1.x から 2.x へのアップグレードは、当方からもご購入いただけます（価格は<a href="./">製品ページ</a>の「料金」）。</li>
+  </ul>
+  <p class="src">出典：<a href="https://www.researchware.com/sales/upgrades.html">Upgrades</a> ／ <a href="https://www.researchware.com/support/faqs/43-purchasing-faq/117-faq-updates.html">Updates FAQ</a> ／ <a href="https://www.researchware.com/support/faqs/43-purchasing-faq/221-what-are-your-licensing-terms.html">What are your licensing terms?</a>（2026-11-10 確認）</p>
+
+  <h2 id="trouble">7. うまく動かないとき</h2>
+  <ul>
+    <li>当方からご購入のお客様は、まず <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a> へ日本語でご連絡ください。当方で解決できないものは、ResearchWare のサポートへ英語で取り次ぎます。</li>
+    <li><a href="https://www.researchware.com/support.html">Support</a>（英語）— 公式のサポートのページ。</li>
+  </ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">HyperRESEARCH と HyperTRANSCRIBE は ResearchWare, Inc. の製品で、同社の商標です。本ガイドは公式サイト（researchware.com）の記載に基づく日本語の要約で、公式の記載と異なる場合は公式が優先します。</p>
+    <p><a href="./">HyperRESEARCH／HyperTRANSCRIBE 製品ページへ</a></p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>
