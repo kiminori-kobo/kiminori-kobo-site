@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kiminori-kobo.com/</loc></url>
   <url><loc>https://kiminori-kobo.com/analyse-it/</loc></url>
+  <url><loc>https://kiminori-kobo.com/analyse-it/bland-altman.html</loc></url>
+  <url><loc>https://kiminori-kobo.com/analyse-it/passing-bablok.html</loc></url>
+  <url><loc>https://kiminori-kobo.com/analyse-it/precision.html</loc></url>
   <url><loc>https://kiminori-kobo.com/analyse-it/setup.html</loc></url>
   <url><loc>https://kiminori-kobo.com/cerberus/</loc></url>
   <url><loc>https://kiminori-kobo.com/dehancer/</loc></url>
@@ -29,5 +32,6 @@
   <url><loc>https://kiminori-kobo.com/researchware/</loc></url>
   <url><loc>https://kiminori-kobo.com/researchware/setup.html</loc></url>
   <url><loc>https://kiminori-kobo.com/smartpls/</loc></url>
+  <url><loc>https://kiminori-kobo.com/smartpls/guide.html</loc></url>
   <url><loc>https://kiminori-kobo.com/terms/</loc></url>
 </urlset>

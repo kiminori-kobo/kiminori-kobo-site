@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-11-18 作成。Analyse-it 公式の手引き（analyse-it.com）を日本語で整理したもの。公式の文の直訳・画像は使わない。実機での確認はしていない -->
+<title>Excel で Passing-Bablok 回帰を行う方法（Analyse-it）｜きみのり工房</title>
+<meta name="description" content="Excel のアドイン Analyse-it で、2 つの測定法を比べる Passing-Bablok 回帰を行う手順を日本語で整理しました。データの並べ方、メニュー、Part I と Part III、直線性（CUSUM）と残差の確認、医学的判断値でのバイアス。公式の手引きへのリンク付き。">
+<meta property="og:title" content="Excel で Passing-Bablok 回帰を行う方法（Analyse-it）｜きみのり工房">
+<meta property="og:description" content="Excel のアドイン Analyse-it で、2 つの測定法を比べる Passing-Bablok 回帰を行う手順を日本語で整理しました。データの並べ方、メニュー、Part I と Part III、直線性（CUSUM）と残差の確認、医学的判断値でのバイアス。公式の手引きへのリンク付き。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kiminori-kobo.com/analyse-it/passing-bablok.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+  <link rel="canonical" href="https://kiminori-kobo.com/analyse-it/passing-bablok.html">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › <a href="./">Analyse-it</a> › Excel で Passing-Bablok 回帰を行う</p>
+
+  <h1>Excel で Passing-Bablok 回帰を行う</h1>
+  <p class="tag">Analyse-it（Microsoft Excel のアドイン）を使う方法 · 対象の版 Analyse-it 6.24 · 公式ページ確認日 2026-11-18</p>
+
+  <div class="note">
+    <p>本ページは Analyse-it 公式の手引き（analyse-it.com の User Guide・Tutorials）を日本語で整理したものです（確認日 2026-11-18、対象の版 Analyse-it 6.24）。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています。</p>
+  </div>
+
+  <h2>何を調べる分析か</h2>
+  <p>同じ検体を 2 つの測定法で測り、2 法の関係を 1 本の直線で表して、評価したい方法が比べる相手とどれだけずれているか（一定のずれ＝切片、比例するずれ＝傾き）を調べる方法です。測定法の比較（CLSI EP09）で使われます。</p>
+  <ul>
+    <li>点の組から求めた傾きの中央値をもとに直線を引く、ノンパラメトリックの方法です。外れ値や、誤差の分布の形に左右されにくいのが特徴です。</li>
+    <li>前提は、2 法の誤差のばらつきの比が一定であることです（測定範囲でばらつきの大きさが変わるのは構いません）。</li>
+    <li>変法が 2 つあります。同じ単位で 2 法が等しいかを見るときは Part I、単位が違う場合や、一方の値を他方に換算する式を作るときは Part III です。取り違えはよくある誤りとされています。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/passing-bablok-regression">Passing-Bablok regression</a> ／ <a href="https://analyse-it.com/learn/choosing-a-regression-for-method-comparison">Choosing a regression for method comparison</a>（2026-11-18 確認）</p>
+
+  <h2>Excel の標準機能ではできない点</h2>
+  <p>Excel の分析ツール（Analysis ToolPak）にある回帰は最小二乗法の回帰で、Passing-Bablok 回帰の項目はありません。Excel だけで行うには、点の組ごとの傾きを数式で並べて中央値を取り、信頼区間や直線性の検定も自分で組むことになります。</p>
+  <p class="small">出典：<a href="https://support.microsoft.com/en-us/office/use-the-analysis-toolpak-to-perform-complex-data-analysis-6c67ccf0-f4a9-487c-8dec-bdb5a2cefab6">Use the Analysis ToolPak（Microsoft）</a>（2026-11-18 確認）</p>
+
+  <h2>Analyse-it での手順</h2>
+  <h3>データの並べ方</h3>
+  <ul>
+    <li>基本は、測定法ごとに 1 列、1 行に 1 検体です。検体の ID の列はなくても構いません。</li>
+    <li>同じ検体を繰り返し測った値（重複測定）は、測定法ごとに複数の列に並べます。</li>
+    <li>測定値を 1 列にまとめ、検体を示す列と測定法を示す列を添える形でも使えます（このときは Model で <code>Matched Pairs</code> を選びます）。</li>
+    <li>公式の推奨は、40 検体以上です。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/study-design">Study design</a>（2026-11-18 確認）</p>
+
+  <h3>回帰を実行する</h3>
+  <ol>
+    <li>データのセルを選び、Analyse-it のリボンの <code>Statistical Analyses</code> から <code>Method Comparison</code> → <code>Passing-Bablok</code> を選びます。</li>
+    <li>作業ウィンドウで、<code>X</code> に比べる相手の方法（参照法）、<code>Y</code> に評価したい方法を指定します。</li>
+    <li>重複測定があるときは、<code>Replicates</code> で、1 回目どうし・X は平均で Y は 1 回目・両方とも平均、のどれを使うかを選びます。重複の数がそろわない検体は除かれます。</li>
+    <li><code>Method</code> で <code>Part I</code> か <code>Part III</code> を選び、<code>Calculate</code> を押します。</li>
+  </ol>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/fitting-passing-bablok-regression">Fitting Passing-Bablok regression</a>（2026-11-18 確認）</p>
+
+  <h3>前提の確認と、判断値でのずれ</h3>
+  <ul>
+    <li><code>Method Comparison</code> の <code>Residuals</code> と <code>Linearity</code> を加えて <code>Recalculate</code> すると、残差のプロットと直線性の検定が出ます。</li>
+    <li><code>Predict At</code> で医学的判断値（X の値）を入れると、その値でのずれ（バイアス）とその信頼区間が出ます。<code>Test Equivalence</code> では、許容できる差（絶対値か %）を入れて、ずれが許容範囲に収まるかを検定できます。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/checking-fit-assumptions">Checking the fit assumptions</a> ／ <a href="https://analyse-it.com/docs/user-guide/method-comparison/predict-bias-at">Predict bias at decision levels</a>（2026-11-18 確認）</p>
+
+  <h2>結果の見方</h2>
+  <ul>
+    <li><strong>直線性（CUSUM）</strong> — 直線の上下の点を順に数え上げた値で、直線の関係なら小さいまま散らばります。検定の p 値が小さければ、直線とは言えません。</li>
+    <li><strong>残差のプロット</strong> — 一定の幅の帯のように散らばっていれば当てはまりは良好です。この方法はノンパラメトリックなので、残差の正規性は前提にしません。</li>
+    <li><strong>判断値でのずれ</strong> — 5% で等しさを検定するのは 95% 信頼区間が 0 を含むかを見るのと同じ、5% で等価性を検定するのは 90% 信頼区間が許容範囲に収まるかを見るのと同じです。</li>
+    <li>Deming 回帰の傾きと大きく違うときは、外れ値か、誤差のばらつきの比の前提が崩れていることを疑います。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/linearity">Linearity</a> ／ <a href="https://analyse-it.com/docs/user-guide/method-comparison/residual-plot">Residual plot</a> ／ <a href="https://analyse-it.com/docs/user-guide/method-comparison/average-bias">Average bias</a> ／ <a href="https://analyse-it.com/learn/choosing-a-regression-for-method-comparison">Choosing a regression</a>（2026-11-18 確認）</p>
+
+  <h2>どのエディションに入っているか</h2>
+  <p>Method Validation・Ultimate に入っています（公式の比較表と、手引きの各ページの「Available in」の記載）。</p>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+
+  <h2>動作環境</h2>
+  <ul>
+    <li>Windows のデスクトップ版 Excel：Microsoft 365・2024・2021・2019・2016（32 ビット・64 ビット）。</li>
+    <li>Windows 11／10、Windows Server 2016 以降。</li>
+    <li>macOS には対応していません（Excel for Mac がこの種のアドインに対応していないため）。Excel のウェブ版でも使えません。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a> ／ <a href="https://analyse-it.com/support/kb">Help articles</a>（2026-11-18 確認）</p>
+
+  <h2>15 日間の試用版</h2>
+  <ul>
+    <li>有効にした日から 15 日間、5 つのエディションのすべての機能を試せます。必要なのはメールアドレスだけで、支払いの情報は要りません。</li>
+    <li>試用中は、結果に透かしが入り、結果やグラフをブックの外にコピーできません。ご購入で外れます。</li>
+    <li>有効化にはインターネット接続が要ります。管理者権限は要りません。</li>
+  </ul>
+  <p><a href="https://analyse-it.com/free-trial">Analyse-it の試用版（公式サイト）</a></p>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a>（2026-11-18 確認）</p>
+
+  <h2>価格とご購入</h2>
+  <p>公式の開始価格：</p>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>エディション</th><th class="num">永続</th><th class="num">年間</th></tr>
+    <tr><td>Method Validation</td><td class="num">$1,155</td><td class="num">$475</td></tr>
+    <tr><td>Ultimate</td><td class="num">$1,495</td><td class="num">$575</td></tr>
+  </table></div>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+  <p>当方は Analyse-it 社の公式リセラー一覧に掲載されています。公式の定価を円に換算した価格で、円建て請求書でご購入いただけます。手数料の上乗せはありません。円の参考価格・ライセンスの種類・購入の流れは <a href="./#price">Analyse-it の製品ページ</a>をご覧ください。見積は無料です。</p>
+  <p><a class="cta primary" href="mailto:contact@kiminori-kobo.com?subject=Analyse-it%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a></p>
+
+  <h2>ほかの用途別ページ</h2>
+  <ul>
+    <li><a href="bland-altman.html">Excel で Bland-Altman プロットを作る</a></li>
+    <li><a href="precision.html">Excel で併行精度・室内再現精度を求める</a></li>
+    <li><a href="setup.html">Analyse-it の導入・設定ガイド</a></li>
+  </ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Analyse-it は Analyse-it Software, Ltd. の製品です。本ページは公式の手引き（analyse-it.com）の記載を日本語で整理したもので、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>

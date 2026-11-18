@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-11-18 作成。Analyse-it 公式の手引き（analyse-it.com）を日本語で整理したもの。公式の文の直訳・画像は使わない。実機での確認はしていない -->
+<title>Excel で Bland-Altman プロットを作る方法（Analyse-it）｜きみのり工房</title>
+<meta name="description" content="Excel のアドイン Analyse-it で、2 つの測定法の一致を見る Bland-Altman プロット（差のプロット）と一致限界を求める手順を日本語で整理しました。差・相対差・比の選び方、一致限界の信頼区間、ノンパラメトリックの一致限界。公式の手引きへのリンク付き。">
+<meta property="og:title" content="Excel で Bland-Altman プロットを作る方法（Analyse-it）｜きみのり工房">
+<meta property="og:description" content="Excel のアドイン Analyse-it で、2 つの測定法の一致を見る Bland-Altman プロット（差のプロット）と一致限界を求める手順を日本語で整理しました。差・相対差・比の選び方、一致限界の信頼区間、ノンパラメトリックの一致限界。公式の手引きへのリンク付き。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kiminori-kobo.com/analyse-it/bland-altman.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+  <link rel="canonical" href="https://kiminori-kobo.com/analyse-it/bland-altman.html">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › <a href="./">Analyse-it</a> › Excel で Bland-Altman プロットを作る</p>
+
+  <h1>Excel で Bland-Altman プロットを作る</h1>
+  <p class="tag">Analyse-it（Microsoft Excel のアドイン）を使う方法 · 対象の版 Analyse-it 6.24 · 公式ページ確認日 2026-11-18</p>
+
+  <div class="note">
+    <p>本ページは Analyse-it 公式の手引き（analyse-it.com の User Guide・Tutorials）を日本語で整理したものです（確認日 2026-11-18、対象の版 Analyse-it 6.24）。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています。</p>
+  </div>
+
+  <h2>何を調べる分析か</h2>
+  <p>同じ検体を 2 つの測定法で測り、2 法の差がどのくらいの範囲に収まるか（一致限界）を見て、置き換えて使えるほど一致しているかを判断する方法です。</p>
+  <ul>
+    <li>縦軸に 2 法の差、横軸に値の大きさ（一方が参照法ならその値、そうでなければ 2 法の平均）を取って点を打ちます。</li>
+    <li>値が大きいほど差が広がるデータでは、差の代わりに相対差や比を縦軸に取れます。</li>
+    <li>一致限界は「平均の差 ± 1.96 × 差の標準偏差」で、個々の差のおよそ 95% が収まる範囲です。決まった合否の線はなく、臨床で許せる差と比べて判断します。一致限界にも信頼区間があり、あわせて報告します。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/difference-plot">Difference plot</a> ／ <a href="https://analyse-it.com/docs/user-guide/method-comparison/loa">Limits of agreement</a> ／ <a href="https://analyse-it.com/learn/bland-altman-limits-of-agreement">Bland-Altman limits of agreement</a>（2026-11-18 確認）</p>
+
+  <h2>Excel の標準機能ではできない点</h2>
+  <p>Excel の分析ツール（Analysis ToolPak）には、Bland-Altman の項目はありません。Excel だけで行うには、差と平均の列を数式で作って散布図を描き、平均の差と一致限界の線、その信頼区間を自分で計算して重ねることになります。差の分布が正規でないときのパーセンタイルによる一致限界も、自分で組みます。</p>
+  <p class="small">出典：<a href="https://support.microsoft.com/en-us/office/use-the-analysis-toolpak-to-perform-complex-data-analysis-6c67ccf0-f4a9-487c-8dec-bdb5a2cefab6">Use the Analysis ToolPak（Microsoft）</a>（2026-11-18 確認）</p>
+
+  <h2>Analyse-it での手順</h2>
+  <h3>データの並べ方</h3>
+  <ul>
+    <li>測定法ごとに 1 列、1 行に 1 検体です。重複測定は、測定法ごとに複数の列に並べます。</li>
+    <li>測定値を 1 列にまとめ、検体を示す列と測定法を示す列を添える形でも使えます（Model で <code>Matched Pairs</code>）。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/study-design">Study design</a>（2026-11-18 確認）</p>
+
+  <h3>プロットと一致限界を出す</h3>
+  <ol>
+    <li>データのセルを選び、リボンの <code>Statistical Analyses</code> から <code>Method Comparison</code>（版によっては <code>Agreement</code>）→ <code>Bland-Altman</code> を選びます。</li>
+    <li>作業ウィンドウで <code>X</code> と <code>Y</code> を指定します。</li>
+    <li>縦軸（<code>D</code>）を差・相対差・比から、横軸（<code>on Z</code>）を X か 2 法の平均から選びます。</li>
+    <li>差の平均とばらつきを一定とみるか、値の大きさとともに直線で変わるとみるかを選び、<code>Calculate</code> を押します。</li>
+    <li>一致限界の求め方（<code>LoA estimator</code>）で <code>Percentiles</code> を選ぶと、正規分布を前提にしない一致限界になります。</li>
+  </ol>
+  <p>作った結果の設定を変えるときは、<code>Report</code> の <code>Edit</code> を使います。</p>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/method-comparison/plotting-bland-altman-plot">Plotting a Bland-Altman plot</a> ／ <a href="https://analyse-it.com/docs/tutorials/bland-altman">Tutorial: Bland-Altman</a>（2026-11-18 確認）</p>
+
+  <h2>結果の見方</h2>
+  <ul>
+    <li><strong>点の並び</strong> — 平均の差のまわりに、ほぼ一定の幅の水平な帯として散らばっていれば、差は値の大きさによりません。</li>
+    <li><strong>平均の差</strong> — 2 法の平均的なずれ（バイアス）の推定です。</li>
+    <li><strong>一致限界とその信頼区間</strong> — 臨床で許せる差より広ければ、2 法を置き換えて使うことはできません。</li>
+    <li><strong>帯が右に広がる・傾くとき</strong> — 縦軸を比にする（対数変換に当たる）か、差の平均とばらつきを直線とみる回帰型の一致限界にします。</li>
+    <li><strong>差が正規分布でないとき</strong> — パーセンタイル（2.5〜97.5%）の一致限界を使います。このときバイアスは中央値で出ます。</li>
+    <li><strong>重複測定</strong> — 平均値を使うと一致限界は狭く出ます。患者の結果を平均で報告する運用でなければ、1 回ごとの値で評価するよう公式は勧めています。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/tutorials/bland-altman">Tutorial: Bland-Altman</a> ／ <a href="https://analyse-it.com/learn/bland-altman-limits-of-agreement">Bland-Altman limits of agreement</a>（2026-11-18 確認）</p>
+
+  <h2>どのエディションに入っているか</h2>
+  <p>Medical・Method Validation・Ultimate に入っています（公式の比較表と、手引きの各ページの「Available in」の記載）。</p>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+
+  <h2>動作環境</h2>
+  <ul>
+    <li>Windows のデスクトップ版 Excel：Microsoft 365・2024・2021・2019・2016（32 ビット・64 ビット）。</li>
+    <li>Windows 11／10、Windows Server 2016 以降。</li>
+    <li>macOS には対応していません（Excel for Mac がこの種のアドインに対応していないため）。Excel のウェブ版でも使えません。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a> ／ <a href="https://analyse-it.com/support/kb">Help articles</a>（2026-11-18 確認）</p>
+
+  <h2>15 日間の試用版</h2>
+  <ul>
+    <li>有効にした日から 15 日間、5 つのエディションのすべての機能を試せます。必要なのはメールアドレスだけで、支払いの情報は要りません。</li>
+    <li>試用中は、結果に透かしが入り、結果やグラフをブックの外にコピーできません。ご購入で外れます。</li>
+    <li>有効化にはインターネット接続が要ります。管理者権限は要りません。</li>
+  </ul>
+  <p><a href="https://analyse-it.com/free-trial">Analyse-it の試用版（公式サイト）</a></p>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a>（2026-11-18 確認）</p>
+
+  <h2>価格とご購入</h2>
+  <p>公式の開始価格：</p>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>エディション</th><th class="num">永続</th><th class="num">年間</th></tr>
+    <tr><td>Medical</td><td class="num">$815</td><td class="num">$340</td></tr>
+    <tr><td>Method Validation</td><td class="num">$1,155</td><td class="num">$475</td></tr>
+    <tr><td>Ultimate</td><td class="num">$1,495</td><td class="num">$575</td></tr>
+  </table></div>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+  <p>当方は Analyse-it 社の公式リセラー一覧に掲載されています。公式の定価を円に換算した価格で、円建て請求書でご購入いただけます。手数料の上乗せはありません。円の参考価格・ライセンスの種類・購入の流れは <a href="./#price">Analyse-it の製品ページ</a>をご覧ください。見積は無料です。</p>
+  <p><a class="cta primary" href="mailto:contact@kiminori-kobo.com?subject=Analyse-it%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a></p>
+
+  <h2>ほかの用途別ページ</h2>
+  <ul>
+    <li><a href="passing-bablok.html">Excel で Passing-Bablok 回帰を行う</a></li>
+    <li><a href="precision.html">Excel で併行精度・室内再現精度を求める</a></li>
+    <li><a href="setup.html">Analyse-it の導入・設定ガイド</a></li>
+  </ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Analyse-it は Analyse-it Software, Ltd. の製品です。本ページは公式の手引き（analyse-it.com）の記載を日本語で整理したもので、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>

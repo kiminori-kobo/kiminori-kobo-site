@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-11-18 作成。SmartPLS 公式ドキュメント（smartpls.com）を日本語で整理したもの。公式の文の直訳・画像は使わない。実機での確認はしていない -->
+<title>SmartPLS 4 の使い方（日本語）｜導入からブートストラップまで｜きみのり工房</title>
+<meta name="description" content="SmartPLS 4 の使い方を日本語で整理しました。導入と試用・ライセンスの有効化、データの読み込み、パスモデルの作成、PLS-SEM の実行、パス係数・外部負荷量・R²・信頼性と妥当性の見方、ブートストラップまで。手順ごとに公式ドキュメントへのリンク付き。">
+<meta property="og:title" content="SmartPLS 4 の使い方（日本語）｜導入からブートストラップまで｜きみのり工房">
+<meta property="og:description" content="SmartPLS 4 の使い方を日本語で整理しました。導入と試用・ライセンスの有効化、データの読み込み、パスモデルの作成、PLS-SEM の実行、パス係数・外部負荷量・R²・信頼性と妥当性の見方、ブートストラップまで。手順ごとに公式ドキュメントへのリンク付き。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kiminori-kobo.com/smartpls/guide.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+  <link rel="canonical" href="https://kiminori-kobo.com/smartpls/guide.html">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › <a href="./">SmartPLS 4</a> › 使い方</p>
+
+  <h1>SmartPLS 4 の使い方</h1>
+  <p class="tag">導入からブートストラップまで · 対象の版 SmartPLS 4.1.2.1（2026-10-25 公開） · 公式ページ確認日 2026-11-18</p>
+
+  <div class="note">
+    <p>本ページは SmartPLS 公式のドキュメント（smartpls.com）を日本語で整理したものです（確認日 2026-11-18、対象の版 SmartPLS 4.1.2.1）。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています。画面の細かな流れは、版によって変わることがあります。</p>
+    <p>SmartPLS 4 のご購入（円建て請求書）は <a href="./">SmartPLS 4 の製品ページ</a>をご覧ください。</p>
+  </div>
+
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#install">導入と認証</a></li>
+    <li><a href="#data">データの読み込み</a></li>
+    <li><a href="#model">パスモデルの作成</a></li>
+    <li><a href="#pls">PLS-SEM の実行</a></li>
+    <li><a href="#results">結果の見方</a></li>
+    <li><a href="#bootstrap">ブートストラップ</a></li>
+  </ol>
+
+  <h2 id="install">1. 導入と認証</h2>
+  <h3>ダウンロードと動作環境</h3>
+  <ul>
+    <li>インストーラは OS ごとに分かれています。Windows は 64 ビット版の .exe、macOS は Apple シリコン用と Intel 用の .dmg、Linux は .sh です。</li>
+    <li>対応するのは、Windows（Windows 11 を含む 64 ビット版）、macOS Big Sur（11）以降、Linux（動作確認は 64 ビットの Ubuntu 22.04）です。</li>
+    <li>メモリは 2 GB 以上、ディスクの空きは約 200 MB が必要です。</li>
+    <li>SmartPLS 3 とは別の場所に入るので、両方を並べて使えます。SmartPLS 3 のプロジェクトは <code>Files › Import projects from a folder</code> で写しを取り込みます（元のファイルは変わりません）。</li>
+    <li>新しい版への更新はアプリが自動で行います。うまくいかないときは、インストーラを取り直して上から入れ直します。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/downloads/">Downloads</a> ／ <a href="https://smartpls.com/faq/smartpls4/system-requirements/">System requirements</a> ／ <a href="https://smartpls.com/faq/smartpls4/how-to-migrate-projects/">How to migrate projects</a></p>
+
+  <h3>初回の起動</h3>
+  <ul>
+    <li>最初に、プロジェクトを保存する Workspace フォルダを選びます。既定では、ユーザーのフォルダの下の <code>smartpls_workspace</code> です。クラウドドライブのフォルダも選べます。</li>
+    <li>あとから場所を変えるときは <code>Files › Choose workspace…</code> を使います。</li>
+    <li>表示の言語は <code>SmartPLS › Preferences</code> の <code>Language</code> で切り替えます。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/tutorials/first-steps/">First steps</a> ／ <a href="https://smartpls.com/faq/smartpls4/workspace/">Workspace</a> ／ <a href="https://smartpls.com/faq/smartpls4/languages/">Languages</a></p>
+
+  <h3>30 日間の試用を始める</h3>
+  <ol>
+    <li>初回の起動でライセンスの種類を聞かれたら、<code>Free 30-day trial</code> を選びます。</li>
+    <li>メールアドレスを入れ、届いた確認コードを入力すると試用が始まります。クレジットカードは要りません。</li>
+    <li>試用中は Professional のすべての機能が使えます。試用は 1 台のコンピューターにつき 1 回で、別のメールアドレスでもやり直せません。</li>
+  </ol>
+  <p class="small">出典：<a href="https://smartpls.com/free-trial/">Free trial</a> ／ <a href="https://smartpls.com/downloads/">Downloads</a></p>
+
+  <h3>ライセンスキーを有効にする（ご購入後）</h3>
+  <ol>
+    <li>メニューの <code>SmartPLS</code> から <code>Switch License</code> を開きます。</li>
+    <li>ほかのライセンス（試用や Student など）が有効なら、<code>Deactivate license</code> で外します。</li>
+    <li><code>Choose your license type</code> で <code>Professional license</code> を選び、届いたキーを貼り付けて <code>Submit</code> を押します。シートライセンスもフローティングライセンスも、同じ欄に入れます。</li>
+    <li>有効期限は、同じ <code>Switch License</code> の画面の <code>Expires</code> で確かめられます。自動では更新されません。</li>
+  </ol>
+  <p>大学などで自前のライセンスサーバーを使う場合は、キーの代わりにサーバーを指定します。管理者向けに、設定ファイル（<code>smartpls.vmoptions</code>）にキーを書いて、画面を出さずに有効にする方法も用意されています。</p>
+  <p class="small">出典：<a href="https://smartpls.com/faq/license-and-installation/activation/">Activation</a> ／ <a href="https://smartpls.com/faq/license-and-installation/license-days/">License days</a></p>
+
+  <h2 id="data">2. データの読み込み</h2>
+  <ul>
+    <li>読み込める形式：CSV、テキスト（タブ区切りも可）、SPSS（.sav）、Excel（.xls／.xlsx）。共分散行列・相関行列も読めます。</li>
+    <li>生データは、1 行目を指標名にします。</li>
+    <li>行列のデータには追加の列が要ります。共分散行列は <code>#mean</code> と <code>#cases</code>、相関行列はそれに <code>#stddev</code> を加えます。</li>
+  </ul>
+  <h3>手順</h3>
+  <ol>
+    <li>プロジェクトを右クリックし、<code>Import Data File</code> でファイルを選んで開きます。</li>
+    <li>続く設定の画面で、尺度の種類、最小値・最大値、欠損値を表す値を指定します。この画面はあとから開き直せ、指標の名前の変更や削除もここで行えます。</li>
+    <li>データファイルが赤く表示されたら、設定が合っていません。ダブルクリックで開き、区切り文字・エスケープ文字・ロケールを確かめます。</li>
+  </ol>
+  <h3>欠損値</h3>
+  <ul>
+    <li>欠損を表す値（-99 や空のセルなど）は、データファイルの中で 1 つにそろえ、読み込み後の設定でその値を指定します。指定が違うと、欠損が普通の値として計算されてしまいます。</li>
+    <li>欠損の扱いは、アルゴリズムを実行するときに <code>None</code>・<code>Mean replacement</code>・<code>Casewise deletion</code>・<code>Pairwise deletion</code> から選びます。</li>
+    <li>公式の目安：欠損がなければ <code>None</code>。指標ごとの欠損が少なく（5% 未満）偶然に生じたものなら <code>Mean replacement</code>。それより多い、または偏りがある場合は、読み込む前に別の方法（多重代入など）を検討します。1 つの指標や回答者で欠損が 15% を超えるときは、外すことを検討します。</li>
+    <li>4.1.1.5 以降、二値の指標を含むモデルでは <code>Mean replacement</code> は使えません。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/tutorials/import-datafiles/">Import data files</a> ／ <a href="https://smartpls.com/documentation/functionalities/missing-values/">Missing values</a> ／ <a href="https://smartpls.com/faq/smartpls4/different-results/">Different results</a></p>
+
+  <h2 id="model">3. パスモデルの作成</h2>
+  <ol>
+    <li><strong>プロジェクトを作る</strong> — <code>Files › New project</code>（ツールバーの <code>New project</code> でも可）で名前を入れて <code>Create</code>。</li>
+    <li><strong>モデルを作る</strong> — プロジェクトを選び、ツールバーの <code>PLS-SEM</code> を押します。モデル名を入れて <code>Save</code> を押すと、モデルの編集画面（Model editor）が開きます。</li>
+    <li><strong>構成概念を作り、指標を割り当てる</strong> — 左の指標の一覧から指標を選び、右のキャンバスに落とします。構成概念ができるので、名前を付けて <code>ENTER</code> を押します。</li>
+    <li><strong>パスを描く</strong> — ツールバーの <code>Connect</code> を選び、原因側の構成概念から結果側の構成概念へ引くと、矢印（パス）ができます。</li>
+    <li><strong>反映型と形成型</strong> — 作った直後はすべて反映型（構成概念から指標へ矢印）です。形成型にするには、構成概念を右クリックして <code>Invert measurement model</code> を選びます。反映型は Mode A、形成型は Mode B の重み付けが既定で、構成概念をダブルクリックすると変更できます。</li>
+    <li><strong>配置を整える</strong> — ドラッグのほか、右側のツールバーの整列や、右クリックの <code>Align the indicators</code> が使えます。</li>
+  </ol>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/tutorials/first-project/">First project</a> ／ <a href="https://smartpls.com/documentation/tutorials/first-pls-path-model/">First PLS path model</a> ／ <a href="https://smartpls.com/documentation/functionalities/composite-and-common-factor-and-mixed-models/">Composite and common factor models</a></p>
+
+  <h2 id="pls">4. PLS-SEM の実行</h2>
+  <ol>
+    <li>ツールバーの <code>Calculate</code> から <code>PLS-SEM algorithm</code> を選びます。</li>
+    <li>ふつうは既定の設定のままで構いません。<code>Open report</code> に印を付けて <code>Start calculation</code> を押すと、結果の画面が開きます。</li>
+    <li>結果は保存でき、Excel か HTML に書き出せます。</li>
+  </ol>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>設定</th><th>既定</th><th>メモ</th></tr>
+    <tr><td>Weighting scheme</td><td>Path weighting scheme</td><td>公式の推奨。ほかに Factor weighting と PCA</td></tr>
+    <tr><td>Type of results</td><td>Standardized</td><td>ほかに Unstandardized と Mean centered</td></tr>
+    <tr><td>Initial outer weights</td><td>すべて +1</td><td>指標ごとに指定もできる</td></tr>
+    <tr><td>最大反復回数・停止基準</td><td>3,000 回・10<sup>−7</sup></td><td>SmartPLS 4 では変更できない</td></tr>
+  </table></div>
+  <ul>
+    <li>結果では、反復の上限に達したのではなく、収束して止まったことを確かめます。</li>
+    <li>SmartPLS 4 は 0/1 の二値の変数を標準化しません。SmartPLS 3 と同じ結果にしたいときは、データの設定で尺度を Metric にします。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/tutorials/first-pls-path-model/">First PLS path model</a> ／ <a href="https://smartpls.com/documentation/algorithms-and-techniques/core-algorithm/pls/">PLS-SEM algorithm</a> ／ <a href="https://smartpls.com/faq/smartpls4/different-results/">Different results</a></p>
+
+  <h2 id="results">5. 結果の見方</h2>
+  <p>結果の表は、目安を満たす値が緑、注意が要る値が黒、満たさない値が赤で表示されます。色はあくまで目安で、合否の判定ではありません。</p>
+  <h3>主な値の意味</h3>
+  <ul>
+    <li><strong>パス係数</strong> — 構成概念どうしの関係の強さ。回帰分析の標準化係数（β）に当たります。</li>
+    <li><strong>外部負荷量（outer loadings）</strong> — 指標と構成概念の相関。反映型の測定モデルを評価するときの中心の値です。</li>
+    <li><strong>外部ウェイト（outer weights）</strong> — 形成型で、各指標がどれだけ効いているかを見る値です。</li>
+    <li><strong>R²</strong> — 結果側の構成概念のばらつきのうち、モデルで説明できた割合です。</li>
+  </ul>
+  <h3>反映型の信頼性と妥当性の目安</h3>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>値</th><th>緑になる目安</th></tr>
+    <tr><td>外部負荷量</td><td>0.70 以上</td></tr>
+    <tr><td>クロンバックの α</td><td>0.70 以上</td></tr>
+    <tr><td>組成信頼性（rho_a・rho_c）</td><td>0.70 以上</td></tr>
+    <tr><td>AVE（収束妥当性）</td><td>0.50 以上</td></tr>
+    <tr><td>HTMT（弁別妥当性）</td><td>0.85 以下（0.90 を超えると赤）</td></tr>
+    <tr><td>VIF</td><td>3.00 以下（5.00 を超えると赤）</td></tr>
+    <tr><td>f²（効果量）</td><td>0.15 以上（0.02 未満は赤）</td></tr>
+  </table></div>
+  <ul>
+    <li>負荷量が 0.40〜0.70 の指標は、外すと組成信頼性や AVE が目安を超えるときに限って外す、というのが公式の説明です。探索的な研究では、もう少し低い値が認められることもあります。</li>
+    <li>信頼性が 0.95 を超えるときは、指標どうしが似すぎている（言い換えの重複）おそれがあります。</li>
+    <li>弁別妥当性は、結果の <code>Quality Criteria</code> に Fornell-Larcker 基準・交差負荷量・HTMT が出ます。公式は HTMT を勧めていて、0.90 未満なら弁別妥当性があると見ます。</li>
+    <li>形成型の構成概念には、α・組成信頼性・AVE・HTMT は当てはまりません。VIF と、外部ウェイトの大きさ・有意性などで評価します。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/functionalities/thresholds/">Thresholds</a> ／ <a href="https://smartpls.com/documentation/literature/glossary/">Glossary</a> ／ <a href="https://smartpls.com/documentation/algorithms-and-techniques/validity-and-model-fit/discriminant-validity-assessment/">Discriminant validity assessment</a></p>
+
+  <h2 id="bootstrap">6. ブートストラップ</h2>
+  <ol>
+    <li>結果の画面から <code>Edit</code> でモデルの画面に戻ります。</li>
+    <li><code>Calculate</code> から <code>Bootstrapping</code> を選び、設定を確かめて <code>Start calculation</code> を押します。</li>
+  </ol>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>設定</th><th>既定</th><th>メモ</th></tr>
+    <tr><td>Subsamples</td><td>10,000</td><td>試しに回すなら 1,000 でも足りるが、最終の結果は 10,000 が推奨</td></tr>
+    <tr><td>Confidence interval method</td><td>Percentile bootstrap</td><td>ほかに Studentized と BCa</td></tr>
+    <tr><td>Test type</td><td>—</td><td>片側か両側かを選ぶ</td></tr>
+    <tr><td>Random Number Generator</td><td>—</td><td>Fixed seed にすると、同じサブサンプル数なら毎回同じ結果になる</td></tr>
+  </table></div>
+  <h3>結果の見方</h3>
+  <ul>
+    <li>p 値が 0.05 以下だと緑で表示されます。研究によっては 1% や 10% の水準を使うこともあり、その場合は理由を示します。</li>
+    <li>信頼区間に 0 が含まれなければ、その係数は有意と見なせます。</li>
+    <li>両側検定の t 値の目安は、1.65（10%）、1.96（5%）、2.57（1%）です。</li>
+    <li>HTMT を検定するときは、<code>Amount of results</code> を <code>Complete (slower)</code>、検定を片側にして実行し、<code>Quality Criteria</code> の偏り補正済みの信頼区間の上限が 0.90 未満かを見ます。</li>
+  </ul>
+  <p class="small">出典：<a href="https://smartpls.com/documentation/algorithms-and-techniques/resampling-and-inference/bootstrapping/">Bootstrapping</a> ／ <a href="https://smartpls.com/documentation/functionalities/thresholds/">Thresholds</a> ／ <a href="https://smartpls.com/documentation/literature/glossary/">Glossary</a> ／ <a href="https://smartpls.com/documentation/algorithms-and-techniques/validity-and-model-fit/discriminant-validity-assessment/">Discriminant validity assessment</a></p>
+
+  <h2>ご購入について</h2>
+  <p>SmartPLS 4 は、当方（開発元 SmartPLS GmbH から承認されたリセラー）から円建て請求書でご購入いただけます。価格は公式の定価の円換算で、手数料の上乗せはありません。見積は無料です → <a href="./">SmartPLS 4 の製品ページ（価格・購入の流れ）</a></p>
+  <p>ソフトの使い方・技術的なご質問は、開発元のサポート窓口（英語）にお問い合わせください。</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">SmartPLS は SmartPLS GmbH の製品です。本ページは公式ドキュメント（smartpls.com）の記載を日本語で整理したもので、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>

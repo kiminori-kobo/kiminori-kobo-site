@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-11-18 作成。Analyse-it 公式の手引き（analyse-it.com）を日本語で整理したもの。公式の文の直訳・画像は使わない。実機での確認はしていない -->
+<title>Excel で併行精度・室内再現精度を求める方法（Analyse-it）｜きみのり工房</title>
+<meta name="description" content="Excel のアドイン Analyse-it で、CLSI EP05・EP15 の精度評価（併行精度・室内再現精度、分散成分）を行う手順を日本語で整理しました。データの並べ方、ネストした要因、信頼区間、精度プロファイル、メーカーの公称値との比較。公式の手引きへのリンク付き。">
+<meta property="og:title" content="Excel で併行精度・室内再現精度を求める方法（Analyse-it）｜きみのり工房">
+<meta property="og:description" content="Excel のアドイン Analyse-it で、CLSI EP05・EP15 の精度評価（併行精度・室内再現精度、分散成分）を行う手順を日本語で整理しました。データの並べ方、ネストした要因、信頼区間、精度プロファイル、メーカーの公称値との比較。公式の手引きへのリンク付き。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kiminori-kobo.com/analyse-it/precision.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+  <link rel="canonical" href="https://kiminori-kobo.com/analyse-it/precision.html">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Kiminori Kobo（きみのり工房）</a>
+    <nav aria-label="サイト内メニュー"><a href="../#products">取扱製品</a><a href="../#contact">お問い合わせ</a></nav>
+  </div>
+</header>
+<main>
+  <p class="crumb"><a href="../">Kiminori Kobo</a> › 取扱製品 › <a href="./">Analyse-it</a> › Excel で併行精度・室内再現精度を求める</p>
+
+  <h1>Excel で併行精度・室内再現精度を求める</h1>
+  <p class="tag">Analyse-it（Microsoft Excel のアドイン）を使う方法 · 対象の版 Analyse-it 6.24 · 公式ページ確認日 2026-11-18</p>
+
+  <div class="note">
+    <p>本ページは Analyse-it 公式の手引き（analyse-it.com の User Guide・Tutorials）を日本語で整理したものです（確認日 2026-11-18、対象の版 Analyse-it 6.24）。各項に公式ページの URL を添えています。メニュー名・ボタン名は公式の英語表記のまま書いています。</p>
+  </div>
+
+  <h2>何を調べる分析か</h2>
+  <p>同じ試料を繰り返し測ったときに、値がどれだけそろうか（精度）を、標準偏差（SD）や変動係数（CV）で表す分析です。臨床検査では CLSI EP05（精度の確立）と EP15（メーカーの公称値の検証）で使われます。</p>
+  <ul>
+    <li><strong>併行精度（repeatability）</strong> — 同じ手順・操作者・装置・場所で、短い時間に測ったときのばらつき。</li>
+    <li><strong>室内再現精度（within-laboratory precision）</strong> — 同じ施設・装置で、長い期間にわたって測ったときのばらつき。校正、操作者、試薬ロットの変化を含みます。日常の検査結果について示すべきなのはこちらです。</li>
+    <li>大きさは、併行精度 ≤ 室内再現精度 ≤ 施設間の再現精度の順になります。</li>
+    <li>精度は、日・ランなどの要因ごとの分散（分散成分）を足し合わせて求めます。足すのは SD ではなく分散です（SD 3 と 4 を合わせると 5 で、7 ではありません）。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/measurement-systems-analysis/precision">Precision</a> ／ <a href="https://analyse-it.com/docs/user-guide/measurement-systems-analysis/precision/measurement-conditions">Measurement conditions</a> ／ <a href="https://analyse-it.com/learn/precision-components-explained">Precision components explained</a>（2026-11-18 確認）</p>
+
+  <h2>Excel の標準機能ではできない点</h2>
+  <p>Excel の分析ツール（Analysis ToolPak）の分散分析は、一元配置と二元配置（繰り返しあり・なし）だけで、日の中にランが入るようなネストした要因の分散成分は出ません。分散成分の信頼区間（Satterthwaite の方法など）や、メーカーの公称値との比較も、自分で数式を組むことになります。</p>
+  <p class="small">出典：<a href="https://support.microsoft.com/en-us/office/use-the-analysis-toolpak-to-perform-complex-data-analysis-6c67ccf0-f4a9-487c-8dec-bdb5a2cefab6">Use the Analysis ToolPak（Microsoft）</a>（2026-11-18 確認）</p>
+
+  <h2>Analyse-it での手順</h2>
+  <h3>データの並べ方</h3>
+  <ul>
+    <li>1 行に 1 回の測定を置きます。列は、測定値と、要因（日・ランなど）、必要なら試料の水準（濃度）です。</li>
+    <li>各水準で、重複測定が 2 つ以上必要です。重複を 1 行に横に並べても構いません。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/measurement-systems-analysis/study-design">Study design</a>（2026-11-18 確認）</p>
+
+  <h3>精度を求める</h3>
+  <ol>
+    <li>リボンの <code>Statistical Analyses</code> から <code>Precision</code> を選び、計画に合う型を選びます。単一施設でランを要因にするなら <code>1 Factor</code>、日の中にランが入る EP05 の計画なら <code>2 Factor Nested</code>、複数施設なら <code>3 Factor Nested</code> です。</li>
+    <li><code>Y</code> に測定値、各 Factor に日・ランなどの列を指定します。水準ごとに分けるときは <code>By</code> に水準の列を指定します。</li>
+    <li>必要なら、許容できる不精密さ（SD か CV%）を入れます。</li>
+    <li><code>Calculate</code> を押します。信頼区間の方法として、公式は Exact／MLS を勧めています。</li>
+  </ol>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/measurement-systems-analysis/precision/estimating-precision">Estimating precision</a> ／ <a href="https://analyse-it.com/docs/tutorials/measurement-systems-analysis/ep05/ep05a3">Tutorial: EP05-A3</a>（2026-11-18 確認）</p>
+
+  <h3>メーカーの公称値と比べる（EP15）</h3>
+  <ol>
+    <li><code>Test</code>（チュートリアルでは <code>Test Claim</code>）を加え、併行精度と室内再現精度の公称値（SD か CV）を入れます。</li>
+    <li>有意水準 5% で、複数の水準をまとめて検定するときは <code>Familywise error rate</code> に印を付けます（5% を水準の数で割った値が、各水準の有意水準になります）。</li>
+  </ol>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/user-guide/measurement-systems-analysis/precision/testing-precision-claim">Testing a precision claim</a> ／ <a href="https://analyse-it.com/docs/tutorials/measurement-systems-analysis/ep15/ep15a3">Tutorial: EP15-A3</a>（2026-11-18 確認）</p>
+
+  <h2>結果の見方</h2>
+  <ul>
+    <li><strong>ばらつきのプロット</strong> — ランの平均・日の平均・全体の平均が線で示されます。外れた点や、日を追ったずれ（ドリフト）がないかを目で確かめます。</li>
+    <li><strong>分散成分の表</strong> — 併行精度と室内再現精度の SD・CV が出ます。詳しい表には、成分ごとの信頼区間が出ます。</li>
+    <li><strong>精度プロファイル</strong> — <code>Profile</code> を加えると、濃度と不精密さ（CV% など）の関係を曲線で表せます。</li>
+    <li><strong>公称値の検定</strong> — 有意でなければ緑、有意なら赤で示されます。赤ならメーカーに相談します。有意でなくても推定値が公称値よりかなり大きいときは、データを増やして確かめ直すことを考えます。</li>
+    <li><strong>外れ値</strong> — 結果を <code>Clone</code> で複製し、外れ値を除いた結果と並べて比べられます。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/docs/tutorials/measurement-systems-analysis/ep05/ep05a3">Tutorial: EP05-A3</a> ／ <a href="https://analyse-it.com/docs/tutorials/measurement-systems-analysis/ep15/ep15a3">Tutorial: EP15-A3</a>（2026-11-18 確認）</p>
+  <p class="small">CLSI の文書の版は、公式の比較表とチュートリアルでは EP05-A3、手引きの参考文献では EP05-Ed4 と書かれています。</p>
+
+  <h2>どのエディションに入っているか</h2>
+  <p>Method Validation・Ultimate に入っています（公式の比較表と、手引きの各ページの「Available in」の記載）。</p>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+
+  <h2>動作環境</h2>
+  <ul>
+    <li>Windows のデスクトップ版 Excel：Microsoft 365・2024・2021・2019・2016（32 ビット・64 ビット）。</li>
+    <li>Windows 11／10、Windows Server 2016 以降。</li>
+    <li>macOS には対応していません（Excel for Mac がこの種のアドインに対応していないため）。Excel のウェブ版でも使えません。</li>
+  </ul>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a> ／ <a href="https://analyse-it.com/support/kb">Help articles</a>（2026-11-18 確認）</p>
+
+  <h2>15 日間の試用版</h2>
+  <ul>
+    <li>有効にした日から 15 日間、5 つのエディションのすべての機能を試せます。必要なのはメールアドレスだけで、支払いの情報は要りません。</li>
+    <li>試用中は、結果に透かしが入り、結果やグラフをブックの外にコピーできません。ご購入で外れます。</li>
+    <li>有効化にはインターネット接続が要ります。管理者権限は要りません。</li>
+  </ul>
+  <p><a href="https://analyse-it.com/free-trial">Analyse-it の試用版（公式サイト）</a></p>
+  <p class="small">出典：<a href="https://analyse-it.com/free-trial">Free trial</a>（2026-11-18 確認）</p>
+
+  <h2>価格とご購入</h2>
+  <p>公式の開始価格：</p>
+  <div class="scroll" tabindex="0"><table>
+    <tr><th>エディション</th><th class="num">永続</th><th class="num">年間</th></tr>
+    <tr><td>Method Validation</td><td class="num">$1,155</td><td class="num">$475</td></tr>
+    <tr><td>Ultimate</td><td class="num">$1,495</td><td class="num">$575</td></tr>
+  </table></div>
+  <p class="small">出典：<a href="https://analyse-it.com/products/compare">Compare editions</a>（2026-11-18 確認）</p>
+  <p>当方は Analyse-it 社の公式リセラー一覧に掲載されています。公式の定価を円に換算した価格で、円建て請求書でご購入いただけます。手数料の上乗せはありません。円の参考価格・ライセンスの種類・購入の流れは <a href="./#price">Analyse-it の製品ページ</a>をご覧ください。見積は無料です。</p>
+  <p><a class="cta primary" href="mailto:contact@kiminori-kobo.com?subject=Analyse-it%20%E3%81%AE%E8%A6%8B%E7%A9%8D%E4%BE%9D%E9%A0%BC">見積を依頼する</a></p>
+
+  <h2>ほかの用途別ページ</h2>
+  <ul>
+    <li><a href="passing-bablok.html">Excel で Passing-Bablok 回帰を行う</a></li>
+    <li><a href="bland-altman.html">Excel で Bland-Altman プロットを作る</a></li>
+    <li><a href="setup.html">Analyse-it の導入・設定ガイド</a></li>
+  </ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="about-page">Analyse-it は Analyse-it Software, Ltd. の製品です。本ページは公式の手引き（analyse-it.com）の記載を日本語で整理したもので、確認日を併記しています。</p>
+    <p>Kiminori Kobo（きみのり工房） · 東京都中野区 · 個人事業 · <a href="mailto:contact@kiminori-kobo.com">contact@kiminori-kobo.com</a></p>
+    <p>© 2026 Kiminori Kobo</p>
+  </div>
+</footer>
+</body>
+</html>
